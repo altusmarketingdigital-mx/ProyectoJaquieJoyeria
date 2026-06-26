@@ -1,0 +1,104 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  role         String   @default("CLIENT") // Was enum Role
+  createdAt    DateTime @default(now())
+  orders       CustomOrder[]
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  category    String
+  material    String
+  gemstone    String?
+  priceBase   Decimal
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+}
+
+model CustomOrder {
+  id               String                @id @default(uuid())
+  user             User                  @relation(fields: [userId], references: [id])
+  userId           String
+  status           String                @default("DRAFT") // Was enum OrderStatus
+  createdAt        DateTime              @default(now())
+  updatedAt        DateTime              @updatedAt
+  stages           OrderStage[]
+  quotation        Quotation?
+  mediaProgress    MultimediaProgress[]
+  payments         Payment[]
+  certificate      JewelryCertificate?
+}
+
+model OrderStage {
+  id        String    @id @default(uuid())
+  order     CustomOrder @relation(fields: [orderId], references: [id])
+  orderId   String
+  stage     String    // Was enum StageName
+  completedAt DateTime?
+}
+
+model Quotation {
+  id          String   @id @default(uuid())
+  order       CustomOrder @relation(fields: [orderId], references: [id])
+  orderId     String   @unique
+  title       String
+  description String?
+  price       Decimal
+  currency    String   @default("MXN")
+  pdfPath     String?
+  createdAt   DateTime @default(now())
+}
+
+model MultimediaProgress {
+  id        String   @id @default(uuid())
+  order     CustomOrder @relation(fields: [orderId], references: [id])
+  orderId   String
+  type      String   // Was enum MediaType
+  url       String
+  caption   String?
+  createdAt DateTime @default(now())
+}
+
+model Payment {
+  id             String   @id @default(uuid())
+  order          CustomOrder @relation(fields: [orderId], references: [id])
+  orderId        String
+  amount         Decimal
+  method         String   // Was enum PaymentMethod
+  status         String   @default("PENDING") // Was enum PaymentStatus
+  transactionId  String?
+  paidAt         DateTime?
+  createdAt      DateTime @default(now())
+}
+
+model JewelryCertificate {
+  id                String   @id @default(uuid())
+  order             CustomOrder @relation(fields: [orderId], references: [id])
+  orderId           String   @unique
+  certificateNumber String   @unique
+  modelo            String?
+  material          String
+  weight            Decimal
+  carat             String?
+  pureza            String?
+  color             String?
+  corte             String?
+  piedraNatural     String?
+  imagenJoyaUrl     String?
+  gemDetails        String?
+  qrCodeData        String?
+  pdfPath           String?
+  createdAt         DateTime @default(now())
+}

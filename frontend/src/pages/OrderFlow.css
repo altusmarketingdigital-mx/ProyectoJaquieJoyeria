@@ -1,0 +1,217 @@
+.order-page {
+  min-height: 100vh;
+  background-color: var(--color-bg-surface);
+  display: block;
+}
+
+.order-nav {
+  position: fixed;
+  background-color: var(--color-bg-surface);
+}
+
+.order-container {
+  max-width: 600px;
+  width: 100%;
+}
+
+.order-header {
+  margin-bottom: 3rem;
+}
+
+.order-header h2 {
+  font-size: 2.5rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.order-header p {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.step-indicator {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+.step {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-border);
+  position: relative;
+}
+
+.step.active {
+  color: var(--color-text-primary);
+}
+
+.step.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-primary);
+}
+
+.editorial-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.editorial-subtitle {
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+  font-style: italic;
+  font-family: var(--font-heading);
+}
+
+.editorial-input {
+  margin-bottom: 2rem;
+}
+
+.editorial-input label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-secondary);
+}
+
+.editorial-input .form-control {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  background: transparent;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+  transition: border-color 0.4s ease;
+  border-radius: 0; /* Remove default styling */
+  outline: none;
+}
+
+.editorial-input .form-control:focus {
+  border-bottom-color: var(--color-text-primary);
+}
+
+.editorial-input select.form-control {
+  appearance: none;
+  background: transparent url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='5' viewBox='0 0 10 5'><path fill='%231A1818' d='M0 0l5 5 5-5z'/></svg>") no-repeat right 0.5rem center;
+  background-size: 10px 5px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  border-top: 1px solid var(--color-border);
+  padding-top: 2rem;
+}
+
+.form-actions.right {
+  justify-content: flex-end;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 1rem 0;
+  transition: color 0.4s ease;
+}
+
+.btn-secondary:hover {
+  color: var(--color-text-primary);
+}
+
+.summary-details {
+  border: 1px solid var(--color-border);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-bottom: 1px dotted var(--color-border);
+  padding-bottom: 0.5rem;
+}
+
+.summary-row:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.summary-row span {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.summary-row strong {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.success-message {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Quotation View Specifics */
+.quotation-header {
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.brand-info h2 {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--color-text-primary);
+  margin-bottom: 10px;
+}
+
+.brand-info p {
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+.quote-details {
+  margin-bottom: 40px;
+}
+
+.quote-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.quote-row.total {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  border-bottom: none;
+  border-top: 2px solid var(--color-border);
+  margin-top: 15px;
+}
+
+.quote-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificado</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&display=swap');
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      width: 800px;
+      height: 500px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: row;
+      padding: 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    /* LEFT COLUMN */
+    .left-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-right: 30px;
+    }
+
+    .cert-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 4px;
+    }
+
+    .cert-table th {
+      background-color: #213c96; /* Dark blue */
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 8px 5px;
+      text-align: center;
+    }
+
+    .cert-table td {
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      height: 35px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .signature-container {
+      margin-top: 40px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .signature {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5rem;
+      color: #213c96;
+      transform: rotate(-5deg);
+    }
+
+    /* RIGHT COLUMN */
+    .right-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .jewelry-image {
+      max-width: 90%;
+      height: 220px;
+      object-fit: contain;
+      margin-bottom: 20px;
+    }
+
+    .info-box {
+      background-color: #c4c4c4;
+      border-radius: 15px;
+      width: 100%;
+      padding: 25px 20px;
+      box-sizing: border-box;
+    }
+
+    .info-row {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .info-row:last-child {
+      margin-bottom: 0;
+    }
+    .info-row strong {
+      color: #555;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="left-col">
+      <table class="cert-table">
+        <tr>
+          <th>CARAT:</th>
+          <th>PUREZA:</th>
+          <th>COLOR:</th>
+          <th>CORTE:</th>
+        </tr>
+        <tr>
+          <td>0.50</td>
+          <td>VVS1</td>
+          <td>D</td>
+          <td>Brillante</td>
+        </tr>
+        <tr>
+          <th colspan="4" style="margin-top: 10px; display: table-cell;">PIEDRA NATURAL</th>
+        </tr>
+        <tr>
+          <td colspan="2">6.77 CT</td>
+          <td colspan="2">CABUCHON</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <td colspan="2"></td>
+        </tr>
+      </table>
+
+      <div class="signature-container">
+        <div class="signature">jacqueline tapia</div>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <img src="https://m.media-amazon.com/images/I/71YyM9lD4XL._AC_UY500_.jpg" class="jewelry-image" alt="Joya">
+      
+      <div class="info-box">
+        <div class="info-row">
+          <strong>MODELO:</strong> Anillo Topacio
+        </div>
+        <div class="info-row">
+          <strong>MATERIAL:</strong> Oro de 18K
+        </div>
+        <div class="info-row">
+          <strong>PESO:</strong> 0.906 grms
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

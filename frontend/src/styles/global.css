@@ -1,0 +1,165 @@
+/* Premium Global Styles for Jacqueline Tapia Joyería - Gemora Style */
+
+:root {
+  /* Color Palette - Envato Gemora Style */
+  --color-bg-deep: #FAFAFA; /* Off-white / light gray */
+  --color-bg-surface: #FFFFFF; /* Clean White */
+  --color-bg-glass: rgba(255, 255, 255, 0.95);
+  
+  --color-text-primary: #222222; /* Black */
+  --color-text-secondary: #777777; /* Medium Gray */
+  
+  --color-accent-coral: #E87878; /* Coral Pink Accent */
+  --color-accent-coral-hover: #D66B6B;
+  
+  --color-border: #EEEEEE; /* Light gray border */
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Outfit', sans-serif;
+  
+  /* Layout */
+  --max-width: 1400px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  background-color: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Input Base */
+input, select, textarea {
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.5px;
+}
+
+a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent-coral);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Animation Utilities */
+.fade-in {
+  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem; /* Adjusted for standard e-commerce padding */
+}
+
+.split-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.split-image {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.split-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+  background: var(--color-bg-surface);
+  overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+  .split-layout {
+    flex-direction: column;
+  }
+  .split-image {
+    min-height: 40vh;
+  }
+  .split-content {
+    padding: 2rem;
+  }
+}
+
+/* Button Utilities - Gemora Style */
+.btn-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: var(--color-accent-coral);
+  border: 1px solid var(--color-accent-coral);
+  padding: 1rem 2.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-premium:hover {
+  background-color: var(--color-accent-coral);
+  color: var(--color-bg-surface);
+}
+
+.btn-premium.filled {
+  background-color: var(--color-accent-coral);
+  color: var(--color-bg-surface);
+  border-color: var(--color-accent-coral);
+}
+
+.btn-premium.filled:hover {
+  background-color: var(--color-accent-coral-hover);
+  border-color: var(--color-accent-coral-hover);
+}

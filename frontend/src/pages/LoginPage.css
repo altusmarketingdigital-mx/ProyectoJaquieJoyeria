@@ -1,0 +1,75 @@
+/* LoginPage.css - Luxury Editorial */
+
+.login-page {
+  min-height: 100vh;
+  background-color: var(--color-bg-surface);
+  display: block;
+}
+
+.login-container {
+  max-width: 400px;
+  width: 100%;
+}
+
+.order-header {
+  margin-bottom: 2rem;
+}
+
+.editorial-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-heading);
+}
+
+.editorial-subtitle {
+  color: var(--color-text-secondary);
+  font-style: italic;
+  font-family: var(--font-heading);
+  margin-bottom: 2rem;
+}
+
+.editorial-input {
+  margin-bottom: 2rem;
+}
+
+.editorial-input label {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-secondary);
+}
+
+.editorial-input .form-control {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  background: transparent;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+  transition: border-color 0.4s ease;
+  border-radius: 0;
+  outline: none;
+}
+
+.editorial-input .form-control:focus {
+  border-bottom-color: var(--color-text-primary);
+}
+
+.error-message {
+  color: #a84646;
+  font-size: 0.85rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-style: italic;
+}
+
+.login-toggle {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
