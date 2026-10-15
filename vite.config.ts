@@ -11,4 +11,4 @@ export default defineConfig({
     exclude: ['node_modules/**', 'backend/**'],
     deps: { inline: ['@vitejs/plugin-react', 'vite'] },
   },
-})
+} as any)
