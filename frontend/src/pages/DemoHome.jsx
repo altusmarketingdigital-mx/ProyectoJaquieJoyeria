@@ -22,7 +22,7 @@ const defaultCategoryDefs = [
   { name: 'Churumbelas', query: 'Churumbelas', image: '/images/churumbela.png' },
   { name: 'Nupciales', query: 'Nupciales', image: '/images/nupciales.png' },
   { name: 'Anillos', query: 'Anillos', image: '/images/anillos.png' },
-  { name: 'Argollas', query: 'Argollas', image: '/images/nupciales.png' },
+  { name: 'Argollas', query: 'Argollas', image: '/images/argollas.png' },
   { name: 'Dijes', query: 'Dijes', image: '/images/necklace.png' },
   { name: 'Broqueles', query: 'Broqueles', image: '/images/ring.png' },
   { name: 'Especiales', query: 'Especiales', image: '/images/necklace.png' },
