@@ -1,28 +1,29 @@
 /* Premium Global Styles for Jacqueline Tapia Joyería - Gemora Style */
 
 :root {
-  /* Official Jacqueline Tapia Brand Color Palette */
-  --color-bg-deep: #F6F4F2;        /* Elegant soft alabaster background */
-  --color-bg-surface: #FFFFFF;     /* Pure Crisp White */
-  --color-bg-subtle: #EFECE8;      /* Warm beige border/subtle surface */
-  --color-bg-glass: rgba(255, 255, 255, 0.95);
+  /* Exact Official Jacqueline Tapia Brand Color Palette (from jacquelinetapiajoyeria.com) */
+  --color-bg-deep: #F6F4F2;        /* Official soft linen / alabaster background */
+  --color-bg-surface: #FFFFFF;     /* Crisp white container */
+  --color-bg-subtle: #F6F4F2;      /* Warm subtle surface */
+  --color-bg-glass: rgba(255, 255, 255, 0.98);
   
-  --color-text-primary: #051F34;   /* Deep signature navy/charcoal */
-  --color-text-secondary: #5C6773; /* Refined Slate/Charcoal */
-  --color-text-muted: #8F9AA6;     /* Subtle Gray */
+  --color-text-primary: #30373E;   /* Official body text / deep charcoal */
+  --color-text-navy: #051F34;      /* Official headings & primary dark navy */
+  --color-text-secondary: #5C6773; /* Refined secondary text */
+  --color-text-muted: #8F9AA6;     /* Light muted text */
   
-  --color-accent-gold: #CB9274;    /* Official brand rose gold / warm terracotta */
-  --color-accent-gold-hover: #B57F63;
-  --color-accent-navy: #051F34;    /* Deep Navy */
-  --color-border: #E3DBD4;         /* Soft Sandstone / Border */
-  --color-border-light: #ECE7E2;
+  --color-accent-gold: #CB9274;    /* Official warm terracotta / rose gold */
+  --color-accent-gold-hover: #b87b5d;
+  --color-accent-navy: #051F34;    /* Official dark navy button & contrast */
+  --color-border: #E3DBD4;         /* Official beige line color */
+  --color-border-light: #EDEDED;   /* Subtle divider */
   
-  /* Typography */
+  /* Official Typography */
   --font-heading: 'Sorts Mill Goudy', 'Playfair Display', serif;
-  --font-body: 'Montserrat', 'Outfit', sans-serif;
+  --font-body: 'Montserrat', sans-serif;
   
   /* Layout */
-  --max-width: 1320px;
+  --max-width: 1260px;             /* Exact site max-width from original theme */
 }
 
 html, body {
@@ -30,7 +31,7 @@ html, body {
   padding: 0;
   min-height: 100vh;
   font-family: var(--font-body);
-  background-color: var(--color-bg-surface);
+  background-color: var(--color-bg-deep);
   color: var(--color-text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -51,6 +52,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   margin: 0 0 1rem 0;
   letter-spacing: 0.5px;
+  color: var(--color-text-navy);
 }
 
 a {

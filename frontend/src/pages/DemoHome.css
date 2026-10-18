@@ -70,9 +70,9 @@
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(
     90deg,
-    rgba(5, 31, 52, 0.85) 0%,
-    rgba(5, 31, 52, 0.6) 50%,
-    rgba(5, 31, 52, 0.25) 100%
+    rgba(246, 244, 242, 0.92) 0%,
+    rgba(246, 244, 242, 0.75) 50%,
+    rgba(246, 244, 242, 0.2) 100%
   );
   z-index: 1;
 }
@@ -102,7 +102,7 @@
   font-family: var(--font-heading);
   font-size: 4rem;
   line-height: 1.15;
-  color: #ffffff;
+  color: var(--color-text-navy);
   margin-bottom: 1.5rem;
   font-weight: 400;
 }
@@ -110,7 +110,7 @@
 .jt-hero-lead {
   font-size: 1.15rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-secondary);
   margin-bottom: 2.5rem;
   font-weight: 300;
   max-width: 580px;
