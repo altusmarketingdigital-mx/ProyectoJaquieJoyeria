@@ -9,55 +9,6 @@
   box-shadow: 0 2px 20px rgba(5, 31, 52, 0.04);
 }
 
-.jt-topbar {
-  background: var(--color-bg-deep);
-  color: var(--color-accent-navy);
-  border-bottom: 1px solid var(--color-border);
-  padding: 0.45rem 2rem;
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.topbar-socials {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.topbar-socials a {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  color: var(--color-text-secondary);
-  text-decoration: none;
-  font-size: 0.68rem;
-  letter-spacing: 1px;
-  transition: color 0.25s ease;
-}
-
-.topbar-socials a:hover {
-  color: var(--color-accent-gold);
-}
-
-.topbar-sep {
-  color: var(--color-border);
-  font-size: 0.7rem;
-}
-
-@media (max-width: 768px) {
-  .topbar-announcement {
-    display: none;
-  }
-  .jt-topbar {
-    justify-content: center;
-  }
-}
-
 /* Main Navigation */
 .jt-main-nav {
   position: relative;
