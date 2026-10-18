@@ -60,8 +60,9 @@
   display: flex;
   align-items: center;
   background-size: cover;
-  background-position: center;
+  background-position: right center;
   background-repeat: no-repeat;
+  background-color: #F8F7F5;
   color: #ffffff;
 }
 
@@ -70,9 +71,10 @@
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(
     90deg,
-    rgba(246, 244, 242, 0.92) 0%,
-    rgba(246, 244, 242, 0.75) 50%,
-    rgba(246, 244, 242, 0.2) 100%
+    rgba(248, 247, 245, 0.96) 0%,
+    rgba(248, 247, 245, 0.85) 42%,
+    rgba(248, 247, 245, 0.15) 75%,
+    rgba(248, 247, 245, 0) 100%
   );
   z-index: 1;
 }
