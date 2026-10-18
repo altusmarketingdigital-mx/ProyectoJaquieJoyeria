@@ -3,17 +3,31 @@ import { Link, useSearchParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import './CatalogPage.css';
 
-// Base catalog products matching real Jacqueline Tapia categories
+// Official pieces matching Jacqueline Tapia Joyería reference catalogue
 const defaultCatalog = [
-  { id: '1', name: 'Anillo Solitario Clásico', category: 'Anillos', material: 'Oro 18k', gemstone: 'Diamante', price: '$15,000 MXN', image: '/images/ring.png' },
-  { id: '2', name: 'Eternity | Paco', category: 'Churumbelas', material: 'Oro 14k', gemstone: 'Diamantes 2.3 mm', price: '$32,000 MXN', image: '/images/ring.png' },
-  { id: '3', name: 'Conjunto Argollas | Monse', category: 'Argollas', material: 'Oro 14k Blanco y Rosa', gemstone: 'Diamantes', price: '$42,500 MXN', image: '/images/ring.png' },
-  { id: '4', name: 'Dije | Marta', category: 'Dijes', material: 'Oro 14k', gemstone: 'Zafiro Natural', price: '$18,900 MXN', image: '/images/necklace.png' },
-  { id: '5', name: 'Broquel | Mariajo', category: 'Broqueles', material: 'Oro 14k Blanco', gemstone: 'Diamantes', price: '$14,200 MXN', image: '/images/ring.png' },
-  { id: '6', name: 'Anillo de Compromiso Vintage', category: 'Anillos de compromiso', material: 'Oro Blanco 18k', gemstone: 'Diamante Central 0.75ct', price: '$35,000 MXN', image: '/images/ring.png' },
-  { id: '7', name: 'Mancuernillas Heritage', category: 'Mancuernillas', material: 'Oro Blanco 14k', gemstone: 'Ónix Negro', price: '$16,500 MXN', image: '/images/editorial_order.png' },
-  { id: '8', name: 'Alianza Nupcial Eternelle', category: 'Nupciales', material: 'Oro Amarillo 18k', gemstone: 'Pave Diamantes', price: '$27,800 MXN', image: '/images/ring.png' },
-  { id: '9', name: 'Collar Gota de Luz', category: 'Especiales', material: 'Oro Blanco 18k', gemstone: 'Zafiro Azul', price: '$22,500 MXN', image: '/images/necklace.png' }
+  // 12 Colecciones Oficiales de Anillos de Compromiso (jacquelinetapiajoyeria.com/product-category/anillos-de-compromiso/)
+  { id: 'ac-1', name: 'Anillo de Compromiso | Alejandro', category: 'Anillos de compromiso', material: 'Oro Blanco 14K', gemstone: 'Diamante Central y Laterales', price: 'Cotización personalizada', image: '/images/anillos_compromiso/alejandro.png' },
+  { id: 'ac-2', name: 'Anillo de Compromiso | Antonio', category: 'Anillos de compromiso', material: 'Oro Amarillo 14K', gemstone: 'Diamante Solitario Natural', price: 'Cotización personalizada', image: '/images/anillos_compromiso/antonio.png' },
+  { id: 'ac-3', name: 'Anillo de Compromiso | Armando', category: 'Anillos de compromiso', material: 'Oro Blanco 18K', gemstone: 'Diamante Corte Brillante', price: 'Cotización personalizada', image: '/images/anillos_compromiso/armando.png' },
+  { id: 'ac-4', name: 'Anillo de Compromiso | David', category: 'Anillos de compromiso', material: 'Oro Amarillo 14K', gemstone: 'Esmeralda Natural Certificada', price: 'Cotización personalizada', image: '/images/anillos_compromiso/david.png' },
+  { id: 'ac-5', name: 'Anillo de Compromiso | Ernesto', category: 'Anillos de compromiso', material: 'Oro Blanco 14K', gemstone: 'Diamante Natural Solitario', price: 'Cotización personalizada', image: '/images/anillos_compromiso/ernesto.png' },
+  { id: 'ac-6', name: 'Anillo de Compromiso | Gustavo', category: 'Anillos de compromiso', material: 'Oro Rosa 14K', gemstone: 'Diamantes Laterales en Pavé', price: 'Cotización personalizada', image: '/images/anillos_compromiso/gustavo_1.png' },
+  { id: 'ac-7', name: 'Anillo de Compromiso | Gustavo II', category: 'Anillos de compromiso', material: 'Oro Blanco 14K', gemstone: 'Diamante Central con Halo', price: 'Cotización personalizada', image: '/images/anillos_compromiso/gustavo_2.png' },
+  { id: 'ac-8', name: 'Anillo de Compromiso | Juan Pablo', category: 'Anillos de compromiso', material: 'Oro Blanco 18K', gemstone: 'Diamante Natural Certificado', price: 'Cotización personalizada', image: '/images/anillos_compromiso/juan_pablo.png' },
+  { id: 'ac-9', name: 'Anillo de Compromiso | Pablo', category: 'Anillos de compromiso', material: 'Oro Amarillo 14K', gemstone: 'Diamante Corte Redondo', price: 'Cotización personalizada', image: '/images/anillos_compromiso/pablo.png' },
+  { id: 'ac-10', name: 'Anillo de Compromiso | Ricardo', category: 'Anillos de compromiso', material: 'Oro Blanco 14K', gemstone: 'Trilogía de Diamantes', price: 'Cotización personalizada', image: '/images/anillos_compromiso/ricardo.png' },
+  { id: 'ac-11', name: 'Anillo de Compromiso | Ricky', category: 'Anillos de compromiso', material: 'Oro Rosa 14K', gemstone: 'Diamante Corte Oval', price: 'Cotización personalizada', image: '/images/anillos_compromiso/ricky.png' },
+  { id: 'ac-12', name: 'Anillo de Compromiso | Roberto', category: 'Anillos de compromiso', material: 'Oro Blanco 18K', gemstone: 'Diamante Solitario 6 Uñas', price: 'Cotización personalizada', image: '/images/anillos_compromiso/roberto.png' },
+  
+  // Categorías complementarias
+  { id: 'ch-1', name: 'Eternity | Paco', category: 'Churumbelas', material: 'Oro de 14K', gemstone: 'Diamantes de 2.3 mm', price: '$32,000 MXN', image: '/images/churumbela.png' },
+  { id: 'nup-1', name: 'Alianza Dúo Nupcial', category: 'Nupciales', material: 'Oro 14K Blanco y Rosa', gemstone: 'Diamantes Naturales', price: '$38,500 MXN', image: '/images/nupciales.png' },
+  { id: 'an-1', name: 'Anillo Calado Pavé', category: 'Anillos', material: 'Oro Blanco 18K', gemstone: 'Diamantes', price: '$26,000 MXN', image: '/images/anillos.png' },
+  { id: 'arg-1', name: 'Conjunto Argollas | Monse', category: 'Argollas', material: 'Oro 14K Grabado', gemstone: 'Diamantes', price: '$42,500 MXN', image: '/images/argollas.png' },
+  { id: 'dj-1', name: 'Dije | Marta', category: 'Dijes', material: 'Oro 14K Blanco', gemstone: 'Esmeralda Natural y Halo de Diamantes', price: '$18,900 MXN', image: '/images/dijes.png' },
+  { id: 'br-1', name: 'Broquel | Mariajo', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Zafiro Natural y Diamantes', price: '$14,200 MXN', image: '/images/broqueles.png' },
+  { id: 'esp-1', name: 'Anillo Gemelas Morganita', category: 'Especiales', material: 'Oro Rosa 14K', gemstone: 'Morganitas Naturales y Pavé', price: '$24,500 MXN', image: '/images/especiales.png' },
+  { id: 'man-1', name: 'Mancuernillas Huella', category: 'Mancuernillas', material: 'Oro Blanco y Rosa 14K', gemstone: 'Grabado dactilar de alta precisión', price: '$19,800 MXN', image: '/images/mancuernillas.png' }
 ];
 
 export default function CatalogPage() {
