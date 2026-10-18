@@ -6,6 +6,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import OrderFlow from './pages/OrderFlow';
 import QuotationView from './pages/QuotationView';
 import DemoHome from './pages/DemoHome';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import './styles/global.css';
 
 function PrivateRoute({ children }) {
@@ -26,6 +27,7 @@ function PrivateAdminRoute({ children }) {
 
 export default function App() {
   return (
+    <>
       <Routes>
         <Route path="/" element={<DemoHome />} />
         <Route path="/login" element={<LoginPage />} />
@@ -42,5 +44,7 @@ export default function App() {
         <Route path="/quotation/:orderId" element={<QuotationView />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <FloatingWhatsApp />
+    </>
   );
 }

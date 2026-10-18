@@ -1,0 +1,131 @@
+/* FloatingWhatsApp.css - Jacqueline Tapia Luxury Floating WhatsApp Widget */
+
+.jt-floating-whatsapp-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Tooltip message bubble */
+.jt-whatsapp-tooltip {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  padding: 0.75rem 1.1rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(5, 31, 52, 0.15);
+  border: 1px solid var(--color-border);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(15px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.jt-whatsapp-tooltip.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.jt-tooltip-title {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-navy);
+  margin-bottom: 2px;
+}
+
+.jt-tooltip-sub {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+/* Floating circular button */
+.jt-floating-whatsapp-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.jt-floating-whatsapp-btn:hover {
+  transform: scale(1.08) translateY(-2px);
+  background: #20BA5A;
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
+}
+
+.jt-whatsapp-icon-svg {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s ease;
+}
+
+.jt-floating-whatsapp-btn:hover .jt-whatsapp-icon-svg {
+  transform: scale(1.05);
+}
+
+/* Subtle continuous pulse ring */
+.jt-whatsapp-pulse-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 2px solid #25D366;
+  animation: jtWhatsAppPulse 2.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes jtWhatsAppPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .jt-floating-whatsapp-container {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .jt-floating-whatsapp-btn {
+    width: 54px;
+    height: 54px;
+  }
+
+  .jt-whatsapp-icon-svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .jt-whatsapp-tooltip {
+    display: none; /* Hide tooltip on small mobile screens to keep view clean */
+  }
+}

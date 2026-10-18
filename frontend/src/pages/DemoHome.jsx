@@ -142,7 +142,8 @@ export default function DemoHome() {
     return baseOccurrences[key] || 1;
   };
 
-  const whatsappLink = `https://wa.me/?text=${encodeURIComponent(cms.footer.whatsappMessage || 'Hola, me gustaría información sobre una joya personalizada')}`;
+  const cleanPhone = (cms.footer.whatsappNumber || '523334554536').replace(/[^0-9]/g, '');
+  const whatsappLink = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(cms.footer.whatsappMessage || 'Hola, me gustaría información sobre una joya personalizada')}`;
 
   return (
     <div className="jt-home fade-in">
