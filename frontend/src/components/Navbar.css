@@ -1,0 +1,315 @@
+/* Navbar.css - Jacqueline Tapia Luxury Navigation */
+
+.jt-navbar-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: var(--color-bg-surface);
+  box-shadow: 0 2px 20px rgba(5, 31, 52, 0.04);
+}
+
+/* Micro Topbar */
+.jt-topbar {
+  background: var(--color-accent-navy);
+  color: var(--color-bg-deep);
+  text-align: center;
+  padding: 0.45rem 1rem;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Main Navigation */
+.jt-main-nav {
+  position: relative;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.jt-nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo */
+.jt-brand-logo a {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+
+.jt-logo-monogram {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--color-accent-gold);
+  border: 1px solid var(--color-border);
+  padding: 0.25rem 0.6rem;
+  letter-spacing: 2px;
+  background: var(--color-bg-deep);
+}
+
+.jt-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.jt-logo-name {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+.jt-logo-tagline {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: var(--color-accent-gold);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+/* Nav Menu */
+.jt-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.jt-nav-item {
+  position: relative;
+}
+
+.jt-nav-link {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jt-nav-link:hover,
+.jt-nav-link.active {
+  color: var(--color-accent-gold);
+}
+
+.active-dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-accent-gold);
+  border-radius: 50%;
+  margin-top: 4px;
+  position: absolute;
+  bottom: 0;
+}
+
+/* Actions */
+.jt-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.btn-nav-custom {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-accent-navy);
+  border: 1px solid var(--color-accent-navy);
+  border-radius: 0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.btn-nav-custom:hover {
+  background: var(--color-accent-navy);
+  color: #ffffff;
+}
+
+.jt-action-icon-btn {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  transition: all 0.3s ease;
+}
+
+.jt-action-icon-btn:hover {
+  border-color: var(--color-accent-gold);
+  color: var(--color-accent-gold);
+}
+
+/* User Dropdown */
+.jt-user-menu-wrapper {
+  position: relative;
+}
+
+.jt-user-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 30px rgba(5, 31, 52, 0.08);
+  min-width: 210px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-header {
+  padding: 0.8rem 1.2rem;
+  background: var(--color-bg-deep);
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.jt-user-dropdown a {
+  padding: 0.8rem 1.2rem;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+.jt-user-dropdown a:hover {
+  background: var(--color-bg-deep);
+  color: var(--color-accent-gold);
+}
+
+.dropdown-divider {
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* Mobile Toggle */
+.jt-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+/* Mobile Drawer */
+.jt-mobile-drawer {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .jt-nav-menu {
+    display: none;
+  }
+
+  .d-none-mobile {
+    display: none;
+  }
+
+  .jt-mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .jt-nav-container {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .jt-mobile-drawer {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem 2rem;
+    z-index: 999;
+  }
+
+  .jt-mobile-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .jt-mobile-list li {
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .jt-mobile-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    text-decoration: none;
+  }
+
+  .jt-mobile-link.active {
+    color: var(--color-accent-gold);
+  }
+
+  .jt-mobile-footer-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .jt-mobile-secondary-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+  }
+
+  .jt-mobile-secondary-links a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+  }
+}

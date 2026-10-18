@@ -21,6 +21,7 @@ import ClientsModule from '../components/admin/ClientsModule';
 import SettingsModule from '../components/admin/SettingsModule';
 import CertificatesModule from '../components/admin/CertificatesModule';
 import CatalogModule from '../components/admin/CatalogModule';
+import HomeCMSModule from '../components/admin/HomeCMSModule';
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -158,6 +159,9 @@ export default function AdminDashboard() {
     if (currentView === 'catalogo') {
       return <CatalogModule />;
     }
+    if (currentView === 'inicio_cms') {
+      return <HomeCMSModule />;
+    }
     if (currentView === 'certificados') {
       return <CertificatesModule openCertModal={openCertModal} />;
     }
@@ -278,6 +282,10 @@ export default function AdminDashboard() {
           <div className={`nav-item ${currentView === 'catalogo' ? 'active' : ''}`} onClick={() => setCurrentView('catalogo')}>
             <Gem size={20} />
             <span>Catálogo</span>
+          </div>
+          <div className={`nav-item ${currentView === 'inicio_cms' ? 'active' : ''}`} onClick={() => setCurrentView('inicio_cms')}>
+            <LayoutDashboard size={20} />
+            <span>Página Inicio</span>
           </div>
           <div className={`nav-item ${currentView === 'certificados' ? 'active' : ''}`} onClick={() => setCurrentView('certificados')}>
             <Award size={20} />

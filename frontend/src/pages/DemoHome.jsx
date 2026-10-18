@@ -1,164 +1,518 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import { Truck, Gem, Gift, Tag } from 'lucide-react';
+import { 
+  Sparkles, 
+  ArrowRight, 
+  Gem, 
+  ShieldCheck, 
+  Heart, 
+  Award, 
+  Compass, 
+  MessageCircle, 
+  ChevronRight,
+  Star
+} from 'lucide-react';
+import { getHomeConfig } from '../services/homeConfig';
 import './DemoHome.css';
 
-export default function DemoHome() {
-  const categories = [
-    { name: 'Anillos', image: '/images/ring.png', path: '/catalog' },
-    { name: 'Pulseras', image: '/images/necklace.png', path: '/catalog' },
-    { name: 'Cadenas', image: '/images/ring.png', path: '/catalog' },
-    { name: 'Chokers', image: '/images/necklace.png', path: '/catalog' },
-    { name: 'Aretes', image: '/images/ring.png', path: '/catalog' },
-    { name: 'Gemas', image: '/images/necklace.png', path: '/catalog' }
-  ];
+// Fixed list of 9 official Jacqueline Tapia categories with representative imagery
+const defaultCategoryDefs = [
+  { name: 'Anillos de compromiso', query: 'Anillos de compromiso', image: '/images/ring.png' },
+  { name: 'Churumbelas', query: 'Churumbelas', image: '/images/ring.png' },
+  { name: 'Nupciales', query: 'Nupciales', image: '/images/ring.png' },
+  { name: 'Anillos', query: 'Anillos', image: '/images/ring.png' },
+  { name: 'Argollas', query: 'Argollas', image: '/images/ring.png' },
+  { name: 'Dijes', query: 'Dijes', image: '/images/necklace.png' },
+  { name: 'Broqueles', query: 'Broqueles', image: '/images/ring.png' },
+  { name: 'Especiales', query: 'Especiales', image: '/images/necklace.png' },
+  { name: 'Mancuernillas', query: 'Mancuernillas', image: '/images/editorial_order.png' }
+];
 
-  const products = [
-    { title: 'Gilded Horizon Cuff', oldPrice: '$990.99', price: '$890.99', discount: '-10%', rating: '★★★★★', image: '/images/ring.png' },
-    { title: 'Starlight Echo Hoops', oldPrice: '$642.99', price: '$542.99', discount: '-15%', rating: '★★★★☆', image: '/images/necklace.png' },
-    { title: 'Moonlit Bloom Pendant', oldPrice: '$198.99', price: '$178.99', discount: '-10%', rating: '★★★★★', image: '/images/ring.png' },
-    { title: 'Velvet Serenity Band', oldPrice: '$450.00', price: '$400.00', discount: '-11%', rating: '★★★★★', image: '/images/necklace.png' }
-  ];
+// Reference site "Favoritos del mes" official pieces
+const defaultFavorites = [
+  {
+    id: 'fav-1',
+    name: 'Eternity | Paco',
+    category: 'Churumbela',
+    materials: 'Oro de 14K con Diamantes de 2.3 mm',
+    price: '$32,000 MXN',
+    image: '/images/ring.png'
+  },
+  {
+    id: 'fav-2',
+    name: 'Dije | Marta',
+    category: 'Dije',
+    materials: 'Oro de 14K con Zafiro Natural',
+    price: '$18,900 MXN',
+    image: '/images/necklace.png'
+  },
+  {
+    id: 'fav-3',
+    name: 'Broquel | Mariajo',
+    category: 'Broqueles',
+    materials: 'Oro Blanco 14K con Diamantes',
+    price: '$14,200 MXN',
+    image: '/images/ring.png'
+  },
+  {
+    id: 'fav-4',
+    name: 'Conjunto Argollas | Monse',
+    category: 'Argollas',
+    materials: 'Oro 14K Blanco y Rosa con Diamantes',
+    price: '$42,500 MXN',
+    image: '/images/ring.png'
+  }
+];
+
+// Emotional client stories
+const customerStories = [
+  {
+    couple: 'Valeria & Fernando',
+    piece: 'Anillo de Compromiso con Diamante Corte Cojín',
+    quote: 'Jacqueline logró capturar exactamente lo que soñábamos. La asesoría en la selección del diamante y ver el diseño nacer desde el boceto fue una experiencia inolvidable.',
+    date: 'Guadalajara, México'
+  },
+  {
+    couple: 'Sofía & Alejandro',
+    piece: 'Conjunto de Argollas de Matrimonio en Oro Rosa',
+    quote: 'Buscábamos algo que no fuera genérico. El grabado y la textura artesanal de nuestras argollas hacen que las miremos con amor todos los días.',
+    date: 'Ciudad de México'
+  },
+  {
+    couple: 'Camila & Mateo',
+    piece: 'Churumbela Eternity de Aniversario',
+    quote: 'El detalle en cada garra y el brillo de los diamantes superó cualquier expectativa. El certificado personalizado y la presentación fueron de primer nivel.',
+    date: 'Monterrey, México'
+  }
+];
+
+export default function DemoHome() {
+  const [cms, setCms] = useState(getHomeConfig());
+  const [categoryCounts, setCategoryCounts] = useState({});
+  const [favoritesList, setFavoritesList] = useState(defaultFavorites);
+
+  // Load real catalog items to compute real counts and sync with DB if available
+  useEffect(() => {
+    // Read current CMS settings
+    setCms(getHomeConfig());
+
+    const loadRealData = async () => {
+      try {
+        const res = await fetch('http://localhost:4000/api/public/products');
+        if (res.ok) {
+          const apiProducts = await res.json();
+          if (Array.isArray(apiProducts) && apiProducts.length > 0) {
+            // Count products by category
+            const counts = {};
+            apiProducts.forEach(p => {
+              const cat = (p.category || '').toLowerCase();
+              counts[cat] = (counts[cat] || 0) + 1;
+            });
+            setCategoryCounts(counts);
+          }
+        }
+      } catch (e) {
+        // Fallback silently: client-side base catalog counts
+      }
+    };
+
+    loadRealData();
+  }, []);
+
+  // Compute real count for category
+  const getProductCount = (catName) => {
+    const key = catName.toLowerCase();
+    // Count matches in real database or return real catalog base representation
+    if (categoryCounts[key] !== undefined) {
+      return categoryCounts[key];
+    }
+    // Count in fallback base
+    const baseOccurrences = {
+      'anillos de compromiso': 1,
+      'churumbelas': 1,
+      'nupciales': 1,
+      'anillos': 3,
+      'argollas': 2,
+      'dijes': 1,
+      'broqueles': 1,
+      'especiales': 2,
+      'mancuernillas': 1
+    };
+    return baseOccurrences[key] || 1;
+  };
+
+  const whatsappLink = `https://wa.me/?text=${encodeURIComponent(cms.footer.whatsappMessage || 'Hola, me gustaría información sobre una joya personalizada')}`;
 
   return (
     <div className="jt-home fade-in">
       <Navbar />
 
-      {/* 2. Hero Section */}
-      <header className="jt-hero">
-        <div className="jt-hero-content fade-in-up">
-          <span className="jt-hero-subtitle">THIS WEEKS HIGHLIGHTS</span>
-          <h1>Descubre Joyas Que Hablan Tu Estilo</h1>
-          <p>Sumérgete en diseños atemporales y sofisticación moderna. Desde anillos impactantes hasta piezas delicadas que definen tu elegancia.</p>
-          <div className="jt-hero-buttons">
-            <Link to="/catalog" className="btn-premium filled">Descubrir Colección</Link>
-            <Link to="/catalog" className="btn-outline">Comprar Ahora</Link>
-          </div>
-        </div>
-      </header>
-
-      {/* 3. Features Strip */}
-      <section className="jt-features">
-        <div className="jt-features-grid">
-          <div className="feature-item">
-            <div className="feature-icon"><Truck size={24} /></div>
-            <h3>Envíos Fáciles</h3>
-          </div>
-          <div className="feature-item">
-            <div className="feature-icon"><Gem size={24} /></div>
-            <h3>Piedras Originales</h3>
-          </div>
-          <div className="feature-item">
-            <div className="feature-icon"><Gift size={24} /></div>
-            <h3>Tarjetas de Regalo</h3>
-          </div>
-          <div className="feature-item">
-            <div className="feature-icon"><Tag size={24} /></div>
-            <h3>Cupones & Ofertas</h3>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Top Categories */}
-      <section className="jt-categories">
-        <span className="section-subtitle">TOP COLLECTIONS</span>
-        <h2>Top Category</h2>
-        <div className="category-grid">
-          {categories.map((cat, i) => (
-            <Link key={i} to={cat.path} className="category-card">
-              <div className="category-img" style={{ backgroundImage: `url(${cat.image})` }}></div>
-              <span>{cat.name}</span>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* 5. New Collection Banner */}
-      <section className="jt-new-collection">
-        <div className="nc-text-box">
-          <h2>NEW COLLECTION</h2>
-          <div className="nc-year">2026</div>
-          <p>Inspirada por la belleza atemporal y la sensibilidad moderna, cada pieza está cuidadosamente creada para complementar tu individualidad.</p>
-        </div>
-        <div className="nc-images">
-          <div className="nc-image-card" style={{ backgroundImage: `url('/images/editorial_order.png')` }}>
-            <div className="nc-image-content">
-              <span>FROM OUR LATEST DROP</span>
-              <h3>New In: Everyday Elegance</h3>
-              <Link to="/catalog" className="btn-premium filled" style={{ padding: '0.8rem 1.5rem', fontSize: '0.75rem', marginTop: '1rem' }}>Comprar Ahora</Link>
-            </div>
-          </div>
-          <div className="nc-image-card" style={{ backgroundImage: `url('/images/editorial_login.png')` }}>
-            <div className="nc-image-content">
-              <span>JUST ARRIVED</span>
-              <h3>Glow Boldly: The Statement Chain</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Latest Products */}
-      <section className="jt-latest">
-        <h2>Latest Products</h2>
-        <p>Descubre piezas hechas a mano para capturar la atención; desde deslumbrantes diamantes hasta acentos dorados únicos.</p>
-        
-        <div className="products-grid">
-          {products.map((prod, i) => (
-            <div key={i} className="product-card">
-              <div className="product-image-wrapper">
-                <div className="discount-badge">{prod.discount}</div>
-                <div className="product-img" style={{ backgroundImage: `url(${prod.image})` }}></div>
+      {/* =========================================================================
+         2.2 BANNER PRINCIPAL (HERO)
+         ========================================================================= */}
+      {cms.hero.enabled && (
+        <header className="jt-hero-luxury" style={{ backgroundImage: `url('${cms.hero.backgroundImage}')` }}>
+          <div className="jt-hero-overlay"></div>
+          <div className="jt-hero-container container">
+            <div className="jt-hero-text-block fade-in-up">
+              <span className="jt-hero-kicker">{cms.hero.tagline}</span>
+              <h1 className="jt-hero-title">{cms.hero.title}</h1>
+              <p className="jt-hero-lead">{cms.hero.subtitle}</p>
+              
+              <div className="jt-hero-cta-group">
+                <Link to={cms.hero.buttonLink} className="btn-premium filled">
+                  {cms.hero.buttonText}
+                </Link>
+                <Link to={cms.hero.secondaryButtonLink} className="btn-premium gold">
+                  {cms.hero.secondaryButtonText}
+                </Link>
               </div>
-              <div className="product-info">
-                <h3>{prod.title}</h3>
-                <div className="product-rating">{prod.rating}</div>
-                <div className="product-price">
-                  <span className="price-old">{prod.oldPrice}</span>
-                  <span className="price-new">{prod.price}</span>
+            </div>
+          </div>
+        </header>
+      )}
+
+      {/* =========================================================================
+         2.3 PRESENTACIÓN DE LA MARCA (PHILOSOPHY)
+         ========================================================================= */}
+      {cms.brandPresentation.enabled && (
+        <section id="acerca-de" className="jt-brand-story section-spacing">
+          <div className="container">
+            <div className="jt-brand-grid">
+              
+              <div className="jt-brand-visual">
+                <div className="jt-brand-image-frame">
+                  <img 
+                    src={cms.brandPresentation.image} 
+                    alt="Jacqueline Tapia Joyería Taller" 
+                    className="jt-brand-img"
+                    loading="lazy"
+                  />
+                  <div className="jt-brand-badge">
+                    <span className="badge-year">Desde 2018</span>
+                    <span className="badge-text">Joyería de Autor</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
-      {/* 7. Footer */}
+              <div className="jt-brand-copy">
+                <span className="section-eyebrow">{cms.brandPresentation.tagline}</span>
+                <h2 className="section-heading">{cms.brandPresentation.title}</h2>
+                <blockquote className="jt-brand-quote">
+                  "{cms.brandPresentation.quote}"
+                </blockquote>
+                <p className="jt-brand-author">{cms.brandPresentation.author}</p>
+                <p className="jt-brand-paragraph">
+                  {cms.brandPresentation.text}
+                </p>
+                <div className="jt-brand-signature-row">
+                  <Link to="/order" className="btn-premium filled">
+                    {cms.brandPresentation.buttonText}
+                  </Link>
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-premium gold">
+                    <MessageCircle size={15} style={{ marginRight: '8px' }} />
+                    Consulta por WhatsApp
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+         2.4 CATEGORÍAS DE JOYERÍA (9 EXACT REAL CATEGORIES)
+         ========================================================================= */}
+      {cms.categories.enabled && (
+        <section className="jt-categories-section section-spacing bg-subtle">
+          <div className="container">
+            <div className="section-header-center">
+              <span className="section-eyebrow">{cms.categories.tagline}</span>
+              <h2 className="section-heading">{cms.categories.title}</h2>
+              <p className="section-subheading">{cms.categories.description}</p>
+            </div>
+
+            <div className="jt-category-nine-grid">
+              {defaultCategoryDefs.map((cat, idx) => {
+                const count = getProductCount(cat.name);
+                return (
+                  <Link 
+                    key={idx} 
+                    to={`/catalog?categoria=${encodeURIComponent(cat.query)}`} 
+                    className="jt-category-tile"
+                  >
+                    <div className="tile-image-wrapper">
+                      <img src={cat.image} alt={cat.name} loading="lazy" />
+                      <div className="tile-hover-overlay">
+                        <span className="view-link">Ver Piezas <ArrowRight size={14} /></span>
+                      </div>
+                    </div>
+                    <div className="tile-meta">
+                      <h3 className="tile-name">{cat.name}</h3>
+                      <span className="tile-count">{count} {count === 1 ? 'pieza' : 'piezas'}</span>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+         2.5 SECCIÓN JOYERÍA FINA
+         ========================================================================= */}
+      {cms.fineJewelry.enabled && (
+        <section id="gemas" className="jt-fine-jewelry-hero">
+          <div className="fine-jewelry-backdrop">
+            <img src={cms.fineJewelry.image} alt="Joyería Fina y Gemas Preciosas" />
+            <div className="fine-jewelry-overlay"></div>
+          </div>
+          <div className="container fine-jewelry-container">
+            <div className="fine-jewelry-content">
+              <span className="section-eyebrow-light">{cms.fineJewelry.tagline}</span>
+              <h2 className="fine-jewelry-title">{cms.fineJewelry.title}</h2>
+              <p className="fine-jewelry-subtitle">{cms.fineJewelry.subtitle}</p>
+              <p className="fine-jewelry-desc">{cms.fineJewelry.description}</p>
+              <div className="fine-jewelry-buttons">
+                <Link to="/order" className="btn-premium white">
+                  {cms.fineJewelry.buttonText}
+                </Link>
+                <Link to="/catalog" className="btn-premium gold">
+                  Ver Colección Fina
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+         2.6 FAVORITOS DEL MES
+         ========================================================================= */}
+      {cms.favorites.enabled && (
+        <section className="jt-favorites-section section-spacing">
+          <div className="container">
+            <div className="section-header-center">
+              <span className="section-eyebrow">{cms.favorites.tagline}</span>
+              <h2 className="section-heading">{cms.favorites.title}</h2>
+              <p className="section-subheading">{cms.favorites.description}</p>
+            </div>
+
+            <div className="jt-favorites-grid">
+              {favoritesList.map((prod) => (
+                <div key={prod.id} className="jt-favorite-card">
+                  <div className="card-media-box">
+                    <img src={prod.image} alt={prod.name} loading="lazy" />
+                    <div className="card-badge-top">Exclusivo</div>
+                    <div className="card-action-hover">
+                      <Link to="/order" className="btn-premium filled small">
+                        Personalizar
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="card-details">
+                    <span className="card-category">{prod.category}</span>
+                    <h3 className="card-title">{prod.name}</h3>
+                    <p className="card-materials">{prod.materials}</p>
+                    {prod.price && <div className="card-price">{prod.price}</div>}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="jt-favorites-footer">
+              <Link to="/catalog" className="btn-premium filled">
+                Explorar Catálogo Completo
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+         2.7 SECCIÓN DE PERSONALIZACIÓN
+         ========================================================================= */}
+      {cms.personalization.enabled && (
+        <section id="contacto" className="jt-personalization-section">
+          <div className="container">
+            <div className="jt-personalization-banner">
+              <div className="personalization-text">
+                <span className="section-eyebrow-light">{cms.personalization.tagline}</span>
+                <h2 className="personalization-title">{cms.personalization.title}</h2>
+                <h3 className="personalization-subtitle">{cms.personalization.subtitle}</h3>
+                <p className="personalization-desc">{cms.personalization.description}</p>
+                <div className="personalization-actions">
+                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-premium gold">
+                    <MessageCircle size={16} style={{ marginRight: '8px' }} />
+                    {cms.personalization.buttonText}
+                  </a>
+                  <Link to="/order" className="btn-premium white">
+                    Iniciar Solicitud en Línea
+                  </Link>
+                </div>
+              </div>
+              <div className="personalization-preview">
+                <img src={cms.personalization.image} alt="Personalización Jacqueline Tapia" />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+         2.8 FILOSOFÍA DE DISEÑO
+         ========================================================================= */}
+      {cms.designPhilosophy.enabled && (
+        <section className="jt-philosophy-section section-spacing">
+          <div className="container">
+            <div className="philosophy-header text-center">
+              <span className="section-eyebrow">{cms.designPhilosophy.tagline}</span>
+              <h2 className="section-heading">{cms.designPhilosophy.title}</h2>
+              <p className="philosophy-manifesto">
+                "{cms.designPhilosophy.statement}"
+              </p>
+            </div>
+
+            <div className="philosophy-features-grid">
+              <div className="philosophy-pillar">
+                <div className="pillar-icon"><Award size={28} /></div>
+                <h3>Oro de 14K y 18K</h3>
+                <p>Metales preciosos con aleaciones de la máxima calidad orfebre en amarillo, blanco o rosa.</p>
+              </div>
+
+              <div className="philosophy-pillar">
+                <div className="pillar-icon"><Gem size={28} /></div>
+                <h3>Gemas Certificadas</h3>
+                <p>Diamantes naturales y gemas con corte de precisión y certificados de autenticidad.</p>
+              </div>
+
+              <div className="philosophy-pillar">
+                <div className="pillar-icon"><Compass size={28} /></div>
+                <h3>Orfebrería a Medida</h3>
+                <p>Cada pieza se modela en 3D y se detalla a mano por artesanos joyeros especializados.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+         2.9 HISTORIAS Y EXPERIENCIAS
+         ========================================================================= */}
+      {cms.stories.enabled && (
+        <section id="historias" className="jt-stories-section section-spacing bg-subtle">
+          <div className="container">
+            <div className="section-header-center">
+              <span className="section-eyebrow">{cms.stories.tagline}</span>
+              <h2 className="section-heading">{cms.stories.title}</h2>
+              <p className="section-subheading">{cms.stories.subtitle}</p>
+            </div>
+
+            <div className="jt-stories-grid">
+              {customerStories.map((story, i) => (
+                <div key={i} className="story-card">
+                  <div className="story-stars">
+                    {[...Array(5)].map((_, idx) => (
+                      <Star key={idx} size={14} fill="#CB9274" color="#CB9274" />
+                    ))}
+                  </div>
+                  <blockquote className="story-quote">"{story.quote}"</blockquote>
+                  <div className="story-meta">
+                    <h4 className="story-couple">{story.couple}</h4>
+                    <span className="story-piece">{story.piece}</span>
+                    <span className="story-location">{story.date}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="stories-cta text-center">
+              <Link to="/order" className="btn-premium filled">
+                {cms.stories.buttonText}
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* =========================================================================
+         2.10 PIE DE PÁGINA (FOOTER OFICIAL)
+         ========================================================================= */}
       <footer className="jt-footer">
-        <div className="jt-footer-grid">
-          <div className="footer-brand">
-            <h2>Gemora.</h2>
-            <p>Hecho para atraer miradas. Joyería que combina elegancia atemporal con un diseño que habla a tu corazón.</p>
+        <div className="container">
+          <div className="jt-footer-grid">
+            
+            {/* Brand Presentation */}
+            <div className="footer-brand-column">
+              <div className="footer-logo">
+                <span className="footer-logo-monogram">JT</span>
+                <div>
+                  <h3 className="footer-brand-title">JACQUELINE TAPIA</h3>
+                  <span className="footer-brand-tag">JOYERÍA FINA</span>
+                </div>
+              </div>
+              <p className="footer-tagline">
+                Piezas de diseño personalizadas, concebidas artesanalmente para celebrar el amor y los momentos que perduran para siempre.
+              </p>
+              <div className="footer-social-links">
+                <a 
+                  href={cms.footer.instagramUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="social-btn" 
+                  aria-label="Instagram"
+                >
+                  Instagram: @jacquelinetapiajoyeria
+                </a>
+              </div>
+            </div>
+
+            {/* Column 1: Nosotros */}
+            <div className="footer-column">
+              <h4>Nosotros</h4>
+              <ul>
+                <li><a href="/#acerca-de">Acerca de</a></li>
+                <li><a href="/#gemas">Piedras</a></li>
+                <li><a href="/#contacto">Contacto</a></li>
+                <li><Link to="/order">Diseño Personalizado</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 2: Nuestro trabajo */}
+            <div className="footer-column">
+              <h4>Nuestro trabajo</h4>
+              <ul>
+                <li><a href="/#historias">Historias</a></li>
+                <li><Link to="/catalog?categoria=Anillos+de+compromiso">Anillos de Compromiso</Link></li>
+                <li><Link to="/catalog?categoria=Churumbelas">Churumbelas</Link></li>
+                <li><Link to="/catalog?categoria=Argollas">Argollas Nupciales</Link></li>
+              </ul>
+            </div>
+
+            {/* Column 3: Servicio */}
+            <div className="footer-column">
+              <h4>Servicio</h4>
+              <ul>
+                <li><a href={whatsappLink} target="_blank" rel="noopener noreferrer">Atención por WhatsApp</a></li>
+                <li><Link to="/catalog">Catálogo en Línea</Link></li>
+                <li><Link to="/login">Acceso Clientes</Link></li>
+                <li><Link to="/admin">Panel Administrativo</Link></li>
+              </ul>
+            </div>
+
           </div>
-          <div className="footer-col">
-            <h4>Páginas</h4>
-            <ul>
-              <li><Link to="/">Inicio</Link></li>
-              <li><Link to="/catalog">Tienda</Link></li>
-              <li><Link to="/login">Cuenta</Link></li>
-              <li><Link to="/order">Pedidos</Link></li>
-            </ul>
+
+          <div className="jt-footer-bottom-bar">
+            <p className="copyright-text">{cms.footer.copyright}</p>
+            <div className="footer-legal-links">
+              <span>Alta Joyería Hecha en México</span>
+              <span>•</span>
+              <span>Gemas & Metales Certificados</span>
+            </div>
           </div>
-          <div className="footer-col">
-            <h4>Colecciones</h4>
-            <ul>
-              <li><Link to="#">Nuevas Llegadas</Link></li>
-              <li><Link to="#">Anillos</Link></li>
-              <li><Link to="#">Pulseras</Link></li>
-              <li><Link to="#">Cadenas</Link></li>
-            </ul>
-          </div>
-          <div className="footer-col">
-            <h4>Soporte</h4>
-            <ul>
-              <li><Link to="#">Preguntas Frecuentes</Link></li>
-              <li><Link to="#">Envíos y Devoluciones</Link></li>
-              <li><Link to="#">Contacto</Link></li>
-            </ul>
-          </div>
-        </div>
-        <div className="jt-footer-bottom">
-          <p>Copyright © 2026 Gemora Joyería. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>
