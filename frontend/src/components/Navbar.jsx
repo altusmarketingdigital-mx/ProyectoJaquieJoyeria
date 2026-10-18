@@ -54,12 +54,12 @@ export default function Navbar() {
 
           {/* Official Brand Logo */}
           <div className="jt-brand-logo">
-            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-              <span className="jt-logo-monogram">JT</span>
-              <div className="jt-logo-text">
-                <span className="jt-logo-name">JACQUELINE TAPIA</span>
-                <span className="jt-logo-tagline">JOYERÍA FINA</span>
-              </div>
+            <Link to="/" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} aria-label="Jacqueline Tapia Joyería Inicio">
+              <img 
+                src="/images/logo.png" 
+                alt="Jacqueline Tapia Joyería - Emociones que brillan" 
+                className="jt-navbar-logo-img" 
+              />
             </Link>
           </div>
 

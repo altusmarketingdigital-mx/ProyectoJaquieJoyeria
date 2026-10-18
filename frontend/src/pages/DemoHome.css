@@ -746,32 +746,14 @@
 .footer-logo {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
   margin-bottom: 1.2rem;
 }
 
-.footer-logo-monogram {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  color: var(--color-accent-gold);
-  border: 1px solid rgba(203, 146, 116, 0.4);
-  padding: 0.2rem 0.6rem;
-}
-
-.footer-brand-title {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  color: #ffffff;
-  margin: 0;
-}
-
-.footer-brand-tag {
-  font-size: 0.65rem;
-  letter-spacing: 3px;
-  color: var(--color-accent-gold);
-  text-transform: uppercase;
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  display: block;
 }
 
 .footer-tagline {

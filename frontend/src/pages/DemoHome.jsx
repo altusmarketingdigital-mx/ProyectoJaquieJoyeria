@@ -492,11 +492,11 @@ export default function DemoHome() {
             {/* Brand Presentation */}
             <div className="footer-brand-column">
               <div className="footer-logo">
-                <span className="footer-logo-monogram">JT</span>
-                <div>
-                  <h3 className="footer-brand-title">JACQUELINE TAPIA</h3>
-                  <span className="footer-brand-tag">JOYERÍA FINA</span>
-                </div>
+                <img 
+                  src="/images/logo-white.png" 
+                  alt="Jacqueline Tapia Joyería" 
+                  className="footer-logo-img" 
+                />
               </div>
               <p className="footer-tagline">
                 Piezas de diseño personalizadas, concebidas artesanalmente para celebrar el amor y los momentos que perduran para siempre.
