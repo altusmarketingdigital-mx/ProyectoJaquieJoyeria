@@ -309,7 +309,6 @@ export default function DemoHome() {
                     </div>
                     <div className="tile-meta">
                       <h3 className="tile-name">{cat.name}</h3>
-                      <span className="tile-count">{count} {count === 1 ? 'pieza' : 'piezas'}</span>
                     </div>
                   </Link>
                 );
