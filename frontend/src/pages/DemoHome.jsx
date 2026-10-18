@@ -20,9 +20,9 @@ import './DemoHome.css';
 const defaultCategoryDefs = [
   { name: 'Anillos de compromiso', query: 'Anillos de compromiso', image: '/images/anillo_compromiso.png' },
   { name: 'Churumbelas', query: 'Churumbelas', image: '/images/churumbela.png' },
-  { name: 'Nupciales', query: 'Nupciales', image: '/images/ring.png' },
+  { name: 'Nupciales', query: 'Nupciales', image: '/images/nupciales.png' },
   { name: 'Anillos', query: 'Anillos', image: '/images/ring.png' },
-  { name: 'Argollas', query: 'Argollas', image: '/images/ring.png' },
+  { name: 'Argollas', query: 'Argollas', image: '/images/nupciales.png' },
   { name: 'Dijes', query: 'Dijes', image: '/images/necklace.png' },
   { name: 'Broqueles', query: 'Broqueles', image: '/images/ring.png' },
   { name: 'Especiales', query: 'Especiales', image: '/images/necklace.png' },
@@ -61,7 +61,7 @@ const defaultFavorites = [
     category: 'Argollas',
     materials: 'Oro 14K Blanco y Rosa con Diamantes',
     price: '$42,500 MXN',
-    image: '/images/ring.png'
+    image: '/images/nupciales.png'
   }
 ];
 
