@@ -23,10 +23,10 @@ const defaultCategoryDefs = [
   { name: 'Nupciales', query: 'Nupciales', image: '/images/nupciales.png' },
   { name: 'Anillos', query: 'Anillos', image: '/images/anillos.png' },
   { name: 'Argollas', query: 'Argollas', image: '/images/argollas.png' },
-  { name: 'Dijes', query: 'Dijes', image: '/images/necklace.png' },
-  { name: 'Broqueles', query: 'Broqueles', image: '/images/ring.png' },
-  { name: 'Especiales', query: 'Especiales', image: '/images/necklace.png' },
-  { name: 'Mancuernillas', query: 'Mancuernillas', image: '/images/editorial_order.png' }
+  { name: 'Dijes', query: 'Dijes', image: '/images/dijes.png' },
+  { name: 'Broqueles', query: 'Broqueles', image: '/images/broqueles.png' },
+  { name: 'Especiales', query: 'Especiales', image: '/images/especiales.png' },
+  { name: 'Mancuernillas', query: 'Mancuernillas', image: '/images/mancuernillas.png' }
 ];
 
 // Reference site "Favoritos del mes" official pieces
@@ -43,17 +43,17 @@ const defaultFavorites = [
     id: 'fav-2',
     name: 'Dije | Marta',
     category: 'Dije',
-    materials: 'Oro de 14K con Zafiro Natural',
+    materials: 'Oro de 14K con Esmeralda Natural y Diamantes',
     price: '$18,900 MXN',
-    image: '/images/necklace.png'
+    image: '/images/dijes.png'
   },
   {
     id: 'fav-3',
     name: 'Broquel | Mariajo',
     category: 'Broqueles',
-    materials: 'Oro Blanco 14K con Diamantes',
+    materials: 'Oro Blanco 14K con Zafiro y Diamantes',
     price: '$14,200 MXN',
-    image: '/images/ring.png'
+    image: '/images/broqueles.png'
   },
   {
     id: 'fav-4',
@@ -61,7 +61,7 @@ const defaultFavorites = [
     category: 'Argollas',
     materials: 'Oro 14K Blanco y Rosa con Diamantes',
     price: '$42,500 MXN',
-    image: '/images/nupciales.png'
+    image: '/images/argollas.png'
   }
 ];
 
