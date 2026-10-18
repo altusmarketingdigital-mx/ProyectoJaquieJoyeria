@@ -30,6 +30,19 @@ const defaultCatalog = [
   { id: 'man-1', name: 'Mancuernillas Huella', category: 'Mancuernillas', material: 'Oro Blanco y Rosa 14K', gemstone: 'Grabado dactilar de alta precisión', price: '$19,800 MXN', image: '/images/mancuernillas.png' }
 ];
 
+// The 9 official categories with official photography
+const defaultCategoryDefs = [
+  { name: 'Anillos de compromiso', query: 'Anillos de compromiso', image: '/images/anillo_compromiso.png' },
+  { name: 'Churumbelas', query: 'Churumbelas', image: '/images/churumbela.png' },
+  { name: 'Nupciales', query: 'Nupciales', image: '/images/nupciales.png' },
+  { name: 'Anillos', query: 'Anillos', image: '/images/anillos.png' },
+  { name: 'Argollas', query: 'Argollas', image: '/images/argollas.png' },
+  { name: 'Dijes', query: 'Dijes', image: '/images/dijes.png' },
+  { name: 'Broqueles', query: 'Broqueles', image: '/images/broqueles.png' },
+  { name: 'Especiales', query: 'Especiales', image: '/images/especiales.png' },
+  { name: 'Mancuernillas', query: 'Mancuernillas', image: '/images/mancuernillas.png' }
+];
+
 export default function CatalogPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCategory = searchParams.get('categoria') || 'Todos';
@@ -111,62 +124,89 @@ export default function CatalogPage() {
       <main className="catalog-content container">
         <div className="catalog-header">
           <h1 className="section-title">
-            {filter === 'Todos' ? 'Catálogo General' : (filter.charAt(0).toUpperCase() + filter.slice(1))}
+            {filter === 'Todos' ? 'Catálogo' : (filter.charAt(0).toUpperCase() + filter.slice(1))}
           </h1>
         </div>
 
-        {/* Toolbar matching official Jacqueline Tapia WooCommerce bar */}
-        <div className="catalog-toolbar">
-          <span className="catalog-results-text">
-            Mostrando 1–{filteredProducts.length} de {filteredProducts.length} resultados
-          </span>
-
-          <div className="catalog-sort-wrapper">
-            <select className="catalog-sort-select" defaultValue="default">
-              <option value="default">Orden predeterminado</option>
-              <option value="popularity">Ordenar por popularidad</option>
-              <option value="rating">Ordenar por calificación media</option>
-              <option value="date">Ordenar por las últimas</option>
-              <option value="price-asc">Ordenar por precio: bajo a alto</option>
-              <option value="price-desc">Ordenar por precio: alto a bajo</option>
-            </select>
+        {/* View 1: When user enters General Catalog, show the 9 official Categories */}
+        {filter === 'Todos' ? (
+          <div className="jt-catalog-categories-view">
+            <div className="jt-category-nine-grid">
+              {defaultCategoryDefs.map((cat, idx) => (
+                <Link 
+                  key={idx} 
+                  to={`/catalog?categoria=${encodeURIComponent(cat.query)}`} 
+                  className="jt-category-tile"
+                >
+                  <div className="tile-image-wrapper">
+                    <img src={cat.image} alt={cat.name} loading="lazy" />
+                    <div className="tile-hover-overlay">
+                      <span className="view-link">Ver Piezas</span>
+                    </div>
+                  </div>
+                  <div className="tile-meta">
+                    <h3 className="tile-name">{cat.name}</h3>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : (
+          /* View 2: When user clicks on a Category, show its official products & toolbar */
+          <>
+            <div className="catalog-toolbar">
+              <span className="catalog-results-text">
+                Mostrando 1–{filteredProducts.length} de {filteredProducts.length} resultados
+              </span>
 
-        <div className="catalog-grid">
-          {filteredProducts.map(product => (
-            <div key={product.id} className="catalog-card">
-              <div className="catalog-image-wrapper">
-                <img src={product.image} alt={product.name} loading="lazy" />
-                <div className="catalog-overlay">
-                  <Link to="/order" className="btn-premium filled small">Personalizar Pieza</Link>
+              <div className="catalog-sort-wrapper">
+                <select className="catalog-sort-select" defaultValue="default">
+                  <option value="default">Orden predeterminado</option>
+                  <option value="popularity">Ordenar por popularidad</option>
+                  <option value="rating">Ordenar por calificación media</option>
+                  <option value="date">Ordenar por las últimas</option>
+                  <option value="price-asc">Ordenar por precio: bajo a alto</option>
+                  <option value="price-desc">Ordenar por precio: alto a bajo</option>
+                </select>
+              </div>
+            </div>
+
+            <div className="catalog-grid">
+              {filteredProducts.map(product => (
+                <div key={product.id} className="catalog-card">
+                  <div className="catalog-image-wrapper">
+                    <img src={product.image} alt={product.name} loading="lazy" />
+                    <div className="catalog-overlay">
+                      <Link to="/order" className="btn-premium filled small">Personalizar Pieza</Link>
+                    </div>
+                  </div>
+                  <div className="catalog-info">
+                    <span className="product-category">{product.category}</span>
+                    <h3 className="product-name">{product.name}</h3>
+                    {(product.material || product.gemstone) && (
+                      <p className="product-materials">
+                        {product.material} {product.gemstone && `• ${product.gemstone}`}
+                      </p>
+                    )}
+                    {product.price && (
+                      <p className="product-price">{product.price}</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-              <div className="catalog-info">
-                <span className="product-category">{product.category}</span>
-                <h3 className="product-name">{product.name}</h3>
-                {(product.material || product.gemstone) && (
-                  <p className="product-materials">
-                    {product.material} {product.gemstone && `• ${product.gemstone}`}
-                  </p>
-                )}
-                {product.price && (
-                  <p className="product-price">{product.price}</p>
-                )}
-              </div>
-            </div>
-          ))}
+              ))}
 
-          {filteredProducts.length === 0 && (
-            <div className="catalog-empty-state">
-              <h3>No se encontraron piezas en "{filter}"</h3>
-              <p>Podemos diseñar y fabricar tu pieza exclusiva totalmente a medida.</p>
-              <Link to="/order" className="btn-premium filled" style={{ marginTop: '1.5rem' }}>
-                Solicitar Diseño Personalizado
-              </Link>
+              {filteredProducts.length === 0 && (
+                <div className="catalog-empty-state">
+                  <h3>No se encontraron piezas en "{filter}"</h3>
+                  <p>Podemos diseñar y fabricar tu pieza exclusiva totalmente a medida.</p>
+                  <Link to="/order" className="btn-premium filled" style={{ marginTop: '1.5rem' }}>
+                    Solicitar Diseño Personalizado
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
-        </div>
+          </>
+        )}
       </main>
     </div>
   );

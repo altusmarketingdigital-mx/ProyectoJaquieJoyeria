@@ -284,7 +284,7 @@ export default function DemoHome() {
          2.4 CATEGORÍAS DE JOYERÍA (9 EXACT REAL CATEGORIES)
          ========================================================================= */}
       {cms.categories.enabled && (
-        <section className="jt-categories-section section-spacing bg-subtle">
+        <section id="catalogo" className="jt-categories-section section-spacing bg-subtle">
           <div className="container">
             <div className="section-header-center">
               <span className="section-eyebrow">{cms.categories.tagline}</span>
