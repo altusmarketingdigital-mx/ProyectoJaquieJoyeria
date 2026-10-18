@@ -99,9 +99,9 @@ export default function CatalogPage() {
   const filteredProducts = filter === 'Todos'
     ? products
     : products.filter(p => {
-        const pCat = (p.category || '').toLowerCase();
-        const fCat = filter.toLowerCase();
-        return pCat.includes(fCat) || fCat.includes(pCat);
+        const pCat = (p.category || '').toLowerCase().trim();
+        const fCat = filter.toLowerCase().trim();
+        return pCat === fCat;
       });
 
   return (
@@ -113,20 +113,6 @@ export default function CatalogPage() {
           <h1 className="section-title">
             {filter === 'Todos' ? 'Catálogo General' : (filter.charAt(0).toUpperCase() + filter.slice(1))}
           </h1>
-          
-          <div className="category-filters-scroll">
-            <div className="category-filters">
-              {categories.map(cat => (
-                <button 
-                  key={cat} 
-                  className={`filter-btn ${filter.toLowerCase() === cat.toLowerCase() ? 'active' : ''}`}
-                  onClick={() => handleFilterChange(cat)}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Toolbar matching official Jacqueline Tapia WooCommerce bar */}
