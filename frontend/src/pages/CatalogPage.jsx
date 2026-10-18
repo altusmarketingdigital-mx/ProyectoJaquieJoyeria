@@ -110,11 +110,9 @@ export default function CatalogPage() {
 
       <main className="catalog-content container">
         <div className="catalog-header">
-          <span className="section-subtitle">ALTA JOYERÍA DE AUTOR</span>
-          <h1 className="section-title">Nuestro Catálogo</h1>
-          <p className="catalog-subtitle">
-            Cada joya es concebida y fabricada a medida con metales preciosos y piedras de la más alta pureza.
-          </p>
+          <h1 className="section-title">
+            {filter === 'Todos' ? 'Catálogo General' : (filter.charAt(0).toUpperCase() + filter.slice(1))}
+          </h1>
           
           <div className="category-filters-scroll">
             <div className="category-filters">
@@ -131,8 +129,22 @@ export default function CatalogPage() {
           </div>
         </div>
 
-        <div className="catalog-results-count">
-          <span>Mostrando {filteredProducts.length} {filteredProducts.length === 1 ? 'pieza' : 'piezas'}</span>
+        {/* Toolbar matching official Jacqueline Tapia WooCommerce bar */}
+        <div className="catalog-toolbar">
+          <span className="catalog-results-text">
+            Mostrando 1–{filteredProducts.length} de {filteredProducts.length} resultados
+          </span>
+
+          <div className="catalog-sort-wrapper">
+            <select className="catalog-sort-select" defaultValue="default">
+              <option value="default">Orden predeterminado</option>
+              <option value="popularity">Ordenar por popularidad</option>
+              <option value="rating">Ordenar por calificación media</option>
+              <option value="date">Ordenar por las últimas</option>
+              <option value="price-asc">Ordenar por precio: bajo a alto</option>
+              <option value="price-desc">Ordenar por precio: alto a bajo</option>
+            </select>
+          </div>
         </div>
 
         <div className="catalog-grid">
