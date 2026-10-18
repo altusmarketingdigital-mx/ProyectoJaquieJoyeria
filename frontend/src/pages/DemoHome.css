@@ -737,20 +737,57 @@
   max-width: 380px;
 }
 
-.social-btn {
-  display: inline-block;
-  font-size: 0.75rem;
-  letter-spacing: 1px;
+.footer-social-wrapper {
+  margin-top: 1.5rem;
+}
+
+.footer-social-heading {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: var(--color-accent-gold);
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+}
+
+.footer-social-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.jt-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.55rem 1rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(227, 219, 212, 0.25);
+  color: #ffffff;
   text-decoration: none;
-  border-bottom: 1px solid rgba(203, 146, 116, 0.4);
-  padding-bottom: 3px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
   transition: all 0.3s ease;
 }
 
-.social-btn:hover {
+.jt-social-pill:hover {
+  background: var(--color-accent-gold);
+  border-color: var(--color-accent-gold);
   color: #ffffff;
-  border-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(203, 146, 116, 0.3);
+}
+
+.jt-social-pill svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.jt-social-pill:hover svg {
+  transform: scale(1.1);
 }
 
 .footer-column h4 {
