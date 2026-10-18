@@ -123,59 +123,47 @@
   margin-bottom: 2rem;
 }
 
-/* Redes Sociales directamente abajo de los botones del Hero */
+/* Redes Sociales directamente abajo de los botones del Hero (Solo Iconos) */
 .jt-hero-social-block {
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  padding-top: 0.5rem;
-}
-
-.jt-hero-social-label {
-  font-size: 0.72rem;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  color: var(--color-accent-gold);
-  font-weight: 600;
+  align-items: center;
+  padding-top: 0.25rem;
 }
 
 .jt-hero-social-buttons {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  align-items: center;
+  gap: 0.75rem;
 }
 
-.jt-hero-social-pill {
+.jt-hero-social-icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 0.55rem 1.1rem;
-  background: rgba(255, 255, 255, 0.85);
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid var(--color-border);
   color: var(--color-text-navy);
   text-decoration: none;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(5, 31, 52, 0.04);
+  box-shadow: 0 4px 15px rgba(5, 31, 52, 0.05);
 }
 
-.jt-hero-social-pill:hover {
+.jt-hero-social-icon-btn:hover {
   background: var(--color-accent-navy);
   border-color: var(--color-accent-navy);
   color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(5, 31, 52, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(5, 31, 52, 0.18);
 }
 
-.jt-hero-social-pill svg {
-  flex-shrink: 0;
+.jt-hero-social-icon-btn svg {
   transition: transform 0.3s ease;
 }
 
-.jt-hero-social-pill:hover svg {
+.jt-hero-social-icon-btn:hover svg {
   transform: scale(1.15);
 }
 
