@@ -19,7 +19,7 @@ import './DemoHome.css';
 // Fixed list of 9 official Jacqueline Tapia categories with representative imagery
 const defaultCategoryDefs = [
   { name: 'Anillos de compromiso', query: 'Anillos de compromiso', image: '/images/anillo_compromiso.png' },
-  { name: 'Churumbelas', query: 'Churumbelas', image: '/images/ring.png' },
+  { name: 'Churumbelas', query: 'Churumbelas', image: '/images/churumbela.png' },
   { name: 'Nupciales', query: 'Nupciales', image: '/images/ring.png' },
   { name: 'Anillos', query: 'Anillos', image: '/images/ring.png' },
   { name: 'Argollas', query: 'Argollas', image: '/images/ring.png' },
@@ -37,7 +37,7 @@ const defaultFavorites = [
     category: 'Churumbela',
     materials: 'Oro de 14K con Diamantes de 2.3 mm',
     price: '$32,000 MXN',
-    image: '/images/ring.png'
+    image: '/images/churumbela.png'
   },
   {
     id: 'fav-2',
