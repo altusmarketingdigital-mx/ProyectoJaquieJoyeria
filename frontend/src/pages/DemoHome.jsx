@@ -18,7 +18,7 @@ import './DemoHome.css';
 
 // Fixed list of 9 official Jacqueline Tapia categories with representative imagery
 const defaultCategoryDefs = [
-  { name: 'Anillos de compromiso', query: 'Anillos de compromiso', image: '/images/ring.png' },
+  { name: 'Anillos de compromiso', query: 'Anillos de compromiso', image: '/images/anillo_compromiso.png' },
   { name: 'Churumbelas', query: 'Churumbelas', image: '/images/ring.png' },
   { name: 'Nupciales', query: 'Nupciales', image: '/images/ring.png' },
   { name: 'Anillos', query: 'Anillos', image: '/images/ring.png' },
