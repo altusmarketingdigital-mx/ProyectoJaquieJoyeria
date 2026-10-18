@@ -94,9 +94,8 @@ export default function CatalogPage() {
   // Sync category filter when URL search params change
   useEffect(() => {
     const cat = searchParams.get('categoria');
-    if (cat) {
-      setFilter(cat);
-    }
+    setFilter(cat || 'Todos');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [searchParams]);
 
   const handleFilterChange = (cat) => {

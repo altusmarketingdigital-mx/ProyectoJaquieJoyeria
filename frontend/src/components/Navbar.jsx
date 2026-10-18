@@ -25,6 +25,8 @@ export default function Navbar() {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    } else if (path === '/catalog') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
