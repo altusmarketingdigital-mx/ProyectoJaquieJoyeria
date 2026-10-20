@@ -105,8 +105,12 @@ const defaultCatalog = [
   { id: 'esp-3', name: 'Anillo | Silvia', category: 'Especiales', material: 'Oro 14K Amarillo', gemstone: 'Perla de Cultivo y Acentos de Diamantes', price: 'Cotización personalizada', image: '/images/especiales_coleccion/silvia.png' },
   { id: 'esp-4', name: 'Anillo Morganitas | Lili', category: 'Especiales', material: 'Oro Rosa 14K', gemstone: 'Morganitas Naturales y Pavé de Diamantes', price: 'Cotización personalizada', image: '/images/especiales_coleccion/lili.png' },
   
-  // Categorías complementarias
-  { id: 'man-1', name: 'Mancuernillas Huella', category: 'Mancuernillas', material: 'Oro Blanco y Rosa 14K', gemstone: 'Grabado dactilar de alta precisión', price: '$19,800 MXN', image: '/images/mancuernillas.png' }
+  // 5 Colecciones Oficiales de Mancuernillas (jacquelinetapiajoyeria.com/product-category/mancuernillas/)
+  { id: 'man-1', name: 'Mancuernillas | Ana y Paco', category: 'Mancuernillas', material: 'Plata Ley .925 / Oro', gemstone: 'Grabado dactilar de alta precisión', price: 'Cotización personalizada', image: '/images/mancuernillas_coleccion/ana-y-paco.png' },
+  { id: 'man-2', name: 'Mancuernillas | Carmina', category: 'Mancuernillas', material: 'Plata Ley .925 / Oro', gemstone: 'Diseño Hexagonal Geométrico', price: 'Cotización personalizada', image: '/images/mancuernillas_coleccion/carmina.png' },
+  { id: 'man-3', name: 'Mancuernillas | Fernando', category: 'Mancuernillas', material: 'Plata Ley .925 / Oro', gemstone: 'Diseño Rectangular Clásico Satinado', price: 'Cotización personalizada', image: '/images/mancuernillas_coleccion/fernando.png' },
+  { id: 'man-4', name: 'Mancuernillas | Mariana', category: 'Mancuernillas', material: 'Plata Ley .925 / Oro', gemstone: 'Iniciales Caladas Personalizadas', price: 'Cotización personalizada', image: '/images/mancuernillas_coleccion/mariana.png' },
+  { id: 'man-5', name: 'Mancuernillas Realse | Gilberto', category: 'Mancuernillas', material: 'Plata Ley .925 / Oro', gemstone: 'Monograma en Realce y Contraste', price: 'Cotización personalizada', image: '/images/mancuernillas_coleccion/gilberto.png' }
 ];
 
 // The 9 official categories with official photography
