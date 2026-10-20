@@ -45,8 +45,21 @@ const defaultCatalog = [
   { id: 'nup-9', name: 'Eternity + Argolla | Rodrigo', category: 'Nupciales', material: 'Oro Blanco y Rosa 14K', gemstone: 'Argolla y Churumbela con Diamantes', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/rodrigo.png' },
   { id: 'nup-10', name: 'Eternity + Argolla | Silvia', category: 'Nupciales', material: 'Oro Blanco 14K', gemstone: 'Argolla Plana con Diamantes', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/silvia.png' },
   
+  // 12 Colecciones Oficiales de Anillos (jacquelinetapiajoyeria.com/product-category/anillos/)
+  { id: 'an-1', name: 'Anillo | Carlos', category: 'Anillos', material: 'Oro 14K', gemstone: 'Esmeralda Natural', price: 'Cotización personalizada', image: '/images/anillos_coleccion/carlos.png' },
+  { id: 'an-2', name: 'Anillo | Colección', category: 'Anillos', material: 'Oro 14K', gemstone: 'Diseño Abeja con Diamantes', price: 'Cotización personalizada', image: '/images/anillos_coleccion/coleccion.png' },
+  { id: 'an-3', name: 'Anillo | Gustavo', category: 'Anillos', material: 'Oro Rosa 14K', gemstone: 'Diamantes Naturales', price: 'Cotización personalizada', image: '/images/anillos_coleccion/gustavo.png' },
+  { id: 'an-4', name: 'Anillo | Paty', category: 'Anillos', material: 'Oro 14K', gemstone: 'Zafiro Oval y Diamantes', price: 'Cotización personalizada', image: '/images/anillos_coleccion/paty.png' },
+  { id: 'an-5', name: 'Anillo | Rodolfo', category: 'Anillos', material: 'Oro 14K', gemstone: 'Zafiro y Diamantes', price: 'Cotización personalizada', image: '/images/anillos_coleccion/rodolfo.png' },
+  { id: 'an-6', name: 'Anillo | Silvia', category: 'Anillos', material: 'Oro 14K', gemstone: 'Perla Natural y Diamantes', price: 'Cotización personalizada', image: '/images/anillos_coleccion/silvia.png' },
+  { id: 'an-7', name: 'Anillo Apatita | Jaquelín', category: 'Anillos', material: 'Oro 14K', gemstone: 'Apatita Corte Princess', price: 'Cotización personalizada', image: '/images/anillos_coleccion/jaquelin.png' },
+  { id: 'an-8', name: 'Anillo con Diamantes | Pablo', category: 'Anillos', material: 'Oro Blanco 14K', gemstone: 'Diamantes Corte Brillante', price: 'Cotización personalizada', image: '/images/anillos_coleccion/pablo.png' },
+  { id: 'an-9', name: 'Anillo de Compromiso | David', category: 'Anillos', material: 'Oro Amarillo 14K', gemstone: 'Esmeralda Natural', price: 'Cotización personalizada', image: '/images/anillos_coleccion/david.png' },
+  { id: 'an-10', name: 'Anillo Esmeralda | Laura', category: 'Anillos', material: 'Oro 14K', gemstone: 'Esmeralda y Diamantes Laterales', price: 'Cotización personalizada', image: '/images/anillos_coleccion/laura.png' },
+  { id: 'an-11', name: 'Anillo Esmeralda | Lore', category: 'Anillos', material: 'Oro 14K', gemstone: 'Esmeralda Natural Certificada', price: 'Cotización personalizada', image: '/images/anillos_coleccion/lore.png' },
+  { id: 'an-12', name: 'Anillo Esmeralda | Samantha', category: 'Anillos', material: 'Oro 14K', gemstone: 'Esmeralda y Halo de Diamantes', price: 'Cotización personalizada', image: '/images/anillos_coleccion/samantha.png' },
+  
   // Categorías complementarias
-  { id: 'an-1', name: 'Anillo Calado Pavé', category: 'Anillos', material: 'Oro Blanco 18K', gemstone: 'Diamantes', price: '$26,000 MXN', image: '/images/anillos.png' },
   { id: 'arg-1', name: 'Conjunto Argollas | Monse', category: 'Argollas', material: 'Oro 14K Grabado', gemstone: 'Diamantes', price: '$42,500 MXN', image: '/images/argollas.png' },
   { id: 'dj-1', name: 'Dije | Marta', category: 'Dijes', material: 'Oro 14K Blanco', gemstone: 'Esmeralda Natural y Halo de Diamantes', price: '$18,900 MXN', image: '/images/dijes.png' },
   { id: 'br-1', name: 'Broquel | Mariajo', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Zafiro Natural y Diamantes', price: '$14,200 MXN', image: '/images/broqueles.png' },
