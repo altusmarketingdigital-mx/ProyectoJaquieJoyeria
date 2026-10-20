@@ -82,8 +82,24 @@ const defaultCatalog = [
   { id: 'dj-10', name: 'Dije | Roger', category: 'Dijes', material: 'Oro Blanco 14K', gemstone: 'Zafiro y Diamantes', price: 'Cotización personalizada', image: '/images/dijes_coleccion/roger.png' },
   { id: 'dj-11', name: 'Dije Cruz | Victor', category: 'Dijes', material: 'Oro Blanco 14K', gemstone: 'Cruz de Diamantes Naturales', price: 'Cotización personalizada', image: '/images/dijes_coleccion/victor.png' },
   
+  // 15 Colecciones Oficiales de Broqueles (jacquelinetapiajoyeria.com/product-category/broqueles/)
+  { id: 'br-1', name: 'Aretes | Maru', category: 'Broqueles', material: 'Oro 14K Amarillo', gemstone: 'Perlas Cultivadas y Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/maru.png' },
+  { id: 'br-2', name: 'Broquel | Alma', category: 'Broqueles', material: 'Oro 14K Amarillo', gemstone: 'Diseño Floral con Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/alma.png' },
+  { id: 'br-3', name: 'Broquel | César', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Esmeralda Natural Corte Oval', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/cesar.png' },
+  { id: 'br-4', name: 'Broquel | Jaime', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Zafiro Natural y Halo de Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/jaime.png' },
+  { id: 'br-5', name: 'Broquel | Laura', category: 'Broqueles', material: 'Oro 14K Rosa', gemstone: 'Diamantes Naturales', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/laura.png' },
+  { id: 'br-6', name: 'Broquel | Mariajo (Zafiro)', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Zafiro Natural y Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/mariajo-zafiro.png' },
+  { id: 'br-7', name: 'Broquel | Mariajo (Diamante)', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Diamante Natural Solitario y Halo', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/mariajo-diamante.png' },
+  { id: 'br-8', name: 'Broquel | Mariajo (Esmeralda)', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Esmeralda Natural y Halo de Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/mariajo-esmeralda.png' },
+  { id: 'br-9', name: 'Broquel | Marta', category: 'Broqueles', material: 'Oro 14K Rosa', gemstone: 'Morganita Natural y Halo de Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/marta.png' },
+  { id: 'br-10', name: 'Broquel | Mony', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Diamantes Pavé', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/mony.png' },
+  { id: 'br-11', name: 'Broquel | Ricardo', category: 'Broqueles', material: 'Oro 14K Amarillo', gemstone: 'Zafiro Central y Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/ricardo.png' },
+  { id: 'br-12', name: 'Broquel | Roger', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Zafiros Azules y Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/roger.png' },
+  { id: 'br-13', name: 'Broquel 2 en 1 | Ana', category: 'Broqueles', material: 'Oro 14K Amarillo', gemstone: 'Diseño Desmontable con Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/ana-2en1.png' },
+  { id: 'br-14', name: 'Broquel | Sofi', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Diamantes Naturales', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/sofi.png' },
+  { id: 'br-15', name: 'Huggie | Sofi', category: 'Broqueles', material: 'Oro 14K Amarillo', gemstone: 'Arracada / Huggie con Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/huggie-sofi.png' },
+  
   // Categorías complementarias
-  { id: 'br-1', name: 'Broquel | Mariajo', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Zafiro Natural y Diamantes', price: '$14,200 MXN', image: '/images/broqueles.png' },
   { id: 'esp-1', name: 'Anillo Gemelas Morganita', category: 'Especiales', material: 'Oro Rosa 14K', gemstone: 'Morganitas Naturales y Pavé', price: '$24,500 MXN', image: '/images/especiales.png' },
   { id: 'man-1', name: 'Mancuernillas Huella', category: 'Mancuernillas', material: 'Oro Blanco y Rosa 14K', gemstone: 'Grabado dactilar de alta precisión', price: '$19,800 MXN', image: '/images/mancuernillas.png' }
 ];
