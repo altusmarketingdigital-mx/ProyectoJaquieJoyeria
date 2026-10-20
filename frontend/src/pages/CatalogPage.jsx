@@ -33,8 +33,19 @@ const defaultCatalog = [
   { id: 'ch-11', name: 'Media Churumbela | Bere', category: 'Churumbelas', material: 'Oro 14K', gemstone: 'Diamantes Corte Brillante', price: 'Cotización personalizada', image: '/images/churumbelas/media_bere.png' },
   { id: 'ch-12', name: 'Media Churumbela | Blanca', category: 'Churumbelas', material: 'Oro 14K', gemstone: 'Zafiros de Colores', price: 'Cotización personalizada', image: '/images/churumbelas/media_blanca.png' },
   
+  // 10 Colecciones Oficiales Nupciales (jacquelinetapiajoyeria.com/product-category/nupciales/)
+  { id: 'nup-1', name: 'Argolla + Churumbela | Mateo', category: 'Nupciales', material: 'Oro 14K Blanco y Rosa', gemstone: 'Diamantes Naturales', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/mateo.png' },
+  { id: 'nup-2', name: 'Argolla con Eternity | Tello', category: 'Nupciales', material: 'Oro 14K Amarillo y Blanco', gemstone: 'Diamantes en Eternity', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/tello.png' },
+  { id: 'nup-3', name: 'Conjunto Argollas | Monse', category: 'Nupciales', material: 'Oro 14K Blanco y Rosa', gemstone: 'Diamantes Certificados', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/monse.png' },
+  { id: 'nup-4', name: 'Eternity + Anillo | Claudia', category: 'Nupciales', material: 'Oro Blanco 14K', gemstone: 'Solitario con Diamantes en Eternity', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/claudia.png' },
+  { id: 'nup-5', name: 'Eternity + Anillo | Jaime', category: 'Nupciales', material: 'Oro Amarillo 14K', gemstone: 'Solitario y Churumbela con Diamantes', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/jaime.png' },
+  { id: 'nup-6', name: 'Eternity + Argolla | Alex', category: 'Nupciales', material: 'Oro Blanco 14K', gemstone: 'Media Caña y Diamantes', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/alex.png' },
+  { id: 'nup-7', name: 'Eternity + Argolla | Brenda', category: 'Nupciales', material: 'Oro Blanco 14K', gemstone: 'Argolla Plana y Diamantes', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/brenda.png' },
+  { id: 'nup-8', name: 'Eternity + Argolla | Mariajo', category: 'Nupciales', material: 'Oro Blanco 14K', gemstone: 'Media Caña y Eternity Completa', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/mariajo.png' },
+  { id: 'nup-9', name: 'Eternity + Argolla | Rodrigo', category: 'Nupciales', material: 'Oro Blanco y Rosa 14K', gemstone: 'Argolla y Churumbela con Diamantes', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/rodrigo.png' },
+  { id: 'nup-10', name: 'Eternity + Argolla | Silvia', category: 'Nupciales', material: 'Oro Blanco 14K', gemstone: 'Argolla Plana con Diamantes', price: 'Cotización personalizada', image: '/images/nupciales_coleccion/silvia.png' },
+  
   // Categorías complementarias
-  { id: 'nup-1', name: 'Alianza Dúo Nupcial', category: 'Nupciales', material: 'Oro 14K Blanco y Rosa', gemstone: 'Diamantes Naturales', price: '$38,500 MXN', image: '/images/nupciales.png' },
   { id: 'an-1', name: 'Anillo Calado Pavé', category: 'Anillos', material: 'Oro Blanco 18K', gemstone: 'Diamantes', price: '$26,000 MXN', image: '/images/anillos.png' },
   { id: 'arg-1', name: 'Conjunto Argollas | Monse', category: 'Argollas', material: 'Oro 14K Grabado', gemstone: 'Diamantes', price: '$42,500 MXN', image: '/images/argollas.png' },
   { id: 'dj-1', name: 'Dije | Marta', category: 'Dijes', material: 'Oro 14K Blanco', gemstone: 'Esmeralda Natural y Halo de Diamantes', price: '$18,900 MXN', image: '/images/dijes.png' },
