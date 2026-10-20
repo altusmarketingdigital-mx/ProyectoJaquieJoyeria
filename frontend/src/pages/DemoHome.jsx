@@ -579,7 +579,7 @@ export default function DemoHome() {
             <div className="footer-column">
               <h4>Nuestro trabajo</h4>
               <ul>
-                <li><a href="/#historias">Historias</a></li>
+                <li><Link to="/historias">Historias & Journal</Link></li>
                 <li><Link to="/catalog?categoria=Anillos+de+compromiso">Anillos de Compromiso</Link></li>
                 <li><Link to="/catalog?categoria=Churumbelas">Churumbelas</Link></li>
                 <li><Link to="/catalog?categoria=Argollas">Argollas Nupciales</Link></li>

@@ -4,6 +4,7 @@ import LoginPage from './pages/LoginPage';
 import CatalogPage from './pages/CatalogPage';
 import GemasPage from './pages/GemasPage';
 import AboutPage from './pages/AboutPage';
+import HistoriasPage from './pages/HistoriasPage';
 import AdminDashboard from './pages/AdminDashboard';
 import OrderFlow from './pages/OrderFlow';
 import QuotationView from './pages/QuotationView';
@@ -38,6 +39,8 @@ export default function App() {
         <Route path="/our-materials" element={<Navigate to="/gemas" replace />} />
         <Route path="/acerca-de" element={<AboutPage />} />
         <Route path="/our-story" element={<Navigate to="/acerca-de" replace />} />
+        <Route path="/historias" element={<HistoriasPage />} />
+        <Route path="/journal" element={<Navigate to="/historias" replace />} />
         <Route
           path="/admin"
           element={
