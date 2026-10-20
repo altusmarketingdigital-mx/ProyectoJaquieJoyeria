@@ -59,8 +59,17 @@ const defaultCatalog = [
   { id: 'an-11', name: 'Anillo Esmeralda | Lore', category: 'Anillos', material: 'Oro 14K', gemstone: 'Esmeralda Natural Certificada', price: 'Cotización personalizada', image: '/images/anillos_coleccion/lore.png' },
   { id: 'an-12', name: 'Anillo Esmeralda | Samantha', category: 'Anillos', material: 'Oro 14K', gemstone: 'Esmeralda y Halo de Diamantes', price: 'Cotización personalizada', image: '/images/anillos_coleccion/samantha.png' },
   
+  // 8 Colecciones Oficiales de Argollas (jacquelinetapiajoyeria.com/product-category/argollas/)
+  { id: 'arg-1', name: 'Argolla | Fernando', category: 'Argollas', material: 'Oro 14K Amarillo', gemstone: 'Diseño Plano Confort', price: 'Cotización personalizada', image: '/images/argollas_coleccion/fernando.png' },
+  { id: 'arg-2', name: 'Argolla | Juan Pablo', category: 'Argollas', material: 'Oro 14K Amarillo', gemstone: 'Diseño Media Caña Clásico', price: 'Cotización personalizada', image: '/images/argollas_coleccion/juan_pablo.png' },
+  { id: 'arg-3', name: 'Argolla | Mateo', category: 'Argollas', material: 'Oro 14K Blanco y Rosa', gemstone: 'Acabado Mate Cepillado', price: 'Cotización personalizada', image: '/images/argollas_coleccion/mateo.png' },
+  { id: 'arg-4', name: 'Argolla | Monse', category: 'Argollas', material: 'Oro 14K', gemstone: 'Grabado Personalizado', price: 'Cotización personalizada', image: '/images/argollas_coleccion/monse.png' },
+  { id: 'arg-5', name: 'Argolla | Olivia', category: 'Argollas', material: 'Oro 14K Blanco', gemstone: 'Diamantes Naturales en Pavé', price: 'Cotización personalizada', image: '/images/argollas_coleccion/olivia.png' },
+  { id: 'arg-6', name: 'Argolla | Roberto', category: 'Argollas', material: 'Oro 14K Blanco', gemstone: 'Diseño Media Caña Satinado', price: 'Cotización personalizada', image: '/images/argollas_coleccion/roberto.png' },
+  { id: 'arg-7', name: 'Argolla | Tello', category: 'Argollas', material: 'Oro 14K Amarillo', gemstone: 'Diamante Central Incrustado', price: 'Cotización personalizada', image: '/images/argollas_coleccion/tello.png' },
+  { id: 'arg-8', name: 'Argolla con Diamantes | Sofia', category: 'Argollas', material: 'Oro 14K Blanco', gemstone: 'Diamantes Corte Brillante', price: 'Cotización personalizada', image: '/images/argollas_coleccion/sofia.png' },
+  
   // Categorías complementarias
-  { id: 'arg-1', name: 'Conjunto Argollas | Monse', category: 'Argollas', material: 'Oro 14K Grabado', gemstone: 'Diamantes', price: '$42,500 MXN', image: '/images/argollas.png' },
   { id: 'dj-1', name: 'Dije | Marta', category: 'Dijes', material: 'Oro 14K Blanco', gemstone: 'Esmeralda Natural y Halo de Diamantes', price: '$18,900 MXN', image: '/images/dijes.png' },
   { id: 'br-1', name: 'Broquel | Mariajo', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Zafiro Natural y Diamantes', price: '$14,200 MXN', image: '/images/broqueles.png' },
   { id: 'esp-1', name: 'Anillo Gemelas Morganita', category: 'Especiales', material: 'Oro Rosa 14K', gemstone: 'Morganitas Naturales y Pavé', price: '$24,500 MXN', image: '/images/especiales.png' },
