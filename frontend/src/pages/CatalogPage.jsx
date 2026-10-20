@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import './CatalogPage.css';
 
 // Official pieces matching Jacqueline Tapia Joyería reference catalogue
@@ -290,6 +291,7 @@ export default function CatalogPage() {
           </>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

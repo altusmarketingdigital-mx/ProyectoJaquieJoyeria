@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import { 
   Heart, 
   Sparkles, 
@@ -226,6 +227,8 @@ export default function HistoriasPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
