@@ -10,9 +10,9 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'Inicio', path: '/' },
-    { name: 'Acerca de', path: '/#acerca-de' },
+    { name: 'Acerca de', path: '/acerca-de' },
     { name: 'Catálogo', path: '/catalog' },
-    { name: 'Gemas', path: '/#gemas' },
+    { name: 'Gemas', path: '/gemas' },
     { name: 'Historias', path: '/#historias' },
     { name: 'Contacto', path: '/#contacto' },
   ];
@@ -25,7 +25,7 @@ export default function Navbar() {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else if (path === '/catalog') {
+    } else if (path === '/catalog' || path === '/gemas' || path === '/acerca-de') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -36,6 +36,12 @@ export default function Navbar() {
     }
     if (itemPath.includes('#')) {
       return location.hash === itemPath.substring(itemPath.indexOf('#'));
+    }
+    if (itemPath === '/gemas') {
+      return location.pathname === '/gemas';
+    }
+    if (itemPath === '/acerca-de') {
+      return location.pathname === '/acerca-de';
     }
     return location.pathname.startsWith(itemPath);
   };

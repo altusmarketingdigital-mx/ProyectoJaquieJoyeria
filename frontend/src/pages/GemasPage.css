@@ -1,0 +1,429 @@
+.jt-gemas-page {
+  background-color: var(--color-bg, #FAFAF7);
+  color: var(--color-text-main, #2C2C2C);
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.jt-gemas-hero {
+  padding: 120px 0 40px 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F3EF 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.gemas-hero-content {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.gemas-hero-title {
+  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #1A1A1A;
+  margin: 12px 0 16px 0;
+}
+
+.gemas-hero-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #666666;
+  margin-bottom: 32px;
+}
+
+/* Tabs */
+.gemas-filter-tabs {
+  display: inline-flex;
+  gap: 8px;
+  background: #FFFFFF;
+  padding: 6px;
+  border-radius: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid #ECEAE4;
+}
+
+.gemas-tab {
+  border: none;
+  background: transparent;
+  padding: 10px 22px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666666;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.gemas-tab:hover {
+  color: #1A1A1A;
+}
+
+.gemas-tab.active {
+  background: #2C2A29;
+  color: #FFFFFF;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Featured Gem Card (Viewer) */
+.jt-gema-viewer-section {
+  padding: 60px 0 40px 0;
+}
+
+.gema-featured-card {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  background: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid #EAE7E1;
+  min-height: 480px;
+}
+
+.gema-featured-image-wrap {
+  position: relative;
+  background: #F8F6F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.gema-featured-image {
+  width: 100%;
+  max-width: 360px;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease;
+}
+
+.gema-featured-image:hover {
+  transform: scale(1.03);
+}
+
+.gema-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  color: #8C6D58;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-radius: 20px;
+  border: 1px solid rgba(140, 109, 88, 0.2);
+}
+
+.gema-featured-info {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gema-highlight-label {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #CB9274;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.gema-featured-name {
+  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 6px 0;
+}
+
+.gema-tagline {
+  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #8C6D58;
+  margin-bottom: 20px;
+}
+
+.gema-full-description {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #555555;
+  margin-bottom: 28px;
+}
+
+.gema-specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: #FBF9F5;
+  border: 1px solid #ECE7DF;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.spec-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #888888;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.spec-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.spec-value-colors {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #2C2C2C;
+  line-height: 1.4;
+}
+
+.spec-sub {
+  font-size: 0.75rem;
+  color: #999999;
+  margin-top: 2px;
+}
+
+.gema-featured-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Gem Grid Section */
+.jt-gemas-grid-section {
+  padding: 60px 0 80px 0;
+}
+
+.gemas-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.gema-card {
+  background: #FFFFFF;
+  border: 1px solid #ECE8E1;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.gema-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: #CB9274;
+}
+
+.gema-card.active-selected {
+  border: 2px solid #CB9274;
+  box-shadow: 0 8px 24px rgba(203, 146, 116, 0.2);
+}
+
+.gema-card-img-wrap {
+  position: relative;
+  background: #F8F6F2;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.gema-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gema-card:hover .gema-card-img {
+  transform: scale(1.05);
+}
+
+.gema-card-pill {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border-radius: 12px;
+  color: #777777;
+  text-transform: uppercase;
+}
+
+.gema-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.gema-card-title {
+  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #1A1A1A;
+  margin: 0 0 4px 0;
+}
+
+.gema-card-tagline {
+  font-size: 0.85rem;
+  color: #777777;
+  margin-bottom: 16px;
+  line-height: 1.4;
+  flex: 1;
+}
+
+.gema-card-meta {
+  border-top: 1px solid #F0EEE9;
+  padding-top: 12px;
+  margin-bottom: 14px;
+}
+
+.gema-meta-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.meta-lbl {
+  color: #999999;
+}
+
+.meta-val {
+  font-weight: 600;
+  color: #2C2C2C;
+}
+
+.gema-card-btn {
+  background: transparent;
+  border: 1px solid #E0DDD6;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #444444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.gema-card:hover .gema-card-btn,
+.gema-card.active-selected .gema-card-btn {
+  background: #2C2A29;
+  color: #FFFFFF;
+  border-color: #2C2A29;
+}
+
+/* Commitment Section */
+.jt-gemas-commitment-section {
+  padding: 0 0 80px 0;
+}
+
+.commitment-card {
+  background: linear-gradient(135deg, #2C2A29 0%, #1F1D1C 100%);
+  border-radius: 20px;
+  padding: 60px;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.commitment-text {
+  max-width: 680px;
+}
+
+.section-eyebrow-light {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #CB9274;
+  font-weight: 600;
+}
+
+.commitment-title {
+  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+  font-size: clamp(2rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  margin: 12px 0 16px 0;
+  color: #FFFFFF;
+}
+
+.commitment-desc {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #CCCCCC;
+  margin-bottom: 28px;
+}
+
+.commitment-badges {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.badge-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #E6D2C4;
+}
+
+.badge-item svg {
+  color: #CB9274;
+}
+
+@media (max-width: 992px) {
+  .gema-featured-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .gema-featured-image-wrap {
+    padding: 30px;
+  }
+
+  .gema-featured-info {
+    padding: 32px;
+  }
+
+  .commitment-card {
+    flex-direction: column;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .commitment-badges {
+    justify-content: center;
+  }
+}

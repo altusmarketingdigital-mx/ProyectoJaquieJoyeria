@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import CatalogPage from './pages/CatalogPage';
+import GemasPage from './pages/GemasPage';
+import AboutPage from './pages/AboutPage';
 import AdminDashboard from './pages/AdminDashboard';
 import OrderFlow from './pages/OrderFlow';
 import QuotationView from './pages/QuotationView';
@@ -32,6 +34,10 @@ export default function App() {
         <Route path="/" element={<DemoHome />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/gemas" element={<GemasPage />} />
+        <Route path="/our-materials" element={<Navigate to="/gemas" replace />} />
+        <Route path="/acerca-de" element={<AboutPage />} />
+        <Route path="/our-story" element={<Navigate to="/acerca-de" replace />} />
         <Route
           path="/admin"
           element={

@@ -420,10 +420,10 @@ export default function DemoHome() {
       )}
 
       {/* =========================================================================
-         2.8 FILOSOFÍA DE DISEÑO
+         2.8 FILOSOFÍA DE DISEÑO & GEMAS
          ========================================================================= */}
       {cms.designPhilosophy.enabled && (
-        <section className="jt-philosophy-section section-spacing">
+        <section id="gemas" className="jt-philosophy-section section-spacing">
           <div className="container">
             <div className="philosophy-header text-center">
               <span className="section-eyebrow">{cms.designPhilosophy.tagline}</span>
@@ -444,6 +444,9 @@ export default function DemoHome() {
                 <div className="pillar-icon"><Gem size={28} /></div>
                 <h3>Gemas Certificadas</h3>
                 <p>Diamantes naturales y gemas con corte de precisión y certificados de autenticidad.</p>
+                <Link to="/gemas" style={{ marginTop: '10px', display: 'inline-flex', alignItems: 'center', gap: '4px', fontSize: '0.85rem', color: '#CB9274', fontWeight: 600 }}>
+                  Conocer todas las Gemas <ChevronRight size={14} />
+                </Link>
               </div>
 
               <div className="philosophy-pillar">
@@ -565,8 +568,8 @@ export default function DemoHome() {
             <div className="footer-column">
               <h4>Nosotros</h4>
               <ul>
-                <li><a href="/#acerca-de">Acerca de</a></li>
-                <li><a href="/#gemas">Piedras</a></li>
+                <li><Link to="/acerca-de">Acerca de</Link></li>
+                <li><Link to="/gemas">Piedras & Gemas</Link></li>
                 <li><a href="/#contacto">Contacto</a></li>
                 <li><Link to="/order">Diseño Personalizado</Link></li>
               </ul>
