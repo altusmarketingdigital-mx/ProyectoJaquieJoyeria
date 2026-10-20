@@ -99,8 +99,13 @@ const defaultCatalog = [
   { id: 'br-14', name: 'Broquel | Sofi', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Diamantes Naturales', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/sofi.png' },
   { id: 'br-15', name: 'Huggie | Sofi', category: 'Broqueles', material: 'Oro 14K Amarillo', gemstone: 'Arracada / Huggie con Diamantes', price: 'Cotización personalizada', image: '/images/broqueles_coleccion/huggie-sofi.png' },
   
+  // 4 Colecciones Oficiales de Especiales (jacquelinetapiajoyeria.com/product-category/especiales/)
+  { id: 'esp-1', name: 'Anillo | Aguamarina', category: 'Especiales', material: 'Oro Blanco 14K', gemstone: 'Gema Aguamarina Natural y Diamantes', price: 'Cotización personalizada', image: '/images/especiales_coleccion/aguamarina.png' },
+  { id: 'esp-2', name: 'Anillo | Colección (Abeja)', category: 'Especiales', material: 'Oro 14K Amarillo', gemstone: 'Diseño Escultórico de Abeja con Gemas', price: 'Cotización personalizada', image: '/images/especiales_coleccion/abeja.png' },
+  { id: 'esp-3', name: 'Anillo | Silvia', category: 'Especiales', material: 'Oro 14K Amarillo', gemstone: 'Perla de Cultivo y Acentos de Diamantes', price: 'Cotización personalizada', image: '/images/especiales_coleccion/silvia.png' },
+  { id: 'esp-4', name: 'Anillo Morganitas | Lili', category: 'Especiales', material: 'Oro Rosa 14K', gemstone: 'Morganitas Naturales y Pavé de Diamantes', price: 'Cotización personalizada', image: '/images/especiales_coleccion/lili.png' },
+  
   // Categorías complementarias
-  { id: 'esp-1', name: 'Anillo Gemelas Morganita', category: 'Especiales', material: 'Oro Rosa 14K', gemstone: 'Morganitas Naturales y Pavé', price: '$24,500 MXN', image: '/images/especiales.png' },
   { id: 'man-1', name: 'Mancuernillas Huella', category: 'Mancuernillas', material: 'Oro Blanco y Rosa 14K', gemstone: 'Grabado dactilar de alta precisión', price: '$19,800 MXN', image: '/images/mancuernillas.png' }
 ];
 
