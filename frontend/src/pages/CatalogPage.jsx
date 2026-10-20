@@ -19,8 +19,21 @@ const defaultCatalog = [
   { id: 'ac-11', name: 'Anillo de Compromiso | Ricky', category: 'Anillos de compromiso', material: 'Oro Rosa 14K', gemstone: 'Diamante Corte Oval', price: 'Cotización personalizada', image: '/images/anillos_compromiso/ricky.png' },
   { id: 'ac-12', name: 'Anillo de Compromiso | Roberto', category: 'Anillos de compromiso', material: 'Oro Blanco 18K', gemstone: 'Diamante Solitario 6 Uñas', price: 'Cotización personalizada', image: '/images/anillos_compromiso/roberto.png' },
   
+  // 12 Colecciones Oficiales de Churumbelas (jacquelinetapiajoyeria.com/product-category/churumbelas/)
+  { id: 'ch-1', name: 'Churumbela | Laura', category: 'Churumbelas', material: 'Oro 14K', gemstone: 'Diamantes Naturales', price: 'Cotización personalizada', image: '/images/churumbelas/laura.png' },
+  { id: 'ch-2', name: 'Churumbela | Sofia', category: 'Churumbelas', material: 'Oro 14K', gemstone: 'Diamantes en Canal', price: 'Cotización personalizada', image: '/images/churumbelas/sofia.png' },
+  { id: 'ch-3', name: 'Churumbela | V', category: 'Churumbelas', material: 'Oro 14K', gemstone: 'Diamantes Diseño Chevron V', price: 'Cotización personalizada', image: '/images/churumbelas/v.png' },
+  { id: 'ch-4', name: 'Eternity | Alejandra', category: 'Churumbelas', material: 'Oro Blanco 14K', gemstone: 'Diamantes Corte Completo', price: 'Cotización personalizada', image: '/images/churumbelas/alejandra.png' },
+  { id: 'ch-5', name: 'Eternity | Mariajo', category: 'Churumbelas', material: 'Oro Blanco 14K', gemstone: 'Diamantes Naturales', price: 'Cotización personalizada', image: '/images/churumbelas/mariajo.png' },
+  { id: 'ch-6', name: 'Eternity | Paco', category: 'Churumbelas', material: 'Oro de 14K', gemstone: 'Diamantes de 2.3 mm', price: 'Cotización personalizada', image: '/images/churumbelas/paco.png' },
+  { id: 'ch-7', name: 'Media Churumbela | Alejandra', category: 'Churumbelas', material: 'Oro 14K', gemstone: 'Moissanitas / Diamantes', price: 'Cotización personalizada', image: '/images/churumbelas/media_alejandra.png' },
+  { id: 'ch-8', name: 'Media Churumbela | Alejandro', category: 'Churumbelas', material: 'Oro Blanco 14K', gemstone: 'Diamantes en Bisel', price: 'Cotización personalizada', image: '/images/churumbelas/media_alejandro.png' },
+  { id: 'ch-9', name: 'Media Churumbela | Armando', category: 'Churumbelas', material: 'Oro 14K', gemstone: 'Zafiro y Moissanitas', price: 'Cotización personalizada', image: '/images/churumbelas/media_armando.png' },
+  { id: 'ch-10', name: 'Media Churumbela | Aurora', category: 'Churumbelas', material: 'Oro Blanco 14K', gemstone: 'Zafiro Azul y Diamantes', price: 'Cotización personalizada', image: '/images/churumbelas/media_aurora.png' },
+  { id: 'ch-11', name: 'Media Churumbela | Bere', category: 'Churumbelas', material: 'Oro 14K', gemstone: 'Diamantes Corte Brillante', price: 'Cotización personalizada', image: '/images/churumbelas/media_bere.png' },
+  { id: 'ch-12', name: 'Media Churumbela | Blanca', category: 'Churumbelas', material: 'Oro 14K', gemstone: 'Zafiros de Colores', price: 'Cotización personalizada', image: '/images/churumbelas/media_blanca.png' },
+  
   // Categorías complementarias
-  { id: 'ch-1', name: 'Eternity | Paco', category: 'Churumbelas', material: 'Oro de 14K', gemstone: 'Diamantes de 2.3 mm', price: '$32,000 MXN', image: '/images/churumbela.png' },
   { id: 'nup-1', name: 'Alianza Dúo Nupcial', category: 'Nupciales', material: 'Oro 14K Blanco y Rosa', gemstone: 'Diamantes Naturales', price: '$38,500 MXN', image: '/images/nupciales.png' },
   { id: 'an-1', name: 'Anillo Calado Pavé', category: 'Anillos', material: 'Oro Blanco 18K', gemstone: 'Diamantes', price: '$26,000 MXN', image: '/images/anillos.png' },
   { id: 'arg-1', name: 'Conjunto Argollas | Monse', category: 'Argollas', material: 'Oro 14K Grabado', gemstone: 'Diamantes', price: '$42,500 MXN', image: '/images/argollas.png' },
