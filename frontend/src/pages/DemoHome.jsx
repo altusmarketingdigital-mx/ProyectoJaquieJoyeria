@@ -570,7 +570,7 @@ export default function DemoHome() {
               <ul>
                 <li><Link to="/acerca-de">Acerca de</Link></li>
                 <li><Link to="/gemas">Piedras & Gemas</Link></li>
-                <li><a href="/#contacto">Contacto</a></li>
+                <li><Link to="/contacto">Contacto</Link></li>
                 <li><Link to="/order">Diseño Personalizado</Link></li>
               </ul>
             </div>

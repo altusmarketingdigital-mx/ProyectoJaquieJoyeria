@@ -14,7 +14,7 @@ export default function Navbar() {
     { name: 'Catálogo', path: '/catalog' },
     { name: 'Gemas', path: '/gemas' },
     { name: 'Historias', path: '/historias' },
-    { name: 'Contacto', path: '/#contacto' },
+    { name: 'Contacto', path: '/contacto' },
   ];
 
   const handleNavClick = (path) => {
@@ -25,7 +25,7 @@ export default function Navbar() {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
-    } else if (path === '/catalog' || path === '/gemas' || path === '/acerca-de' || path === '/historias') {
+    } else if (path === '/catalog' || path === '/gemas' || path === '/acerca-de' || path === '/historias' || path === '/contacto') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
@@ -45,6 +45,9 @@ export default function Navbar() {
     }
     if (itemPath === '/historias') {
       return location.pathname === '/historias';
+    }
+    if (itemPath === '/contacto') {
+      return location.pathname === '/contacto';
     }
     return location.pathname.startsWith(itemPath);
   };

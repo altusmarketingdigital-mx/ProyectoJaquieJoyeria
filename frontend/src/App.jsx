@@ -5,6 +5,7 @@ import CatalogPage from './pages/CatalogPage';
 import GemasPage from './pages/GemasPage';
 import AboutPage from './pages/AboutPage';
 import HistoriasPage from './pages/HistoriasPage';
+import ContactPage from './pages/ContactPage';
 import AdminDashboard from './pages/AdminDashboard';
 import OrderFlow from './pages/OrderFlow';
 import QuotationView from './pages/QuotationView';
@@ -41,6 +42,8 @@ export default function App() {
         <Route path="/our-story" element={<Navigate to="/acerca-de" replace />} />
         <Route path="/historias" element={<HistoriasPage />} />
         <Route path="/journal" element={<Navigate to="/historias" replace />} />
+        <Route path="/contacto" element={<ContactPage />} />
+        <Route path="/contact-us" element={<Navigate to="/contacto" replace />} />
         <Route
           path="/admin"
           element={
