@@ -9,35 +9,48 @@ import {
   MessageCircle, 
   Award,
   Layers,
-  ChevronRight
+  ChevronRight,
+  X
 } from 'lucide-react';
 import gemasData from '../data/gemasData.json';
 import './GemasPage.css';
 
 export default function GemasPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const initialGemaId = searchParams.get('piedra') || 'diamante';
-  const [selectedGemaId, setSelectedGemaId] = useState(initialGemaId);
+  const [modalGema, setModalGema] = useState(null);
   const [activeTab, setActiveTab] = useState('Todas'); // 'Todas', 'Piedra Preciosa', 'Piedra Semi preciosa'
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  // Close modal with ESC key
   useEffect(() => {
-    const p = searchParams.get('piedra');
-    if (p) setSelectedGemaId(p);
-  }, [searchParams]);
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setModalGema(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
-  const selectedGema = gemasData.find(g => g.id === selectedGemaId) || gemasData[0];
-
-  const handleSelectGema = (id) => {
-    setSelectedGemaId(id);
-    setSearchParams({ piedra: id });
-    const viewer = document.getElementById('gema-viewer');
-    if (viewer) {
-      viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  // Prevent background scroll when modal is open
+  useEffect(() => {
+    if (modalGema) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
     }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [modalGema]);
+
+  const handleOpenModal = (gem) => {
+    setModalGema(gem);
+  };
+
+  const handleCloseModal = () => {
+    setModalGema(null);
   };
 
   const filteredGemas = activeTab === 'Todas'
@@ -86,90 +99,24 @@ export default function GemasPage() {
         </div>
       </section>
 
-      {/* Featured Gem Viewer (Ficha Técnica Interactiva) */}
-      <section id="gema-viewer" className="jt-gema-viewer-section">
-        <div className="container">
-          <div className="gema-featured-card">
-            <div className="gema-featured-image-wrap">
-              <img 
-                src={selectedGema.image} 
-                alt={selectedGema.name} 
-                className="gema-featured-image"
-                onError={(e) => {
-                  e.target.src = '/images/ring.png';
-                }}
-              />
-              <span className="gema-badge">{selectedGema.type}</span>
-            </div>
-
-            <div className="gema-featured-info">
-              <div className="gema-featured-header">
-                <span className="gema-highlight-label">{selectedGema.highlight}</span>
-                <h2 className="gema-featured-name">{selectedGema.name}</h2>
-                <p className="gema-tagline">"{selectedGema.tagline}"</p>
-              </div>
-
-              <p className="gema-full-description">
-                {selectedGema.description}
-              </p>
-
-              <div className="gema-specs-grid">
-                <div className="gema-spec-box">
-                  <div className="spec-label">Escala de Mohs</div>
-                  <div className="spec-value">{selectedGema.mohs}</div>
-                  <div className="spec-sub">Resistencia al rayado</div>
-                </div>
-
-                <div className="gema-spec-box">
-                  <div className="spec-label">Colores Disponibles</div>
-                  <div className="spec-value-colors">{selectedGema.colors}</div>
-                  <div className="spec-sub">Tonalidades naturales</div>
-                </div>
-              </div>
-
-              <div className="gema-featured-actions">
-                <Link 
-                  to={`/catalog?categoria=${encodeURIComponent(selectedGema.catalogCategory || 'Todos')}`} 
-                  className="btn-premium filled"
-                >
-                  Ver Piezas con {selectedGema.name}
-                  <ArrowRight size={16} style={{ marginLeft: '8px' }} />
-                </Link>
-
-                <a 
-                  href={`https://wa.me/523315206300?text=${encodeURIComponent(`Hola Jacqueline Tapia Joyería, deseo cotizar una joya personalizada montada con ${selectedGema.name}.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-premium gold"
-                >
-                  <MessageCircle size={16} style={{ marginRight: '8px' }} />
-                  Cotizar con {selectedGema.name}
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Grid of All Gems (Colección Completa de Gemas) */}
       <section className="jt-gemas-grid-section">
         <div className="container">
           <div className="section-header-center">
             <span className="section-eyebrow">Exploración de Gemas</span>
-            <h2 className="section-heading">Selecciona una Gema para Conocer sus Detalles</h2>
+            <h2 className="section-heading">Selecciona una Gema para Conocer sus Características</h2>
             <p className="section-subheading">
-              Haz click en cualquiera de las gemas para consultar su ficha técnica, dureza y piezas disponibles.
+              Haz click en "Ver Características" en cualquiera de las gemas para abrir su ficha técnica completa, dureza y piezas disponibles en pantalla emergente.
             </p>
           </div>
 
           <div className="gemas-cards-grid">
             {filteredGemas.map((gem) => {
-              const isSelected = gem.id === selectedGemaId;
               return (
                 <div 
                   key={gem.id} 
-                  className={`gema-card ${isSelected ? 'active-selected' : ''}`}
-                  onClick={() => handleSelectGema(gem.id)}
+                  className="gema-card"
+                  onClick={() => handleOpenModal(gem)}
                 >
                   <div className="gema-card-img-wrap">
                     <img 
@@ -190,13 +137,19 @@ export default function GemasPage() {
                     
                     <div className="gema-card-meta">
                       <div className="gema-meta-item">
-                        <span className="meta-lbl">Mohs:</span>
+                        <span className="meta-lbl">Escala Mohs:</span>
                         <span className="meta-val">{gem.mohs}</span>
                       </div>
                     </div>
 
-                    <button className="gema-card-btn">
-                      {isSelected ? 'Seleccionada' : 'Ver Características'}
+                    <button 
+                      className="gema-card-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleOpenModal(gem);
+                      }}
+                    >
+                      Ver Características
                       <ChevronRight size={14} />
                     </button>
                   </div>
@@ -206,6 +159,87 @@ export default function GemasPage() {
           </div>
         </div>
       </section>
+
+      {/* MODAL EMERGENTE DE CARACTERÍSTICAS DE LA GEMA */}
+      {modalGema && (
+        <div className="gema-modal-overlay" onClick={handleCloseModal}>
+          <div 
+            className="gema-modal-dialog fade-in-up" 
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+          >
+            <button 
+              className="gema-modal-close" 
+              onClick={handleCloseModal}
+              aria-label="Cerrar ventana"
+            >
+              <X size={22} />
+            </button>
+
+            <div className="gema-modal-content">
+              <div className="gema-modal-media">
+                <img 
+                  src={modalGema.image} 
+                  alt={modalGema.name} 
+                  className="gema-modal-image"
+                  onError={(e) => {
+                    e.target.src = '/images/ring.png';
+                  }}
+                />
+                <span className="gema-badge">{modalGema.type}</span>
+              </div>
+
+              <div className="gema-modal-info">
+                <div className="gema-featured-header">
+                  <span className="gema-highlight-label">{modalGema.highlight}</span>
+                  <h2 className="gema-modal-title">{modalGema.name}</h2>
+                  <p className="gema-tagline">"{modalGema.tagline}"</p>
+                </div>
+
+                <p className="gema-full-description">
+                  {modalGema.description}
+                </p>
+
+                <div className="gema-specs-grid">
+                  <div className="gema-spec-box">
+                    <div className="spec-label">Escala de Mohs</div>
+                    <div className="spec-value">{modalGema.mohs}</div>
+                    <div className="spec-sub">Resistencia y dureza al rayado</div>
+                  </div>
+
+                  <div className="gema-spec-box">
+                    <div className="spec-label">Colores Disponibles</div>
+                    <div className="spec-value-colors">{modalGema.colors}</div>
+                    <div className="spec-sub">Tonalidades y matices naturales</div>
+                  </div>
+                </div>
+
+                <div className="gema-featured-actions">
+                  <Link 
+                    to={`/catalog?categoria=${encodeURIComponent(modalGema.catalogCategory || 'Todos')}`} 
+                    className="btn-premium filled"
+                    onClick={handleCloseModal}
+                  >
+                    Ver Piezas con {modalGema.name}
+                    <ArrowRight size={16} style={{ marginLeft: '8px' }} />
+                  </Link>
+
+                  <a 
+                    href={`https://wa.me/523315206300?text=${encodeURIComponent(`Hola Jacqueline Tapia Joyería, deseo cotizar una joya personalizada montada con ${modalGema.name}.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-premium gold"
+                  >
+                    <MessageCircle size={16} style={{ marginRight: '8px' }} />
+                    Cotizar con {modalGema.name}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Orfebrería y Compromiso de Autenticidad */}
       <section className="jt-gemas-commitment-section">

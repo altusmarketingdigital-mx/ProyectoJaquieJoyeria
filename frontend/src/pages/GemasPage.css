@@ -404,26 +404,110 @@
   color: #CB9274;
 }
 
-@media (max-width: 992px) {
-  .gema-featured-card {
+/* Modal Emergente de Características */
+.gema-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(18, 17, 16, 0.72);
+  backdrop-filter: blur(6px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gema-modal-dialog {
+  background: #FFFFFF;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 880px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid #ECE7E1;
+}
+
+.gema-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #EAE7E1;
+  background: #FFFFFF;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.25s ease;
+}
+
+.gema-modal-close:hover {
+  background: #2C2A29;
+  color: #FFFFFF;
+  transform: rotate(90deg);
+}
+
+.gema-modal-content {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+}
+
+.gema-modal-media {
+  position: relative;
+  background: #F7F5F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.gema-modal-image {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.gema-modal-info {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gema-modal-title {
+  font-family: var(--font-heading, 'Playfair Display', Georgia, serif);
+  font-size: 2.3rem;
+  font-weight: 400;
+  color: #1A1A1A;
+  margin: 0 0 6px 0;
+}
+
+@media (max-width: 860px) {
+  .gema-modal-content {
     grid-template-columns: 1fr;
   }
-  
-  .gema-featured-image-wrap {
+
+  .gema-modal-media {
+    border-radius: 20px 20px 0 0;
     padding: 30px;
   }
 
-  .gema-featured-info {
-    padding: 32px;
-  }
-
-  .commitment-card {
-    flex-direction: column;
-    padding: 40px;
-    text-align: center;
-  }
-
-  .commitment-badges {
-    justify-content: center;
+  .gema-modal-info {
+    padding: 24px;
   }
 }
+
