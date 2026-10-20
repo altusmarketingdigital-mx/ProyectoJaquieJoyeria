@@ -69,8 +69,20 @@ const defaultCatalog = [
   { id: 'arg-7', name: 'Argolla | Tello', category: 'Argollas', material: 'Oro 14K Amarillo', gemstone: 'Diamante Central Incrustado', price: 'Cotización personalizada', image: '/images/argollas_coleccion/tello.png' },
   { id: 'arg-8', name: 'Argolla con Diamantes | Sofia', category: 'Argollas', material: 'Oro 14K Blanco', gemstone: 'Diamantes Corte Brillante', price: 'Cotización personalizada', image: '/images/argollas_coleccion/sofia.png' },
   
+  // 11 Colecciones Oficiales de Dijes (jacquelinetapiajoyeria.com/product-category/dijes/)
+  { id: 'dj-1', name: 'Dije | Ana', category: 'Dijes', material: 'Oro 14K Amarillo', gemstone: 'Rubí Natural y Diamantes', price: 'Cotización personalizada', image: '/images/dijes_coleccion/ana.png' },
+  { id: 'dj-2', name: 'Dije | Gilberto', category: 'Dijes', material: 'Oro Blanco 14K', gemstone: 'Zafiro Natural', price: 'Cotización personalizada', image: '/images/dijes_coleccion/gilberto.png' },
+  { id: 'dj-3', name: 'Dije | Julieta', category: 'Dijes', material: 'Oro Blanco 14K', gemstone: 'Zafiros Azules en Gradiente', price: 'Cotización personalizada', image: '/images/dijes_coleccion/julieta.png' },
+  { id: 'dj-4', name: 'Dije | Mariajo', category: 'Dijes', material: 'Oro Blanco 14K', gemstone: 'Esmeralda Natural y Halo de Diamantes', price: 'Cotización personalizada', image: '/images/dijes_coleccion/mariajo.png' },
+  { id: 'dj-5', name: 'Dije | Marilé', category: 'Dijes', material: 'Oro 14K Amarillo', gemstone: 'Diseño Orgánico con Diamantes', price: 'Cotización personalizada', image: '/images/dijes_coleccion/marile.png' },
+  { id: 'dj-6', name: 'Dije | Marlen', category: 'Dijes', material: 'Oro Blanco 14K', gemstone: 'Diamante Solitario', price: 'Cotización personalizada', image: '/images/dijes_coleccion/marlen.png' },
+  { id: 'dj-7', name: 'Dije | Marta', category: 'Dijes', material: 'Oro 14K Amarillo', gemstone: 'Zafiro Natural', price: 'Cotización personalizada', image: '/images/dijes_coleccion/marta.png' },
+  { id: 'dj-8', name: 'Dije | Paola', category: 'Dijes', material: 'Oro 14K', gemstone: 'Zafiros y Diamantes en Racimo', price: 'Cotización personalizada', image: '/images/dijes_coleccion/paola.png' },
+  { id: 'dj-9', name: 'Dije | Paulina', category: 'Dijes', material: 'Oro Blanco 14K', gemstone: 'Zafiro Oval y Diamantes', price: 'Cotización personalizada', image: '/images/dijes_coleccion/paulina.png' },
+  { id: 'dj-10', name: 'Dije | Roger', category: 'Dijes', material: 'Oro Blanco 14K', gemstone: 'Zafiro y Diamantes', price: 'Cotización personalizada', image: '/images/dijes_coleccion/roger.png' },
+  { id: 'dj-11', name: 'Dije Cruz | Victor', category: 'Dijes', material: 'Oro Blanco 14K', gemstone: 'Cruz de Diamantes Naturales', price: 'Cotización personalizada', image: '/images/dijes_coleccion/victor.png' },
+  
   // Categorías complementarias
-  { id: 'dj-1', name: 'Dije | Marta', category: 'Dijes', material: 'Oro 14K Blanco', gemstone: 'Esmeralda Natural y Halo de Diamantes', price: '$18,900 MXN', image: '/images/dijes.png' },
   { id: 'br-1', name: 'Broquel | Mariajo', category: 'Broqueles', material: 'Oro Blanco 14K', gemstone: 'Zafiro Natural y Diamantes', price: '$14,200 MXN', image: '/images/broqueles.png' },
   { id: 'esp-1', name: 'Anillo Gemelas Morganita', category: 'Especiales', material: 'Oro Rosa 14K', gemstone: 'Morganitas Naturales y Pavé', price: '$24,500 MXN', image: '/images/especiales.png' },
   { id: 'man-1', name: 'Mancuernillas Huella', category: 'Mancuernillas', material: 'Oro Blanco y Rosa 14K', gemstone: 'Grabado dactilar de alta precisión', price: '$19,800 MXN', image: '/images/mancuernillas.png' }
