@@ -256,19 +256,19 @@
 }
 
 .jt-category-tile {
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
+  background: transparent;
+  border: none;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   transition: all 0.4s ease;
   overflow: hidden;
+  box-shadow: 0 4px 15px rgba(5, 31, 52, 0.04);
 }
 
 .jt-category-tile:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(5, 31, 52, 0.08);
-  border-color: var(--color-accent-gold);
+  box-shadow: 0 15px 35px rgba(5, 31, 52, 0.12);
 }
 
 .tile-image-wrapper {
@@ -288,44 +288,62 @@
 }
 
 .jt-category-tile:hover .tile-image-wrapper img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .tile-hover-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(5, 31, 52, 0.45);
+  background: linear-gradient(180deg, rgba(5, 31, 52, 0.25) 0%, rgba(5, 31, 52, 0.75) 100%);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-align: center;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.35s ease;
 }
 
 .jt-category-tile:hover .tile-hover-overlay {
   opacity: 1;
 }
 
+.tile-overlay-title {
+  font-family: var(--font-heading);
+  font-size: 1.65rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  transform: translateY(10px);
+  transition: transform 0.35s ease;
+}
+
+.jt-category-tile:hover .tile-overlay-title {
+  transform: translateY(0);
+}
+
 .view-link {
   color: #ffffff;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-weight: 600;
-  background: var(--color-accent-navy);
+  background: var(--color-accent-gold);
   padding: 8px 18px;
+  border-radius: 2px;
+  transition: background 0.2s ease, transform 0.2s ease;
+  transform: translateY(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.tile-meta {
-  padding: 1.4rem 1rem;
-  text-align: center;
-  border-top: 1px solid var(--color-border);
+.jt-category-tile:hover .view-link {
+  transform: translateY(0);
 }
 
-.tile-name {
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  color: var(--color-text-primary);
-  margin: 0;
-  font-weight: 500;
+.view-link:hover {
+  background: var(--color-accent-gold-hover);
 }

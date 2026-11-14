@@ -224,11 +224,9 @@ export default function CatalogPage() {
                   <div className="tile-image-wrapper">
                     <img src={cat.image} alt={cat.name} loading="lazy" />
                     <div className="tile-hover-overlay">
+                      <h3 className="tile-overlay-title">{cat.name}</h3>
                       <span className="view-link">Ver Piezas</span>
                     </div>
-                  </div>
-                  <div className="tile-meta">
-                    <h3 className="tile-name">{cat.name}</h3>
                   </div>
                 </Link>
               ))}
