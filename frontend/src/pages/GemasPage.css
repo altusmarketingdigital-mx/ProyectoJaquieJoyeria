@@ -208,14 +208,14 @@
 
 /* Gem Grid Section */
 .jt-gemas-grid-section {
-  padding: 60px 0 80px 0;
+  padding: 30px 0 80px 0;
 }
 
 .gemas-cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 24px;
-  margin-top: 40px;
+  margin-top: 0;
 }
 
 .gema-card {

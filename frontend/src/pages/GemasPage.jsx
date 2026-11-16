@@ -103,14 +103,6 @@ export default function GemasPage() {
       {/* Grid of All Gems (Colección Completa de Gemas) */}
       <section className="jt-gemas-grid-section">
         <div className="container">
-          <div className="section-header-center">
-            <span className="section-eyebrow">Exploración de Gemas</span>
-            <h2 className="section-heading">Selecciona una Gema para Conocer sus Características</h2>
-            <p className="section-subheading">
-              Haz click en "Ver Características" en cualquiera de las gemas para abrir su ficha técnica completa, dureza y piezas disponibles en pantalla emergente.
-            </p>
-          </div>
-
           <div className="gemas-cards-grid">
             {filteredGemas.map((gem) => {
               return (
@@ -254,6 +246,7 @@ export default function GemasPage() {
                 Trabajamos con diamantes con certificación internacional y gemas naturales de la más alta gama, 
                 garantizando piezas que trascienden generaciones.
               </p>
+
               <div className="commitment-badges">
                 <div className="badge-item">
                   <ShieldCheck size={20} />
