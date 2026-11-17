@@ -6,29 +6,50 @@ import {
   Sparkles, 
   ShieldCheck, 
   ArrowRight, 
-  SlidersHorizontal, 
   MessageCircle, 
-  Award,
+  Award, 
+  ChevronRight, 
+  X,
   Layers,
-  ChevronRight,
-  X
+  Compass,
+  CheckCircle2,
+  Gem,
+  ShoppingBag,
+  Info
 } from 'lucide-react';
 import gemasData from '../data/gemasData.json';
+import looseStonesData from '../data/looseStonesData.json';
+import catalogData from '../data/catalogData.json';
 import './GemasPage.css';
 
 export default function GemasPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [modalGema, setModalGema] = useState(null);
   const [activeTab, setActiveTab] = useState('Todas'); // 'Todas', 'Piedra Preciosa', 'Piedra Semi preciosa'
+  
+  // Modal internal view tab: 'stones' (default, piedras disponibles) or 'pieces' (piezas terminadas)
+  const [modalView, setModalView] = useState('stones'); 
+  const [selectedStone, setSelectedStone] = useState(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  // Check URL query param to open modal directly (e.g. /gemas?gema=diamante)
+  useEffect(() => {
+    const gemParam = searchParams.get('gema');
+    if (gemParam) {
+      const found = gemasData.find(g => g.id.toLowerCase() === gemParam.toLowerCase());
+      if (found) {
+        handleOpenModal(found);
+      }
+    }
+  }, [searchParams]);
+
   // Close modal with ESC key
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape') setModalGema(null);
+      if (e.key === 'Escape') handleCloseModal();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
@@ -48,10 +69,17 @@ export default function GemasPage() {
 
   const handleOpenModal = (gem) => {
     setModalGema(gem);
+    setModalView('stones'); // Always default to available loose stones as requested!
+    setSelectedStone(null);
   };
 
   const handleCloseModal = () => {
     setModalGema(null);
+    setSelectedStone(null);
+    if (searchParams.get('gema')) {
+      searchParams.delete('gema');
+      setSearchParams(searchParams);
+    }
   };
 
   const filteredGemas = activeTab === 'Todas'
@@ -61,6 +89,18 @@ export default function GemasPage() {
   const preciosas = gemasData.filter(g => g.type === 'Piedra Preciosa');
   const semiPreciosas = gemasData.filter(g => g.type === 'Piedra Semi preciosa');
 
+  // Compute loose stones and matching finished pieces for currently opened gema
+  const currentLooseStones = modalGema ? (looseStonesData[modalGema.id] || []) : [];
+  
+  const currentFinishedPieces = modalGema 
+    ? catalogData.filter(piece => {
+        const normGemName = modalGema.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        const normPieceGem = (piece.gemstone || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        const normPieceName = (piece.name || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        return normPieceGem.includes(normGemName) || normPieceName.includes(normGemName);
+      })
+    : [];
+
   return (
     <div className="jt-gemas-page">
       <Navbar />
@@ -69,11 +109,12 @@ export default function GemasPage() {
       <section className="jt-gemas-hero">
         <div className="container">
           <div className="gemas-hero-content text-center">
-            <span className="section-eyebrow">Guía de Materiales & Gemología</span>
+            <span className="section-eyebrow">Guía de Materiales & Gemología Orfebre</span>
             <h1 className="gemas-hero-title">Nuestras Gemas</h1>
             <p className="gemas-hero-desc">
-              Cada piedra cuenta una historia geológica única. Conoce la pureza, dureza, colores y virtudes 
-              de las piedras preciosas y semipreciosas seleccionadas artesanalmente para cada una de nuestras piezas.
+              Cada piedra cuenta una historia geológica irrepetible. Explora nuestro inventario de piedras 
+              preciosas y semipreciosas sueltas para confeccionar tu joya exclusiva sobre medida, o descubre 
+              piezas terminadas de nuestra colección.
             </p>
 
             <div className="gemas-filter-tabs">
@@ -100,11 +141,12 @@ export default function GemasPage() {
         </div>
       </section>
 
-      {/* Grid of All Gems (Colección Completa de Gemas) */}
+      {/* Grid of All Gems */}
       <section className="jt-gemas-grid-section">
         <div className="container">
           <div className="gemas-cards-grid">
             {filteredGemas.map((gem) => {
+              const stonesCount = looseStonesData[gem.id] ? looseStonesData[gem.id].length : 0;
               return (
                 <div 
                   key={gem.id} 
@@ -122,6 +164,10 @@ export default function GemasPage() {
                       }}
                     />
                     <span className="gema-card-pill">{gem.type}</span>
+                    <span className="gema-stock-tag">
+                      <Gem size={12} style={{ marginRight: '4px' }} />
+                      {stonesCount} {stonesCount === 1 ? 'piedra disponible' : 'piedras disponibles'}
+                    </span>
                   </div>
 
                   <div className="gema-card-body">
@@ -142,7 +188,7 @@ export default function GemasPage() {
                         handleOpenModal(gem);
                       }}
                     >
-                      Ver Características
+                      <span>Ver Piedras Disponibles</span>
                       <ChevronRight size={14} />
                     </button>
                   </div>
@@ -153,7 +199,7 @@ export default function GemasPage() {
         </div>
       </section>
 
-      {/* MODAL EMERGENTE DE CARACTERÍSTICAS DE LA GEMA */}
+      {/* MODAL EMERGENTE MEJORADO: PIEDRAS SUELTAS DISPONIBLES & PIEZAS */}
       {modalGema && (
         <div className="gema-modal-overlay" onClick={handleCloseModal}>
           <div 
@@ -167,69 +213,222 @@ export default function GemasPage() {
               onClick={handleCloseModal}
               aria-label="Cerrar ventana"
             >
-              <X size={22} />
+              <X size={20} />
             </button>
 
-            <div className="gema-modal-content">
-              <div className="gema-modal-media">
-                <img 
-                  src={modalGema.image} 
-                  alt={modalGema.name} 
-                  className="gema-modal-image"
-                  onError={(e) => {
-                    e.target.src = '/images/ring.png';
-                  }}
-                />
-                <span className="gema-badge">{modalGema.type}</span>
+            {/* Modal Header Bar with Dual Views: Piedras Disponibles vs Colección Terminada */}
+            <div className="modal-header-hero">
+              <div className="modal-gem-identity">
+                <span className="modal-pill">{modalGema.type} • {modalGema.highlight}</span>
+                <h2 className="modal-title-main">{modalGema.name}</h2>
+                <p className="modal-subtitle-tag">"{modalGema.tagline}"</p>
               </div>
 
-              <div className="gema-modal-info">
-                <div className="gema-featured-header">
-                  <span className="gema-highlight-label">{modalGema.highlight}</span>
-                  <h2 className="gema-modal-title">{modalGema.name}</h2>
-                  <p className="gema-tagline">"{modalGema.tagline}"</p>
-                </div>
-
-                <p className="gema-full-description">
-                  {modalGema.description}
-                </p>
-
-                <div className="gema-specs-grid">
-                  <div className="gema-spec-box">
-                    <div className="spec-label">Escala de Mohs</div>
-                    <div className="spec-value">{modalGema.mohs}</div>
-                    <div className="spec-sub">Resistencia y dureza al rayado</div>
-                  </div>
-
-                  <div className="gema-spec-box">
-                    <div className="spec-label">Colores Disponibles</div>
-                    <div className="spec-value-colors">{modalGema.colors}</div>
-                    <div className="spec-sub">Tonalidades y matices naturales</div>
-                  </div>
-                </div>
-
-                <div className="gema-featured-actions">
-                  <Link 
-                    to={`/catalog?categoria=${encodeURIComponent(modalGema.catalogCategory || 'Todos')}`} 
-                    className="btn-premium filled"
-                    onClick={handleCloseModal}
-                  >
-                    Ver Piezas con {modalGema.name}
-                    <ArrowRight size={16} style={{ marginLeft: '8px' }} />
-                  </Link>
-
-                  <a 
-                    href={`https://wa.me/523315206300?text=${encodeURIComponent(`Hola Jacqueline Tapia Joyería, deseo cotizar una joya personalizada montada con ${modalGema.name}.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-premium gold"
-                  >
-                    <MessageCircle size={16} style={{ marginRight: '8px' }} />
-                    Cotizar con {modalGema.name}
-                  </a>
-                </div>
+              {/* View Switcher Tabs */}
+              <div className="modal-nav-tabs">
+                <button 
+                  className={`modal-nav-tab ${modalView === 'stones' ? 'active' : ''}`}
+                  onClick={() => setModalView('stones')}
+                >
+                  <Gem size={16} />
+                  <span>Piedras Disponibles ({currentLooseStones.length})</span>
+                </button>
+                <button 
+                  className={`modal-nav-tab ${modalView === 'pieces' ? 'active' : ''}`}
+                  onClick={() => setModalView('pieces')}
+                >
+                  <ShoppingBag size={16} />
+                  <span>Ver Piezas Terminadas ({currentFinishedPieces.length})</span>
+                </button>
               </div>
             </div>
+
+            {/* VIEW 1: PIEDRAS SUELTAS DISPONIBLES PARA FABRICAR A MEDIDA */}
+            {modalView === 'stones' && (
+              <div className="modal-view-container fade-in">
+                <div className="modal-intro-bar">
+                  <div className="intro-badge-icon">
+                    <Sparkles size={20} />
+                  </div>
+                  <div>
+                    <h4 className="intro-title">Selección de Gemas Sueltas para Fabricación a Medida</h4>
+                    <p className="intro-desc">
+                      Elige una de las piedras actualmente disponibles en nuestro taller orfebre para iniciar tu diseño personalizado. Cada gema cuenta con autenticidad garantizada y proporciones ideales para engastes exclusivos.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="loose-stones-grid">
+                  {currentLooseStones.map((stone) => {
+                    const isSelected = selectedStone?.id === stone.id;
+                    const whatsappStoneMsg = `Hola Jacqueline Tapia Joyería, me interesa la piedra disponible "${stone.name}" (${stone.cut}, ${stone.carat}, ${stone.color}) para iniciar el diseño de una joya personalizada.`;
+
+                    return (
+                      <div 
+                        key={stone.id} 
+                        className={`loose-stone-card ${isSelected ? 'selected' : ''}`}
+                        onClick={() => setSelectedStone(stone)}
+                      >
+                        <div className="stone-card-top">
+                          <div className="stone-thumb-wrapper">
+                            <img src={stone.image} alt={stone.name} className="stone-thumb" />
+                            <span className="stone-status-chip">
+                              <CheckCircle2 size={12} />
+                              {stone.status}
+                            </span>
+                          </div>
+
+                          <div className="stone-primary-info">
+                            <span className="stone-cut-badge">{stone.cut}</span>
+                            <h3 className="stone-card-title">{stone.name}</h3>
+                            <div className="stone-quick-specs">
+                              <div className="qspec">
+                                <span className="qlabel">Peso / Medida:</span>
+                                <strong className="qval">{stone.carat}</strong>
+                              </div>
+                              <div className="qspec">
+                                <span className="qlabel">Color:</span>
+                                <strong className="qval">{stone.color}</strong>
+                              </div>
+                              <div className="qspec">
+                                <span className="qlabel">Claridad / Pureza:</span>
+                                <strong className="qval">{stone.clarity}</strong>
+                              </div>
+                              <div className="qspec">
+                                <span className="qlabel">Dimensiones:</span>
+                                <strong className="qval">{stone.dimensions}</strong>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <p className="stone-card-desc">{stone.description}</p>
+
+                        <div className="stone-origin-box">
+                          <span className="origin-lbl">Origen y Certificación:</span>
+                          <span className="origin-val">{stone.origin} • {stone.certification}</span>
+                        </div>
+
+                        <div className="stone-card-footer">
+                          <a 
+                            href={`https://wa.me/523315206300?text=${encodeURIComponent(whatsappStoneMsg)}`}
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="btn-stone-quote"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <MessageCircle size={16} />
+                            Apartar y Cotizar Diseño con Esta Gema
+                          </a>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Technical Characteristics Box (Collapsible / Bottom Overview) */}
+                <div className="gem-technical-summary">
+                  <div className="tech-summary-header">
+                    <Info size={18} />
+                    <span>Ficha Gemológica General: {modalGema.name}</span>
+                  </div>
+                  <div className="tech-summary-content">
+                    <p className="tech-desc">{modalGema.description}</p>
+                    <div className="tech-pills-row">
+                      <div className="tech-pill">
+                        <strong>Dureza Mohs:</strong> {modalGema.mohs}
+                      </div>
+                      <div className="tech-pill">
+                        <strong>Gama de Colores:</strong> {modalGema.colors}
+                      </div>
+                      <div className="tech-pill">
+                        <strong>Garantía:</strong> Taller Orfebre Certificado JT
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Alternate Action */}
+                <div className="modal-bottom-alternative">
+                  <span>¿Prefieres ver modelos ya montados?</span>
+                  <button 
+                    className="link-switch-view"
+                    onClick={() => setModalView('pieces')}
+                  >
+                    Explorar {currentFinishedPieces.length} piezas terminadas con {modalGema.name} →
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* VIEW 2: PIEZAS TERMINADAS EN CATÁLOGO */}
+            {modalView === 'pieces' && (
+              <div className="modal-view-container fade-in">
+                <div className="modal-intro-bar pieces-mode">
+                  <div className="intro-badge-icon">
+                    <ShoppingBag size={20} />
+                  </div>
+                  <div>
+                    <h4 className="intro-title">Piezas Terminadas con {modalGema.name}</h4>
+                    <p className="intro-desc">
+                      Descubre joyas de nuestro catálogo oficial montadas artesanalmente con {modalGema.name}. Puedes solicitar cualquier pieza con variaciones en metal (oro blanco, amarillo o rosa de 14K/18K).
+                    </p>
+                  </div>
+                </div>
+
+                {currentFinishedPieces.length > 0 ? (
+                  <div className="finished-pieces-grid">
+                    {currentFinishedPieces.map((piece) => (
+                      <div key={piece.id} className="finished-piece-card">
+                        <div className="piece-img-wrap">
+                          <img src={piece.image} alt={piece.name} loading="lazy" />
+                          <span className="piece-cat-badge">{piece.category}</span>
+                        </div>
+                        <div className="piece-info-box">
+                          <h4 className="piece-title">{piece.name}</h4>
+                          <p className="piece-meta">{piece.material} • {piece.gemstone}</p>
+                          <div className="piece-actions">
+                            <a 
+                              href={`https://wa.me/523315206300?text=${encodeURIComponent(`Hola Jacqueline Tapia Joyería, deseo cotizar la pieza "${piece.name}" montada con ${modalGema.name}.`)}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn-piece-quote"
+                            >
+                              <MessageCircle size={14} />
+                              Cotizar Pieza
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="empty-pieces-card">
+                    <Gem size={32} />
+                    <h3>Diseño Exclusivo a Medida</h3>
+                    <p>Actualmente no hay piezas pre-diseñadas en catálogo para entrega inmediata con {modalGema.name}, pero contamos con piedras disponibles en taller para diseñar tu anillo, dije o aretes desde cero.</p>
+                    <button 
+                      className="btn-premium filled small"
+                      onClick={() => setModalView('stones')}
+                      style={{ marginTop: '1rem' }}
+                    >
+                      Ver Piedras Sueltas Disponibles
+                    </button>
+                  </div>
+                )}
+
+                {/* Bottom Switch to Stones */}
+                <div className="modal-bottom-alternative">
+                  <span>¿Buscas una piedra suelta para un diseño personalizado?</span>
+                  <button 
+                    className="link-switch-view"
+                    onClick={() => setModalView('stones')}
+                  >
+                    ← Ver inventario de piedras disponibles ({currentLooseStones.length})
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -239,7 +438,7 @@ export default function GemasPage() {
         <div className="container">
           <div className="commitment-card">
             <div className="commitment-text">
-              <span className="section-eyebrow-light">Garantía de Origen</span>
+              <span className="section-eyebrow-light">Garantía de Origen & Taller Orfebre</span>
               <h2 className="commitment-title">Autenticidad y Calidad Certificada</h2>
               <p className="commitment-desc">
                 En Jacqueline Tapia Joyería seleccionamos cada gema por su color, pureza y corte superior.
