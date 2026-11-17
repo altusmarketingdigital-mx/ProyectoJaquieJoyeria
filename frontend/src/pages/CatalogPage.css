@@ -154,20 +154,7 @@
   transform: scale(1.05);
 }
 
-.catalog-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(5, 31, 52, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.catalog-card:hover .catalog-overlay {
-  opacity: 1;
-}
+/* Overlay removed in favor of direct CTA button below */
 
 .catalog-info {
   padding: 1.8rem 1.5rem;
@@ -346,4 +333,46 @@
 
 .view-link:hover {
   background: var(--color-accent-gold-hover);
+}
+
+/* CTA Cotización Personalizada */
+.product-cta-wrapper {
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-catalog-quote {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-navy, #051F34);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  background: transparent;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  letter-spacing: -0.2px;
+}
+
+.btn-catalog-quote:hover {
+  background: #051F34;
+  color: #FFFFFF;
+  border-color: #051F34;
+  box-shadow: 0 4px 14px rgba(5, 31, 52, 0.18);
+  transform: translateY(-2px);
+}
+
+.btn-catalog-quote svg {
+  color: #CB9274;
+  transition: transform 0.3s ease;
+}
+
+.btn-catalog-quote:hover svg {
+  color: #FFFFFF;
+  transform: scale(1.1);
 }

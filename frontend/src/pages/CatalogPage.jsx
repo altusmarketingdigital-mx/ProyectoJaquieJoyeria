@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { MessageCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './CatalogPage.css';
@@ -253,28 +254,38 @@ export default function CatalogPage() {
             </div>
 
             <div className="catalog-grid">
-              {filteredProducts.map(product => (
-                <div key={product.id} className="catalog-card">
-                  <div className="catalog-image-wrapper">
-                    <img src={product.image} alt={product.name} loading="lazy" />
-                    <div className="catalog-overlay">
-                      <Link to="/order" className="btn-premium filled small">Personalizar Pieza</Link>
+              {filteredProducts.map(product => {
+                const whatsappMsg = `Hola Jacqueline Tapia Joyería, deseo solicitar una cotización personalizada de la pieza: "${product.name}" (${product.category || ''}${product.material ? ' en ' + product.material : ''}${product.gemstone ? ' con ' + product.gemstone : ''}).`;
+                const whatsappUrl = `https://wa.me/523338427017?text=${encodeURIComponent(whatsappMsg)}`;
+
+                return (
+                  <div key={product.id} className="catalog-card">
+                    <div className="catalog-image-wrapper">
+                      <img src={product.image} alt={product.name} loading="lazy" />
+                    </div>
+                    <div className="catalog-info">
+                      <span className="product-category">{product.category}</span>
+                      <h3 className="product-name">{product.name}</h3>
+                      {(product.material || product.gemstone) && (
+                        <p className="product-materials">
+                          {product.material} {product.gemstone && `• ${product.gemstone}`}
+                        </p>
+                      )}
+                      <div className="product-cta-wrapper">
+                        <a 
+                          href={whatsappUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="btn-catalog-quote"
+                        >
+                          <MessageCircle size={15} style={{ marginRight: '6px' }} />
+                          Cotización personalizada
+                        </a>
+                      </div>
                     </div>
                   </div>
-                  <div className="catalog-info">
-                    <span className="product-category">{product.category}</span>
-                    <h3 className="product-name">{product.name}</h3>
-                    {(product.material || product.gemstone) && (
-                      <p className="product-materials">
-                        {product.material} {product.gemstone && `• ${product.gemstone}`}
-                      </p>
-                    )}
-                    {product.price && (
-                      <p className="product-price">{product.price}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
 
               {filteredProducts.length === 0 && (
                 <div className="catalog-empty-state">
