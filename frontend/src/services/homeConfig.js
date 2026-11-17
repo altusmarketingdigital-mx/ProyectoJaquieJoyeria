@@ -58,10 +58,10 @@ export const initialHomeConfig = {
     enabled: true,
     tagline: 'NUESTRO COMPROMISO',
     title: 'Filosofía de Diseño',
-    statement: 'Queremos celebrar contigo cada fecha importante; por eso, diseñamos para ti la pieza de tus sueños.',
+    statement: '',
     features: [
       {
-        title: 'Oro de 14K y 18K',
+        title: 'Oro 14K',
         description: 'Metales preciosos de procedencia garantizada en oro amarillo, blanco y rosa.'
       },
       {

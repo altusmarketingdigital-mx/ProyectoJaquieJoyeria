@@ -37,7 +37,6 @@ const defaultFavorites = [
     name: 'Eternity | Paco',
     category: 'Churumbela',
     materials: 'Oro de 14K con Diamantes de 2.3 mm',
-    price: '$32,000 MXN',
     image: '/images/churumbela.png'
   },
   {
@@ -45,7 +44,6 @@ const defaultFavorites = [
     name: 'Dije | Marta',
     category: 'Dije',
     materials: 'Oro de 14K con Esmeralda Natural y Diamantes',
-    price: '$18,900 MXN',
     image: '/images/dijes.png'
   },
   {
@@ -53,7 +51,6 @@ const defaultFavorites = [
     name: 'Broquel | Mariajo',
     category: 'Broqueles',
     materials: 'Oro Blanco 14K con Zafiro y Diamantes',
-    price: '$14,200 MXN',
     image: '/images/broqueles.png'
   },
   {
@@ -61,7 +58,6 @@ const defaultFavorites = [
     name: 'Conjunto Argollas | Monse',
     category: 'Argollas',
     materials: 'Oro 14K Blanco y Rosa con Diamantes',
-    price: '$42,500 MXN',
     image: '/images/argollas.png'
   }
 ];
@@ -373,7 +369,7 @@ export default function DemoHome() {
                     <span className="card-category">{prod.category}</span>
                     <h3 className="card-title">{prod.name}</h3>
                     <p className="card-materials">{prod.materials}</p>
-                    {prod.price && <div className="card-price">{prod.price}</div>}
+                    
                   </div>
                 </div>
               ))}
@@ -427,15 +423,13 @@ export default function DemoHome() {
             <div className="philosophy-header text-center">
               <span className="section-eyebrow">{cms.designPhilosophy.tagline}</span>
               <h2 className="section-heading">{cms.designPhilosophy.title}</h2>
-              <p className="philosophy-manifesto">
-                "{cms.designPhilosophy.statement}"
-              </p>
+              
             </div>
 
             <div className="philosophy-features-grid">
               <div className="philosophy-pillar">
                 <div className="pillar-icon"><Award size={28} /></div>
-                <h3>Oro de 14K y 18K</h3>
+                <h3>Oro 14K</h3>
                 <p>Metales preciosos con aleaciones de la máxima calidad orfebre en amarillo, blanco o rosa.</p>
               </div>
 

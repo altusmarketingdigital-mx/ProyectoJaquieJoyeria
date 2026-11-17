@@ -4,7 +4,7 @@
    Layout Utilities
    ========================================================================= */
 .section-spacing {
-  padding: 6.5rem 0;
+  padding: 4.2rem 0;
 }
 
 .bg-subtle {
@@ -652,15 +652,26 @@
 }
 
 .pillar-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 1.5rem;
+  width: auto;
+  height: auto;
+  margin: 0 auto 1.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-surface);
-  color: var(--color-accent-gold);
-  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-accent-gold, #CB9274);
+  border: none;
+}
+
+.pillar-icon svg {
+  width: 38px;
+  height: 38px;
+  stroke-width: 1.5;
+  transition: transform 0.3s ease;
+}
+
+.philosophy-pillar:hover .pillar-icon svg {
+  transform: scale(1.15);
 }
 
 .philosophy-pillar h3 {
