@@ -46,7 +46,7 @@ export default function ContactPage() {
       `• Interés: ${encodeURIComponent(formData.tipoJoyeria)}%0A` +
       `• Mensaje: ${encodeURIComponent(formData.mensaje)}`;
 
-    window.open(`https://wa.me/523315206300?text=${textMsg}`, '_blank');
+    window.open(`https://wa.me/523338427017?text=${textMsg}`, '_blank');
     setSubmitted(true);
   };
 
@@ -115,11 +115,11 @@ export default function ContactPage() {
                     <h4>WhatsApp Concierge</h4>
                     <p>
                       <a 
-                        href="https://wa.me/523315206300?text=Hola%20Jacqueline%20Tapia%20Joyer%C3%ADa,%20deseo%20agendar%20una%20cita%20o%20recibir%20informaci%C3%B3n." 
+                        href="https://wa.me/523338427017?text=Hola%20Jacqueline%20Tapia%20Joyer%C3%ADa,%20deseo%20agendar%20una%20cita%20o%20recibir%20informaci%C3%B3n." 
                         target="_blank" 
                         rel="noopener noreferrer"
                       >
-                        +52 (33) 1520-6300
+                        +52 (33) 3842-7017
                       </a>
                     </p>
                     <span className="contact-card-sub">Respuesta inmediata personalizada</span>
@@ -169,7 +169,7 @@ export default function ContactPage() {
                       Te hemos redirigido a WhatsApp para continuar la conversación directa con nuestro equipo de joyería. Si la ventana no se abrió automáticamente, haz click abajo:
                     </p>
                     <a 
-                      href="https://wa.me/523315206300" 
+                      href="https://wa.me/523338427017" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="btn-premium gold"

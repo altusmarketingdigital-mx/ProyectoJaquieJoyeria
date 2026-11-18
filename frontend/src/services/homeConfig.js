@@ -2,9 +2,9 @@
 export const initialHomeConfig = {
   hero: {
     enabled: true,
-    tagline: 'ALTA JOYERÍA PERSONALIZADA',
-    title: 'Piezas personalizadas, inspiradas en tu vida',
-    subtitle: 'Cada joya es una creación única nacida de tus emociones más profundas, concebida para trascender generaciones.',
+    tagline: 'JOYERÍA DE AUTOR · PIEZAS EXCLUSIVAS',
+    title: 'Creamos lo extraordinario',
+    subtitle: 'Piezas personalizadas y únicas que nacen de tus emociones, tu esencia y tus historias.',
     buttonText: 'Ver Catálogo',
     buttonLink: '/catalog',
     secondaryButtonText: 'Diseño a Medida',
@@ -86,7 +86,7 @@ export const initialHomeConfig = {
     facebookUrl: 'https://www.facebook.com/jacquelinetapiajoyeria',
     instagramUrl: 'https://www.instagram.com/jacquelinetapiajoyeria',
     tiktokUrl: 'https://www.tiktok.com/@jacquelinetapiajoyeria',
-    whatsappNumber: '523334554536',
+    whatsappNumber: '523338427017',
     whatsappMessage: 'Hola, me gustaría solicitar informes sobre una pieza personalizada de Jacqueline Tapia Joyería',
     copyright: '© 2026 Jacqueline Tapia Joyería. Todos los derechos reservados.'
   }

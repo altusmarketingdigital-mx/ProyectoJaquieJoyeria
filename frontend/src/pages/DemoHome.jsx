@@ -139,7 +139,7 @@ export default function DemoHome() {
     return baseOccurrences[key] || 1;
   };
 
-  const cleanPhone = (cms.footer.whatsappNumber || '523334554536').replace(/[^0-9]/g, '');
+  const cleanPhone = (cms.footer.whatsappNumber || '523338427017').replace(/[^0-9]/g, '');
   const whatsappLink = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(cms.footer.whatsappMessage || 'Hola, me gustaría información sobre una joya personalizada')}`;
 
   return (

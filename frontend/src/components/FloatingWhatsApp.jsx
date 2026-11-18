@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './FloatingWhatsApp.css';
 
 export default function FloatingWhatsApp({ 
-  phoneNumber = '523334554536', 
+  phoneNumber = '523338427017', 
   defaultMessage = 'Hola, me gustaría solicitar informes sobre una pieza personalizada de Jacqueline Tapia Joyería' 
 }) {
   const [showTooltip, setShowTooltip] = useState(false);

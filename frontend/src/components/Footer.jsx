@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Footer.css';
 
 export default function Footer() {
-  const whatsappLink = "https://wa.me/523315206300?text=Hola%20Jacqueline%20Tapia%20Joyer%C3%ADa,%20quisiera%20recibir%20asesor%C3%ADa%20personalizada.";
+  const whatsappLink = "https://wa.me/523338427017?text=Hola%20Jacqueline%20Tapia%20Joyer%C3%ADa,%20quisiera%20recibir%20asesor%C3%ADa%20personalizada.";
 
   return (
     <footer className="jt-footer">
