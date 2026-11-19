@@ -259,10 +259,10 @@ export default function DemoHome() {
                 </blockquote>
                 <p className="jt-brand-author">{cms.brandPresentation.author}</p>
                 <p className="jt-brand-paragraph">
-                  {cms.brandPresentation.text}
+                  {cms.brandPresentation.text || "Desde la elección de cada gema hasta el último detalle de su elaboración, creamos piezas que atesoran emociones, recuerdos y momentos para toda la vida."}
                 </p>
                 <div className="jt-brand-signature-row">
-                  <Link to="/order" className="btn-premium filled">
+                  <Link to="/acerca-de" className="btn-premium filled">
                     {cms.brandPresentation.buttonText}
                   </Link>
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-premium gold">

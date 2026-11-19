@@ -17,9 +17,9 @@ export const initialHomeConfig = {
     title: 'Piezas personalizadas',
     quote: 'Mi pasión es plasmar en una pieza las historias de amor más bellas',
     author: 'Jacqueline Tapia — Directora Creativa',
-    text: 'Creemos que las joyas no son simplemente accesorios decorativos, sino relicarios tangibles de los momentos que marcan nuestra vida. Desde la selección manual de piedras preciosas hasta el acabado final en nuestro taller, cada detalle se crea con maestría orfebre.',
+    text: 'Desde la elección de cada gema hasta el último detalle de su elaboración, creamos piezas que atesoran emociones, recuerdos y momentos para toda la vida.',
     buttonText: 'Conoce más sobre Jacqueline Tapia',
-    buttonLink: '/#acerca-de',
+    buttonLink: '/acerca-de',
     image: '/images/editorial_order.png'
   },
   categories: {
