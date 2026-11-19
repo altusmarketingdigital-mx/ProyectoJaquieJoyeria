@@ -130,22 +130,19 @@ const defaultCategoryDefs = [
 
 export default function CatalogPage() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const initialCategory = searchParams.get('categoria') || 'Todos';
-  const [filter, setFilter] = useState(initialCategory);
+  const initialCategory = searchParams.get('categoria') || 'Todas';
+  const [filter, setFilter] = useState(initialCategory === 'Todos' ? 'Todas' : initialCategory);
   const [products, setProducts] = useState(defaultCatalog);
   const [loading, setLoading] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  const categories = [
-    'Todos',
-    'Anillos de compromiso',
-    'Churumbelas',
-    'Nupciales',
-    'Anillos',
-    'Argollas',
-    'Dijes',
-    'Broqueles',
-    'Especiales',
-    'Mancuernillas'
+  // Exact categories requested with clean uppercase editorial styling
+  const filterTabs = [
+    { label: 'Todas', query: 'Todas' },
+    { label: 'Anillos de compromiso', query: 'Anillos de compromiso' },
+    { label: 'Argollas', query: 'Argollas' },
+    { label: 'Churumbelas', query: 'Churumbelas' },
+    { label: 'Collares', query: 'Collares' }
   ];
 
   // Try to load any admin added products from DB if available
@@ -179,27 +176,45 @@ export default function CatalogPage() {
   // Sync category filter when URL search params change
   useEffect(() => {
     const cat = searchParams.get('categoria');
-    setFilter(cat || 'Todos');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const targetCat = (!cat || cat === 'Todos') ? 'Todas' : cat;
+    setIsTransitioning(true);
+    const timeout = setTimeout(() => {
+      setFilter(targetCat);
+      setIsTransitioning(false);
+    }, 150);
+    return () => clearTimeout(timeout);
   }, [searchParams]);
 
-  const handleFilterChange = (cat) => {
-    setFilter(cat);
-    if (cat === 'Todos') {
-      searchParams.delete('categoria');
-      setSearchParams(searchParams);
-    } else {
-      setSearchParams({ categoria: cat });
-    }
+  const handleFilterChange = (catQuery) => {
+    if (filter === catQuery) return;
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setFilter(catQuery);
+      if (catQuery === 'Todas') {
+        searchParams.delete('categoria');
+        setSearchParams(searchParams);
+      } else {
+        setSearchParams({ categoria: catQuery });
+      }
+      setIsTransitioning(false);
+    }, 150);
   };
 
-  const filteredProducts = filter === 'Todos'
-    ? products
-    : products.filter(p => {
-        const pCat = (p.category || '').toLowerCase().trim();
-        const fCat = filter.toLowerCase().trim();
-        return pCat === fCat;
-      });
+  const filteredProducts = products.filter(p => {
+    if (filter === 'Todas' || filter === 'Todos') return true;
+    const pCat = (p.category || '').toLowerCase().trim();
+    const fCat = filter.toLowerCase().trim();
+
+    // Map 'Collares' to match both 'collares' and 'dijes' from original collection
+    if (fCat === 'collares') {
+      return pCat === 'collares' || pCat === 'dijes' || pCat === 'dije';
+    }
+    // Map 'Argollas' to include 'argollas' and 'nupciales'
+    if (fCat === 'argollas') {
+      return pCat === 'argollas' || pCat === 'nupciales';
+    }
+    return pCat === fCat;
+  });
 
   return (
     <div className="catalog-page">
@@ -207,98 +222,87 @@ export default function CatalogPage() {
 
       <main className="catalog-content container">
         <div className="catalog-header">
+          <span className="catalog-eyebrow">COLECCIONES EXCLUSIVAS</span>
           <h1 className="section-title">
-            {filter === 'Todos' ? 'Catálogo' : (filter.charAt(0).toUpperCase() + filter.slice(1))}
+            Catálogo
           </h1>
+          <p className="catalog-statement">
+            Cada joya nace de una historia única, concebida en nuestro taller con metales nobles y gemas seleccionadas.
+          </p>
         </div>
 
-        {/* View 1: When user enters General Catalog, show the 9 official Categories */}
-        {filter === 'Todos' ? (
-          <div className="jt-catalog-categories-view">
-            <div className="jt-category-nine-grid">
-              {defaultCategoryDefs.map((cat, idx) => (
-                <Link 
-                  key={idx} 
-                  to={`/catalog?categoria=${encodeURIComponent(cat.query)}`} 
-                  className="jt-category-tile"
+        {/* Minimalist Editorial Category Filter Tabs */}
+        <nav className="catalog-editorial-nav-wrapper" aria-label="Filtros de categoría">
+          <div className="catalog-editorial-tabs">
+            {filterTabs.map((tab) => {
+              const isActive = filter === tab.query;
+              return (
+                <button
+                  key={tab.query}
+                  type="button"
+                  onClick={() => handleFilterChange(tab.query)}
+                  className={`catalog-editorial-tab ${isActive ? 'active' : ''}`}
                 >
-                  <div className="tile-image-wrapper">
-                    <img src={cat.image} alt={cat.name} loading="lazy" />
-                    <div className="tile-hover-overlay">
-                      <h3 className="tile-overlay-title">{cat.name}</h3>
-                      <span className="view-link">Ver Piezas</span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+                  <span className="tab-label">{tab.label}</span>
+                </button>
+              );
+            })}
           </div>
-        ) : (
-          /* View 2: When user clicks on a Category, show its official products & toolbar */
-          <>
-            <div className="catalog-toolbar">
-              <span className="catalog-results-text">
-                Mostrando 1–{filteredProducts.length} de {filteredProducts.length} resultados
-              </span>
+        </nav>
 
-              <div className="catalog-sort-wrapper">
-                <select className="catalog-sort-select" defaultValue="default">
-                  <option value="default">Orden predeterminado</option>
-                  <option value="popularity">Ordenar por popularidad</option>
-                  <option value="rating">Ordenar por calificación media</option>
-                  <option value="date">Ordenar por las últimas</option>
-                  <option value="price-asc">Ordenar por precio: bajo a alto</option>
-                  <option value="price-desc">Ordenar por precio: alto a bajo</option>
-                </select>
-              </div>
-            </div>
+        {/* Toolbar with results count */}
+        <div className="catalog-toolbar">
+          <span className="catalog-results-text">
+            Mostrando {filteredProducts.length} {filteredProducts.length === 1 ? 'creación' : 'creaciones'}
+            {filter !== 'Todas' && <span className="active-filter-tag"> · {filter}</span>}
+          </span>
+        </div>
 
-            <div className="catalog-grid">
-              {filteredProducts.map(product => {
-                const whatsappMsg = `Hola Jacqueline Tapia Joyería, deseo solicitar una cotización personalizada de la pieza: "${product.name}" (${product.category || ''}${product.material ? ' en ' + product.material : ''}${product.gemstone ? ' con ' + product.gemstone : ''}).`;
-                const whatsappUrl = `https://wa.me/523338427017?text=${encodeURIComponent(whatsappMsg)}`;
+        {/* Fluid Grid with Opacity Transition */}
+        <div className={`catalog-grid transition-opacity ${isTransitioning ? 'fading' : 'visible'}`}>
+          {filteredProducts.map(product => {
+            const whatsappMsg = `Hola Jacqueline Tapia Joyería, deseo solicitar una cotización personalizada de la pieza: "${product.name}" (${product.category || ''}${product.material ? ' en ' + product.material : ''}${product.gemstone ? ' con ' + product.gemstone : ''}).`;
+            const whatsappUrl = `https://wa.me/523338427017?text=${encodeURIComponent(whatsappMsg)}`;
 
-                return (
-                  <div key={product.id} className="catalog-card">
-                    <div className="catalog-image-wrapper">
-                      <img src={product.image} alt={product.name} loading="lazy" />
-                    </div>
-                    <div className="catalog-info">
-                      <span className="product-category">{product.category}</span>
-                      <h3 className="product-name">{product.name}</h3>
-                      {(product.material || product.gemstone) && (
-                        <p className="product-materials">
-                          {product.material} {product.gemstone && `• ${product.gemstone}`}
-                        </p>
-                      )}
-                      <div className="product-cta-wrapper">
-                        <a 
-                          href={whatsappUrl} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="btn-catalog-quote"
-                        >
-                          <MessageCircle size={15} style={{ marginRight: '6px' }} />
-                          Cotización personalizada
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-
-              {filteredProducts.length === 0 && (
-                <div className="catalog-empty-state">
-                  <h3>No se encontraron piezas en "{filter}"</h3>
-                  <p>Podemos diseñar y fabricar tu pieza exclusiva totalmente a medida.</p>
-                  <Link to="/order" className="btn-premium filled" style={{ marginTop: '1.5rem' }}>
-                    Solicitar Diseño Personalizado
-                  </Link>
+            return (
+              <div key={product.id} className="catalog-card">
+                <div className="catalog-image-wrapper">
+                  <img src={product.image} alt={product.name} loading="lazy" />
                 </div>
-              )}
+                <div className="catalog-info">
+                  <span className="product-category">{product.category}</span>
+                  <h3 className="product-name">{product.name}</h3>
+                  {(product.material || product.gemstone) && (
+                    <p className="product-materials">
+                      {product.material} {product.gemstone && `• ${product.gemstone}`}
+                    </p>
+                  )}
+                  <div className="product-cta-wrapper">
+                    <a 
+                      href={whatsappUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="btn-catalog-quote"
+                    >
+                      <MessageCircle size={15} style={{ marginRight: '6px' }} />
+                      Cotización personalizada
+                    </a>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+
+          {filteredProducts.length === 0 && (
+            <div className="catalog-empty-state">
+              <h3>No se encontraron piezas en "{filter}"</h3>
+              <p>Podemos diseñar y fabricar tu pieza exclusiva totalmente a medida.</p>
+              <Link to="/order" className="btn-premium filled" style={{ marginTop: '1.5rem' }}>
+                Solicitar Diseño Personalizado
+              </Link>
             </div>
-          </>
-        )}
+          )}
+        </div>
       </main>
       <Footer />
     </div>

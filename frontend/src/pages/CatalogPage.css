@@ -14,103 +14,147 @@
 
 .catalog-header {
   text-align: center;
-  max-width: 900px;
-  margin: 0 auto 3rem;
+  max-width: 820px;
+  margin: 0 auto 2.5rem;
   padding-top: 1rem;
 }
 
-.catalog-header .section-title {
-  font-size: 4rem;
-  font-family: var(--font-heading);
-  color: var(--color-text-navy);
-  margin-bottom: 0.5rem;
-  font-weight: 400;
-  letter-spacing: -0.5px;
-}
-
-/* Category Filters Scroll Container */
-.category-filters-scroll {
-  width: 100%;
-  overflow-x: auto;
-  padding-bottom: 0.5rem;
-  -webkit-overflow-scrolling: touch;
-}
-
-.category-filters {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.filter-btn {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
-  padding: 6px 14px;
-  border-radius: 0;
-  cursor: pointer;
+.catalog-eyebrow {
+  display: block;
   font-family: var(--font-body);
   font-size: 0.72rem;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: all 0.3s ease;
+  color: var(--color-accent-gold, #CB9274);
+  margin-bottom: 0.8rem;
+}
+
+.catalog-header .section-title {
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  font-family: var(--font-heading);
+  color: var(--color-text-navy);
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.catalog-statement {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: #8C6D58;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 680px;
+}
+
+/* =========================================================================
+   Minimalist Editorial Category Filter Tabs (Matching /acerca-de aesthetic)
+   No rounded buttons, no thick borders, no card boxes
+   ========================================================================= */
+.catalog-editorial-nav-wrapper {
+  width: 100%;
+  margin: 2.5rem 0 1.5rem 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.catalog-editorial-nav-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.catalog-editorial-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.5rem, 3.5vw, 3.2rem);
   white-space: nowrap;
+  padding: 0.75rem 1rem 1rem 1rem;
+  border-bottom: 1px solid rgba(227, 219, 212, 0.6);
 }
 
-.filter-btn:hover {
-  border-color: var(--color-accent-gold);
-  color: var(--color-accent-gold);
+.catalog-editorial-tab {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.5rem 0.2rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2em; /* tracking-[0.2em] */
+  color: var(--color-text-navy, #051F34);
+  opacity: 0.5; /* Inactive at 50% opacity */
+  position: relative;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
 }
 
-.filter-btn.active {
-  background-color: var(--color-accent-navy);
-  border-color: var(--color-accent-navy);
-  color: #ffffff;
+.catalog-editorial-tab:hover {
+  opacity: 0.85;
 }
 
-/* Official Store Toolbar */
+.catalog-editorial-tab.active {
+  opacity: 1; /* Active at 100% opacity */
+  font-weight: 500;
+}
+
+/* Thin 1px underline in primary accent color */
+.catalog-editorial-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1rem; /* Aligns precisely over the wrapper border-bottom */
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-accent-gold, #CB9274);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.catalog-editorial-tab.active::after {
+  transform: scaleX(1);
+}
+
+/* Fluid Layout Transition: smooth opacity fade on product change */
+.catalog-grid.transition-opacity {
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
+}
+
+.catalog-grid.transition-opacity.fading {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.catalog-grid.transition-opacity.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Toolbar */
 .catalog-toolbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 1.2rem 0;
-  margin-bottom: 2.5rem;
+  padding: 0.8rem 0 1.8rem 0;
   font-family: var(--font-body);
 }
 
 .catalog-results-text {
-  font-size: 0.95rem;
-  color: #30373E;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #5C6773);
   font-weight: 400;
 }
 
-.catalog-sort-wrapper {
-  position: relative;
-}
-
-.catalog-sort-select {
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: #FFFFFF;
-  border: 1px solid #E3DBD4;
-  padding: 0.65rem 2.5rem 0.65rem 1.2rem;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: #30373E;
-  border-radius: 0;
-  cursor: pointer;
-  outline: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2330373E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  transition: border-color 0.2s ease;
-}
-
-.catalog-sort-select:focus,
-.catalog-sort-select:hover {
-  border-color: var(--color-accent-gold);
+.active-filter-tag {
+  color: var(--color-accent-gold, #CB9274);
+  font-weight: 600;
 }
 
 /* Catalog Grid */
@@ -211,6 +255,15 @@
 
 .catalog-empty-state p {
   color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .catalog-editorial-tabs {
+    justify-content: flex-start;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    gap: 1.8rem;
+  }
 }
 
 @media (max-width: 992px) {
