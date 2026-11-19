@@ -15,6 +15,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import './ContactPage.css';
+import './ContactPage.social.css';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -76,9 +77,6 @@ export default function ContactPage() {
             <div className="contact-info-panel">
               <span className="section-eyebrow">Showroom & Taller</span>
               <h2 className="contact-panel-title">Oficinas Corporativas</h2>
-              <p className="contact-panel-desc">
-                Visítanos en una de las zonas más exclusivas de Guadalajara para una sesión privada de diseño y selección de gemas.
-              </p>
 
               <div className="contact-cards-stack">
                 <div className="contact-card-item">
@@ -89,17 +87,6 @@ export default function ContactPage() {
                     <h4>Dirección</h4>
                     <p>Torre Diamante, Col. Puerta de Hierro</p>
                     <span className="contact-card-sub">Zapopan / Guadalajara, Jalisco, México</span>
-                  </div>
-                </div>
-
-                <div className="contact-card-item">
-                  <div className="contact-card-icon">
-                    <Phone size={22} />
-                  </div>
-                  <div className="contact-card-details">
-                    <h4>Teléfono & Citas</h4>
-                    <p><a href="tel:3338427017">(33) 3842-7017</a></p>
-                    <span className="contact-card-sub">Atención de Lunes a Viernes</span>
                   </div>
                 </div>
 
@@ -143,6 +130,27 @@ export default function ContactPage() {
                     <span className="contact-card-sub">Sábados: Con previa cita agendada</span>
                   </div>
                 </div>
+
+                <div className="contact-card-item">
+                  <div className="contact-card-icon">
+                    <Sparkles size={22} />
+                  </div>
+                  <div className="contact-card-details">
+                    <h4>Redes Sociales</h4>
+                    <div className="contact-social-links">
+                      <a href="https://www.instagram.com/jacquelinetapiajoyeria" target="_blank" rel="noopener noreferrer" className="contact-social-pill instagram">
+                        Instagram
+                      </a>
+                      <a href="https://www.facebook.com/jacquelinetapiajoyeria" target="_blank" rel="noopener noreferrer" className="contact-social-pill facebook">
+                        Facebook
+                      </a>
+                      <a href="https://www.tiktok.com/@jacquelinetapiajoyeria" target="_blank" rel="noopener noreferrer" className="contact-social-pill tiktok">
+                        TikTok
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
 
