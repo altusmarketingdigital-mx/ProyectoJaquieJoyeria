@@ -59,13 +59,9 @@ export default function ContactPage() {
         <div className="container">
           <div className="contact-hero-content text-center">
             <span className="section-eyebrow">Atención Personalizada</span>
-            <h1 className="contact-hero-title">Contáctanos</h1>
-            <p className="contact-hero-subtitle">
-              ¡Agenda una cita en nuestras oficinas o recibe asesoría exclusiva a distancia!
-            </p>
+            <h1 className="contact-hero-title">Hagamos realidad tu idea</h1>
             <p className="contact-hero-desc">
-              Estamos listos para escuchar tu historia, mostrarte opciones de metales nobles y gemas certificadas, 
-              y comenzar a bocetar la joya de tus sueños.
+              Cuéntanos tu idea y diseñemos juntos una pieza especial.
             </p>
           </div>
         </div>

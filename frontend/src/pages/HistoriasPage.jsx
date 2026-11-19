@@ -54,9 +54,6 @@ export default function HistoriasPage() {
           <div className="historias-hero-content text-center">
             <span className="section-eyebrow">Journal & Testimonios</span>
             <h1 className="historias-hero-title">Historias que Inspiran</h1>
-            <p className="historias-hero-subtitle">
-              “Mi pasión es plasmar en una pieza las historias de amor más bellas.”
-            </p>
             <p className="historias-hero-desc">
               Cada creación es el testimonio físico de un momento irrepetible: pedidas de matrimonio, 
               nacimientos, aniversarios y tributos familiares que cobran vida en oro y gemas preciosas.
