@@ -110,7 +110,7 @@ export default function AboutPage() {
         <div className="container">
           <div className="section-header-center">
             <span className="section-eyebrow">Nuestros Valores</span>
-            <h2 className="section-heading">El Alma de Nuestro Taller</h2>
+            <h2 className="section-heading">La esencia de nuestra creación</h2>
             <p className="section-subheading">
               Inspirados en la naturaleza y en la orfebrería de autor, cada creación refleja nuestro compromiso inquebrantable con la excelencia.
             </p>
@@ -119,33 +119,33 @@ export default function AboutPage() {
           <div className="about-values-grid">
             <div className="value-card">
               <div className="value-icon"><Heart size={30} /></div>
-              <h3>Pasión por el Amor</h3>
+              <h3>Pasión por crear</h3>
               <p>
-                Convertimos promesas, aniversarios y compromisos en joyas que conservan la emoción del primer día a lo largo de los años.
+                Cada historia merece una pieza especial. Transformamos emociones, promesas y momentos importantes en joyas con significado.
               </p>
             </div>
 
             <div className="value-card">
               <div className="value-icon"><Compass size={30} /></div>
-              <h3>Minucia y Detalle</h3>
+              <h3>Maestría y precisión</h3>
               <p>
-                Tal como la abeja labra su colmena con exactitud geométrica, nuestros maestros joyeros cuidan cada milímetro y engaste.
+                Como la abeja en su laboriosa creación, cuidamos cada detalle con dedicación, precisión y maestría artesanal.
               </p>
             </div>
 
             <div className="value-card">
               <div className="value-icon"><Award size={30} /></div>
-              <h3>Metales y Gemas Nobles</h3>
+              <h3>Belleza y exclusividad</h3>
               <p>
-                Utilizamos exclusivamente oro auténtico y gemas seleccionadas por su brillo, color y durabilidad probada en el tiempo.
+                Seleccionamos cuidadosamente oro, piedras preciosas y semipreciosas para crear combinaciones únicas y diseños extraordinarios.
               </p>
             </div>
 
             <div className="value-card">
               <div className="value-icon"><ShieldCheck size={30} /></div>
-              <h3>Garantía y Confianza</h3>
+              <h3>Confianza y compromiso</h3>
               <p>
-                Asesoría cercana y transparente de principio a fin, entregando certificados gemológicos y respaldo total en cada entrega.
+                Te acompañamos en cada etapa del proceso, ofreciendo asesoría personalizada, transparencia y respaldo en cada creación.
               </p>
             </div>
           </div>
