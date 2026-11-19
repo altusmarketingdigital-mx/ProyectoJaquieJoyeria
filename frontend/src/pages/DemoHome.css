@@ -1118,3 +1118,65 @@
 .favorites-heading-orange {
   color: var(--color-accent-gold, #CB9274) !important;
 }
+
+
+/* Centrado estricto y espaciado compacto de Filosofía de Diseño */
+.jt-philosophy-section {
+  padding-top: 2.2rem;
+  padding-bottom: 1.5rem;
+  text-align: center;
+}
+
+.philosophy-header-centered {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.philosophy-header-centered .section-eyebrow {
+  margin: 0 auto 0.6rem;
+  text-align: center;
+}
+
+.philosophy-header-centered .section-heading {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.jt-stories-section {
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.jt-stories-section .section-header-center {
+  margin-bottom: 1.8rem;
+}
+
+/* Iconos de pilares: transparentes, sin fondo blanco y más grandes */
+.pillar-icon {
+  width: auto !important;
+  height: auto !important;
+  margin: 0 auto 1.4rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pillar-icon svg {
+  width: 44px !important;
+  height: 44px !important;
+  stroke-width: 1.35 !important;
+  color: var(--color-accent-gold, #CB9274) !important;
+  transition: transform 0.35s ease !important;
+}
+
+.philosophy-pillar:hover .pillar-icon svg {
+  transform: scale(1.15) translateY(-2px) !important;
+}

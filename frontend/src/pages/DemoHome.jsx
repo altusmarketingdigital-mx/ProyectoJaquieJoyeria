@@ -415,7 +415,7 @@ export default function DemoHome() {
       {cms.designPhilosophy.enabled && (
         <section id="gemas" className="jt-philosophy-section section-spacing">
           <div className="container">
-            <div className="philosophy-header text-center">
+            <div className="philosophy-header text-center philosophy-header-centered">
               <span className="section-eyebrow">{cms.designPhilosophy.tagline}</span>
               <h2 className="section-heading">{cms.designPhilosophy.title}</h2>
               
@@ -439,7 +439,7 @@ export default function DemoHome() {
 
               <div className="philosophy-pillar">
                 <div className="pillar-icon"><Compass size={28} /></div>
-                <h3>Orfebrería a Medida</h3>
+                <h3>Diseño a la Medida</h3>
                 <p>Cada pieza se modela en 3D y se detalla a mano por artesanos joyeros especializados.</p>
               </div>
             </div>
