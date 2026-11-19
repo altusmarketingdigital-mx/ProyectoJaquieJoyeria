@@ -49,7 +49,7 @@ export const initialHomeConfig = {
     tagline: 'ALTA JOYERÍA A MEDIDA',
     title: 'Un regalo atemporal que perdurará por siempre',
     subtitle: 'Todas nuestras piezas son personalizadas',
-    description: 'Participa en cada etapa de la creación: desde el boceto inicial y la elección de gemas hasta el modelo 3D y la fundición en oro.',
+    description: 'Participa en cada etapa de la creación: desde el boceto inicial y la elección de gemas hasta el modelo 3D.',
     buttonText: 'Contáctanos',
     buttonLink: '/#contacto',
     image: '/images/necklace.png'

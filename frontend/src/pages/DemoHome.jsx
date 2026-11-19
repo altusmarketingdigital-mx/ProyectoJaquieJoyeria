@@ -265,7 +265,7 @@ export default function DemoHome() {
                   <Link to="/acerca-de" className="btn-premium filled">
                     {cms.brandPresentation.buttonText}
                   </Link>
-                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-premium gold">
+                  <a href="https://wa.me/523338427017?text=Hola%20Jacqueline%20Tapia%20Joyer%C3%ADa%2C%20deseo%20informaci%C3%B3n%20para%20crear%20una%20pieza%20personalizada." target="_blank" rel="noopener noreferrer" className="btn-premium gold">
                     <MessageCircle size={15} style={{ marginRight: '8px' }} />
                     Consulta por WhatsApp
                   </a>
@@ -390,7 +390,7 @@ export default function DemoHome() {
                 <span className="section-eyebrow-light">{cms.personalization.tagline}</span>
                 <h2 className="personalization-title">{cms.personalization.title}</h2>
                 <h3 className="personalization-subtitle">{cms.personalization.subtitle}</h3>
-                <p className="personalization-desc">{cms.personalization.description}</p>
+                <p className="personalization-desc">{cms.personalization.description || "Participa en cada etapa de la creación: desde el boceto inicial y la elección de gemas hasta el modelo 3D."}</p>
                 <div className="personalization-actions">
                   <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-premium gold">
                     <MessageCircle size={16} style={{ marginRight: '8px' }} />
