@@ -311,7 +311,7 @@ export default function GemasPage() {
 
                         <div className="stone-card-footer">
                           <a 
-                            href={`https://wa.me/523315206300?text=${encodeURIComponent(whatsappStoneMsg)}`}
+                            href={`https://wa.me/523338427017?text=${encodeURIComponent(whatsappStoneMsg)}`}
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="btn-stone-quote"
@@ -389,7 +389,7 @@ export default function GemasPage() {
                           <p className="piece-meta">{piece.material} • {piece.gemstone}</p>
                           <div className="piece-actions">
                             <a 
-                              href={`https://wa.me/523315206300?text=${encodeURIComponent(`Hola Jacqueline Tapia Joyería, deseo cotizar la pieza "${piece.name}" montada con ${modalGema.name}.`)}`}
+                              href={`https://wa.me/523338427017?text=${encodeURIComponent(`Hola Jacqueline Tapia Joyería, deseo cotizar la pieza "${piece.name}" montada con ${modalGema.name}.`)}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="btn-piece-quote"
@@ -464,13 +464,13 @@ export default function GemasPage() {
 
             <div className="commitment-action">
               <a 
-                href="https://wa.me/523315206300?text=Hola,%20quisiera%20asesor%C3%ADa%20personalizada%20sobre%20las%20gemas%20para%20un%20dise%C3%B1o%20especial."
+                href="https://wa.me/523338427017?text=Hola,%20quisiera%20asesor%C3%ADa%20personalizada%20sobre%20las%20gemas%20para%20un%20dise%C3%B1o%20especial."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-premium gold"
               >
                 <MessageCircle size={18} style={{ marginRight: '8px' }} />
-                Asesoría con un Gemólogo
+                Asesoría Personalizada
               </a>
             </div>
           </div>

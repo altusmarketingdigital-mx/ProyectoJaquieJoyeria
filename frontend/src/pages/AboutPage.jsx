@@ -203,7 +203,7 @@ export default function AboutPage() {
               </p>
               <div className="cta-buttons">
                 <a 
-                  href="https://wa.me/523315206300?text=Hola%20Jacqueline%20Tapia%20Joyer%C3%ADa,%20me%20gustar%C3%ADa%20iniciar%20un%20dise%C3%B1o%20personalizado." 
+                  href="https://wa.me/523338427017?text=Hola%20Jacqueline%20Tapia%20Joyer%C3%ADa,%20me%20gustar%C3%ADa%20iniciar%20un%20dise%C3%B1o%20personalizado." 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn-premium gold"

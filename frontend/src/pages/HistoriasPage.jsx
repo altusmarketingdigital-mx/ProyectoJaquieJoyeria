@@ -178,7 +178,7 @@ export default function HistoriasPage() {
 
                 <div className="historia-modal-actions">
                   <a 
-                    href={`https://wa.me/523315206300?text=${encodeURIComponent(`Hola Jacqueline Tapia Joyería, me inspiró la historia de "${selectedStory.title}" y quisiera crear una pieza conmemorativa personalizada.`)}`}
+                    href={`https://wa.me/523338427017?text=${encodeURIComponent(`Hola Jacqueline Tapia Joyería, me inspiró la historia de "${selectedStory.title}" y quisiera crear una pieza conmemorativa personalizada.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn-premium gold"
@@ -212,7 +212,7 @@ export default function HistoriasPage() {
             </p>
             <div className="cta-action-links">
               <a 
-                href="https://wa.me/523315206300?text=Hola,%20me%20gustar%C3%ADa%20platicar%20sobre%20el%20dise%C3%B1o%20de%20una%20pieza%20especial."
+                href="https://wa.me/523338427017?text=Hola,%20me%20gustar%C3%ADa%20platicar%20sobre%20el%20dise%C3%B1o%20de%20una%20pieza%20especial."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-premium gold"
