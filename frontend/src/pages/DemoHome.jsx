@@ -330,7 +330,7 @@ export default function DemoHome() {
               <span className="section-eyebrow-light">{cms.fineJewelry.tagline}</span>
               <h2 className="fine-jewelry-title">{cms.fineJewelry.title}</h2>
               <p className="fine-jewelry-subtitle">{cms.fineJewelry.subtitle}</p>
-              <p className="fine-jewelry-desc">{cms.fineJewelry.description}</p>
+              <p className="fine-jewelry-desc">{cms.fineJewelry.description || "Amplia selección de gemas naturales preciosas y semipreciosas con los más rigurosos estándares éticos y de pureza ¡Disponibles para ti! Diamantes, zafiros, esmeraldas, rubíes y más."}</p>
 
             </div>
           </div>
