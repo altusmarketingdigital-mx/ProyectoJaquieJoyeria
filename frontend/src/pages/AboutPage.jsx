@@ -53,30 +53,34 @@ export default function AboutPage() {
                   <span className="badge-symbol">🐝</span>
                   <div className="badge-text">
                     <strong>Símbolo de Dedicación</strong>
-                    <span>La abeja como emblema de labor orfebre, minucia y pasión</span>
+                    <span>Trabajo minucioso y la creación de algo extraordinario</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="about-story-text">
-              <span className="section-eyebrow">El Significado Detrás de Cada Joya</span>
-              <h2 className="section-heading">Piezas personalizadas, inspiradas en tu vida</h2>
+              <span className="section-eyebrow">Cada historia de amor merece una pieza que la haga inolvidable</span>
+              <h2 className="section-heading">Creemos que cada historia de amor merece convertirse en algo extraordinario.</h2>
               
               <p className="story-paragraph">
-                En <strong>Jacqueline Tapia Joyería</strong> creemos firmemente que una joya no es simplemente un accesorio estético: es un testigo material de los momentos más trascendentes de la vida, un legado íntimo destinado a perdurar por generaciones.
+                Desde hace más de 10 años, creamos joyería de alta gama con piedras preciosas y semipreciosas, diseñando cada pieza de manera personalizada junto a nuestros clientes.
               </p>
 
               <p className="story-paragraph">
-                Desde nuestro taller en <strong>Guadalajara, Jalisco</strong> (ubicado en Torre Diamante, Puerta de Hierro), nos dedicamos a acompañar a cada pareja y persona en sus fechas más memorables. Cada anillo de compromiso, churumbela, argolla nupcial o joya conmemorativa nace de una conversación, de un sentimiento y de una historia única.
+                Te acompañamos en cada detalle: desde la elección de las gemas, el oro y los materiales, hasta dar forma a un diseño que refleje tu esencia.
+              </p>
+
+              <p className="story-paragraph" style={{ fontWeight: 600, color: 'var(--color-text-navy, #051F34)', fontSize: '1.05rem', marginTop: '1rem' }}>
+                No solo creamos joyas, damos forma a historias que merecen perdurar.
               </p>
 
               <div className="about-pillars-mini">
                 <div className="pillar-item">
                   <CheckCircle2 size={20} className="pillar-icon-check" />
                   <div>
-                    <h4>Orfebrería de Alta Precisión</h4>
-                    <p>Modelado 3D y detallado artesanal en oro de 14K y 18K (amarillo, blanco y rosa).</p>
+                    <h4>Diseño a la Medida</h4>
+                    <p>Modelado 3D y detallado artesanal en oro 14K.</p>
                   </div>
                 </div>
 
@@ -91,8 +95,8 @@ export default function AboutPage() {
                 <div className="pillar-item">
                   <CheckCircle2 size={20} className="pillar-icon-check" />
                   <div>
-                    <h4>Diseño 100% Personalizado</h4>
-                    <p>Tu historia esculpida en metal noble, adaptada a tu presupuesto y estilo personal.</p>
+                    <h4>Oro 14K Garantizado</h4>
+                    <p>Metales nobles certificados y aleaciones de la más alta calidad orfebre.</p>
                   </div>
                 </div>
               </div>
