@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Sparkles, ArrowUpRight } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './CatalogPage.css';
@@ -136,7 +136,7 @@ export default function CatalogPage() {
   const [loading, setLoading] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Exact categories requested with clean uppercase editorial styling
+  // Exact categories requested with dynamic counters and iconography
   const filterTabs = [
     { label: 'Todas', query: 'Todas' },
     { label: 'Anillos de compromiso', query: 'Anillos de compromiso' },
@@ -144,6 +144,17 @@ export default function CatalogPage() {
     { label: 'Churumbelas', query: 'Churumbelas' },
     { label: 'Collares', query: 'Collares' }
   ];
+
+  const getCategoryCount = (query) => {
+    if (query === 'Todas') return products.length;
+    return products.filter(p => {
+      const pCat = (p.category || '').toLowerCase().trim();
+      const fCat = query.toLowerCase().trim();
+      if (fCat === 'collares') return pCat === 'collares' || pCat === 'dijes' || pCat === 'dije';
+      if (fCat === 'argollas') return pCat === 'argollas' || pCat === 'nupciales';
+      return pCat === fCat;
+    }).length;
+  };
 
   // Try to load any admin added products from DB if available
   useEffect(() => {
@@ -231,11 +242,12 @@ export default function CatalogPage() {
           </p>
         </div>
 
-        {/* Minimalist Editorial Category Filter Tabs */}
+        {/* Minimalist Editorial Category Filter Tabs with dynamic motion & counters */}
         <nav className="catalog-editorial-nav-wrapper" aria-label="Filtros de categoría">
           <div className="catalog-editorial-tabs">
             {filterTabs.map((tab) => {
               const isActive = filter === tab.query;
+              const count = getCategoryCount(tab.query);
               return (
                 <button
                   key={tab.query}
@@ -244,30 +256,54 @@ export default function CatalogPage() {
                   className={`catalog-editorial-tab ${isActive ? 'active' : ''}`}
                 >
                   <span className="tab-label">{tab.label}</span>
+                  <span className="tab-counter">{count}</span>
+                  <span className="tab-indicator" />
                 </button>
               );
             })}
           </div>
         </nav>
 
-        {/* Toolbar with results count */}
+        {/* Toolbar with results count and live badge */}
         <div className="catalog-toolbar">
-          <span className="catalog-results-text">
-            Mostrando {filteredProducts.length} {filteredProducts.length === 1 ? 'creación' : 'creaciones'}
-            {filter !== 'Todas' && <span className="active-filter-tag"> · {filter}</span>}
-          </span>
+          <div className="catalog-toolbar-pill">
+            <Sparkles size={14} className="pill-sparkle" />
+            <span className="catalog-results-text">
+              {filteredProducts.length} {filteredProducts.length === 1 ? 'creación exclusiva' : 'creaciones exclusivas'}
+              {filter !== 'Todas' && <strong className="active-filter-tag"> · {filter}</strong>}
+            </span>
+          </div>
         </div>
 
-        {/* Fluid Grid with Opacity Transition */}
+        {/* Fluid Grid with Dynamic Stagger Motion */}
         <div className={`catalog-grid transition-opacity ${isTransitioning ? 'fading' : 'visible'}`}>
-          {filteredProducts.map(product => {
+          {filteredProducts.map((product, index) => {
             const whatsappMsg = `Hola Jacqueline Tapia Joyería, deseo solicitar una cotización personalizada de la pieza: "${product.name}" (${product.category || ''}${product.material ? ' en ' + product.material : ''}${product.gemstone ? ' con ' + product.gemstone : ''}).`;
             const whatsappUrl = `https://wa.me/523338427017?text=${encodeURIComponent(whatsappMsg)}`;
 
             return (
-              <div key={product.id} className="catalog-card">
+              <div 
+                key={product.id} 
+                className="catalog-card"
+                style={{ animationDelay: `${Math.min(index * 45, 450)}ms` }}
+              >
                 <div className="catalog-image-wrapper">
                   <img src={product.image} alt={product.name} loading="lazy" />
+                  <div className="catalog-badge-overlay">
+                    <span className="craft-badge">Hecho a Mano</span>
+                  </div>
+                  <div className="catalog-quick-action">
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="quick-quote-btn"
+                      title="Cotizar en WhatsApp"
+                    >
+                      <span>Cotizar</span>
+                      <ArrowUpRight size={14} />
+                    </a>
+                  </div>
                 </div>
                 <div className="catalog-info">
                   <span className="product-category">{product.category}</span>
