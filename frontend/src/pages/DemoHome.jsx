@@ -331,14 +331,7 @@ export default function DemoHome() {
               <h2 className="fine-jewelry-title">{cms.fineJewelry.title}</h2>
               <p className="fine-jewelry-subtitle">{cms.fineJewelry.subtitle}</p>
               <p className="fine-jewelry-desc">{cms.fineJewelry.description}</p>
-              <div className="fine-jewelry-buttons">
-                <Link to="/order" className="btn-premium white">
-                  {cms.fineJewelry.buttonText}
-                </Link>
-                <Link to="/catalog" className="btn-premium gold">
-                  Ver Colección Fina
-                </Link>
-              </div>
+
             </div>
           </div>
         </section>
