@@ -289,21 +289,24 @@ export default function DemoHome() {
               <p className="section-subheading">{cms.categories.description}</p>
             </div>
 
-            <div className="jt-category-nine-grid">
+            <div className="jt-category-cards-grid">
               {defaultCategoryDefs.map((cat, idx) => {
-                const count = getProductCount(cat.name);
                 return (
                   <Link 
                     key={idx} 
                     to={`/catalog?categoria=${encodeURIComponent(cat.query)}`} 
-                    className="jt-category-tile"
+                    className="jt-category-card-editorial"
                   >
-                    <div className="tile-image-wrapper">
+                    <div className="category-card-media">
                       <img src={cat.image} alt={cat.name} loading="lazy" />
-                      <div className="tile-hover-overlay">
-                        <h3 className="tile-overlay-title">{cat.name}</h3>
-                        <span className="view-link">Ver Piezas <ArrowRight size={14} /></span>
-                      </div>
+                      <span className="category-badge-chip">Colección</span>
+                    </div>
+                    <div className="category-card-caption">
+                      <h3 className="category-card-heading">{cat.name}</h3>
+                      <span className="category-card-action">
+                        Explorar Piezas
+                        <ArrowRight size={14} className="action-arrow" />
+                      </span>
                     </div>
                   </Link>
                 );
