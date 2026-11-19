@@ -344,8 +344,7 @@ export default function DemoHome() {
         <section className="jt-favorites-section section-spacing">
           <div className="container">
             <div className="section-header-center">
-              <span className="section-eyebrow">{cms.favorites.tagline}</span>
-              <h2 className="section-heading">{cms.favorites.title}</h2>
+              <h2 className="section-heading favorites-heading-orange">{cms.favorites.title || 'Favoritos del mes'}</h2>
               <p className="section-subheading">{cms.favorites.description}</p>
             </div>
 

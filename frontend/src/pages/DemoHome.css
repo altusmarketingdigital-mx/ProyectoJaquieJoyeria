@@ -1112,3 +1112,9 @@
     gap: 1.2rem;
   }
 }
+
+
+/* Título Favoritos del mes en color naranja corporativo */
+.favorites-heading-orange {
+  color: var(--color-accent-gold, #CB9274) !important;
+}

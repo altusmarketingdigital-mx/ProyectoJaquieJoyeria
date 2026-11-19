@@ -40,7 +40,7 @@ export const initialHomeConfig = {
   },
   favorites: {
     enabled: true,
-    tagline: 'CURATORÍA DEL TALLER',
+    tagline: '',
     title: 'Favoritos del mes',
     description: 'Las creaciones más solicitadas y admiradas por nuestros clientes este mes.'
   },
