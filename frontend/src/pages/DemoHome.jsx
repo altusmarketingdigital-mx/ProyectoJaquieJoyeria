@@ -452,9 +452,9 @@ export default function DemoHome() {
               ))}
             </div>
 
-            <div className="stories-cta text-center">
-              <Link to="/order" className="btn-premium filled">
-                {cms.stories.buttonText}
+            <div className="stories-cta">
+              <Link to="/historias" className="btn-premium filled">
+                {cms.stories.buttonText || 'Conoce más'}
               </Link>
             </div>
           </div>

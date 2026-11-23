@@ -80,7 +80,7 @@ export const initialHomeConfig = {
     title: '¡Gracias!',
     subtitle: 'Por dejarnos ser parte de tu historia de amor',
     buttonText: 'Conoce más',
-    buttonLink: '/#historias'
+    buttonLink: '/historias'
   },
   footer: {
     facebookUrl: 'https://www.facebook.com/jacquelinetapiajoyeria',
