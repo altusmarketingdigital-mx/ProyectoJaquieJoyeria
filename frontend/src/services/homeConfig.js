@@ -33,7 +33,7 @@ export const initialHomeConfig = {
     tagline: 'SELECCIÓN EXCLUSIVA',
     title: 'Joyería Fina',
     subtitle: '¡Crea una pieza única!',
-    description: 'Amplia selección de gemas naturales preciosas y semipreciosas con los más rigurosos estándares éticos y de pureza ¡Disponibles para ti! Diamantes, zafiros, esmeraldas, rubíes y más.',
+    description: 'Amplia selección de gemas naturales preciosas y semipreciosas con los más rigurosos estándares éticos y de pureza ¡Disponibles para ti!\n\nDiamantes, zafiros, esmeraldas, rubíes y más.',
     buttonText: 'Elige tu piedra',
     buttonLink: '/#gemas',
     image: '/images/editorial_login.png'
