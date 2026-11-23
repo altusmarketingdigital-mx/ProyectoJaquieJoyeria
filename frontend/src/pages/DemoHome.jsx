@@ -385,36 +385,6 @@ export default function DemoHome() {
       )}
 
       {/* =========================================================================
-         2.7 SECCIÓN DE PERSONALIZACIÓN
-         ========================================================================= */}
-      {cms.personalization.enabled && (
-        <section id="contacto" className="jt-personalization-section">
-          <div className="container">
-            <div className="jt-personalization-banner">
-              <div className="personalization-text">
-                <span className="section-eyebrow-light">{cms.personalization.tagline}</span>
-                <h2 className="personalization-title">{cms.personalization.title}</h2>
-                <h3 className="personalization-subtitle">{cms.personalization.subtitle}</h3>
-                <p className="personalization-desc">{cms.personalization.description || "Participa en cada etapa de la creación: desde el boceto inicial y la elección de gemas hasta el modelo 3D."}</p>
-                <div className="personalization-actions">
-                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-premium gold">
-                    <MessageCircle size={16} style={{ marginRight: '8px' }} />
-                    {cms.personalization.buttonText}
-                  </a>
-                  <Link to="/order" className="btn-premium white">
-                    Iniciar Solicitud en Línea
-                  </Link>
-                </div>
-              </div>
-              <div className="personalization-preview">
-                <img src={cms.personalization.image} alt="Personalización Jacqueline Tapia" />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* =========================================================================
          2.8 FILOSOFÍA DE DISEÑO & GEMAS
          ========================================================================= */}
       {cms.designPhilosophy.enabled && (

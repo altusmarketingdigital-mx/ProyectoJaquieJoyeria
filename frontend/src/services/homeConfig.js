@@ -45,7 +45,7 @@ export const initialHomeConfig = {
     description: 'Las creaciones más solicitadas y admiradas por nuestros clientes este mes.'
   },
   personalization: {
-    enabled: true,
+    enabled: false,
     tagline: 'ALTA JOYERÍA A MEDIDA',
     title: 'Un regalo atemporal que perdurará por siempre',
     subtitle: 'Todas nuestras piezas son personalizadas',
