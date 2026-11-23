@@ -4,7 +4,7 @@ export const initialHomeConfig = {
     enabled: true,
     tagline: 'JOYERÍA DE AUTOR · PIEZAS EXCLUSIVAS',
     title: 'Creamos lo extraordinario',
-    subtitle: 'Piezas personalizadas y únicas que nacen de tus emociones, tu esencia y tus historias.',
+    subtitle: 'Piezas personalizadas y únicas que nacen de tus emociones,\ntu esencia y tus historias.',
     buttonText: 'Ver Catálogo',
     buttonLink: '/catalog',
     secondaryButtonText: 'Diseño a Medida',

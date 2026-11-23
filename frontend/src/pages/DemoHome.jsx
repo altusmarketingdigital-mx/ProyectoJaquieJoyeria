@@ -156,7 +156,7 @@ export default function DemoHome() {
             <div className="jt-hero-text-block fade-in-up">
               <span className="jt-hero-kicker">{cms.hero.tagline}</span>
               <h1 className="jt-hero-title">{cms.hero.title}</h1>
-              <p className="jt-hero-lead">{cms.hero.subtitle}</p>
+              <p className="jt-hero-lead" style={{ whiteSpace: 'pre-line' }}>{cms.hero.subtitle}</p>
               
               <div className="jt-hero-cta-group">
                 <Link to={cms.hero.buttonLink} className="btn-premium filled">
