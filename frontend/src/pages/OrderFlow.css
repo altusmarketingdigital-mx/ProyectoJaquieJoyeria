@@ -40,12 +40,14 @@
 .step {
   font-family: var(--font-heading);
   font-size: 1.2rem;
-  color: var(--color-border);
+  color: #D6CBC4;
   position: relative;
+  transition: color 0.3s ease;
 }
 
 .step.active {
-  color: var(--color-text-primary);
+  color: var(--color-accent-gold, #CB9274);
+  font-weight: 600;
 }
 
 .step.active::after {
@@ -54,8 +56,8 @@
   bottom: -5px;
   left: 0;
   width: 100%;
-  height: 1px;
-  background-color: var(--color-text-primary);
+  height: 2px;
+  background-color: var(--color-accent-gold, #CB9274);
 }
 
 .editorial-title {

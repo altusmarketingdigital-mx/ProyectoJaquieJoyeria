@@ -24,7 +24,7 @@ describe('OrderFlow', () => {
     );
 
     // Step 1
-    expect(screen.getByText(/Alta Joyería a Medida/i)).toBeInTheDocument();
+    expect(screen.getByText(/Alta Joyería/i)).toBeInTheDocument();
     
     const nameInput = screen.getByLabelText(/Nombre Completo/i);
     fireEvent.change(nameInput, { target: { value: 'John Doe' } });

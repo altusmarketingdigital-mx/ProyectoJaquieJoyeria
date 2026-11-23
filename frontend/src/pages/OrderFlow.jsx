@@ -70,8 +70,8 @@ export default function OrderFlow() {
         <div className="split-content">
           <div className="order-container fade-in-up">
             <div className="order-header">
-              <h2>Alta Joyería a Medida</h2>
-              <p>Inicie su pedido de diseño personalizado.</p>
+              <h2>Alta Joyería</h2>
+              <p>Inicia tu diseño personalizado</p>
             </div>
 
             {step < 4 && (
@@ -169,7 +169,7 @@ export default function OrderFlow() {
                   ) : (
                     <div></div>
                   )}
-                  <button type="submit" className="btn-premium filled">
+                  <button type="submit" className="btn-premium gold">
                     {step === 3 ? 'Solicitar Cotización' : 'Continuar'}
                   </button>
                 </div>
