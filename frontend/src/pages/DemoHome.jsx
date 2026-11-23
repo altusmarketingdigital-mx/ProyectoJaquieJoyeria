@@ -286,7 +286,7 @@ export default function DemoHome() {
             <div className="section-header-center">
               <span className="section-eyebrow">{cms.categories.tagline}</span>
               <h2 className="section-heading">{cms.categories.title}</h2>
-              <p className="section-subheading">{cms.categories.description}</p>
+              <p className="section-subheading" style={{ whiteSpace: 'pre-line' }}>{cms.categories.description}</p>
             </div>
 
             <div className="jt-category-cards-grid">

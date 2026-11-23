@@ -26,7 +26,7 @@ export const initialHomeConfig = {
     enabled: true,
     tagline: 'EXPLORA NUESTRA COLECCIÓN',
     title: 'Categorías de Joyería',
-    description: 'Selecciona una categoría para descubrir nuestras creaciones o inspirar tu propia pieza personalizada.'
+    description: 'Selecciona una categoría para descubrir nuestras creaciones\no inspirar tu propia pieza personalizada.'
   },
   fineJewelry: {
     enabled: true,
