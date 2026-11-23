@@ -50,7 +50,13 @@ export default function AboutPage() {
                   className="about-primary-image"
                 />
                 <div className="about-badge-card">
-                  <span className="badge-symbol">🐝</span>
+                  <div className="badge-logo-container">
+                    <img 
+                      src="/images/logo.png" 
+                      alt="Abeja Jacqueline Tapia" 
+                      className="badge-logo-img" 
+                    />
+                  </div>
                   <div className="badge-text">
                     <strong>Símbolo de Dedicación</strong>
                     <span>Trabajo minucioso y la creación de algo extraordinario</span>
@@ -60,9 +66,13 @@ export default function AboutPage() {
             </div>
 
             <div className="about-story-text">
-              <span className="section-eyebrow">Cada historia de amor merece una pieza que la haga inolvidable</span>
-              <h2 className="section-heading">Creemos que cada historia de amor merece convertirse en algo extraordinario.</h2>
+              <span className="section-eyebrow">Cada historia de amor merece</span>
+              <h2 className="section-heading">una pieza que la haga inolvidable.</h2>
               
+              <p className="story-paragraph">
+                Creemos que cada historia de amor merece convertirse en algo extraordinario.
+              </p>
+
               <p className="story-paragraph">
                 Desde hace más de 10 años, creamos joyería de alta gama con piedras preciosas y semipreciosas, diseñando cada pieza de manera personalizada junto a nuestros clientes.
               </p>
@@ -79,8 +89,8 @@ export default function AboutPage() {
                 <div className="pillar-item">
                   <CheckCircle2 size={20} className="pillar-icon-check" />
                   <div>
-                    <h4>Diseño a la Medida</h4>
-                    <p>Modelado 3D y detallado artesanal en oro 14K.</p>
+                    <h4>Orfebrería de Alta Precisión</h4>
+                    <p>Modelado 3D y detallado artesanal en oro 14K amarillo, blanco y rosa.</p>
                   </div>
                 </div>
 
@@ -95,8 +105,8 @@ export default function AboutPage() {
                 <div className="pillar-item">
                   <CheckCircle2 size={20} className="pillar-icon-check" />
                   <div>
-                    <h4>Oro 14K Garantizado</h4>
-                    <p>Metales nobles certificados y aleaciones de la más alta calidad orfebre.</p>
+                    <h4>Diseño 100% Personalizado</h4>
+                    <p>Tu historia esculpida en metal noble, adaptada a tu presupuesto y estilo.</p>
                   </div>
                 </div>
               </div>
