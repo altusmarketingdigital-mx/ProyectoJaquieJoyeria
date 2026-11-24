@@ -303,6 +303,12 @@ export default function ContactPage() {
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
+              <div className="jt-map-pin" aria-hidden="true">
+                <div className="jt-map-pin-head">
+                  <img src="/images/logo.png" alt="" />
+                </div>
+                <span className="jt-map-pin-label">Jacqueline Tapia · Torre Diamante</span>
+              </div>
             </div>
           </div>
         </div>
