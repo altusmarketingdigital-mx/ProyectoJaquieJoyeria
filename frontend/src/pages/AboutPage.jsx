@@ -211,7 +211,7 @@ export default function AboutPage() {
           <div className="about-cta-card">
             <div className="cta-content">
               <span className="section-eyebrow-light">Comienza Hoy</span>
-              <h2 className="cta-title">¿Listo para contar tu propia historia en oro y diamantes?</h2>
+              <h2 className="cta-title">¿Listo para contar tu propia historia en una pieza de alta joyería?</h2>
               <p className="cta-desc">
                 Permítenos diseñar contigo la pieza que celebrará ese momento inolvidable.
               </p>
