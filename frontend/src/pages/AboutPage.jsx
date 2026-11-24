@@ -199,7 +199,7 @@ export default function AboutPage() {
             <div className="process-step-item">
               <div className="step-number">04</div>
               <h4>Pulido & Entrega</h4>
-              <p>Acabado espejo de alta joyería, estuche de presentación de lujo y entrega personalizada en Guadalajara o con envío asegurado.</p>
+              <p>Acabado alta gama, estuche de presentación de lujo y entrega personalizada en Guadalajara o con envío asegurado.</p>
             </div>
           </div>
         </div>
