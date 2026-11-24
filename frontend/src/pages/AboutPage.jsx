@@ -148,7 +148,7 @@ export default function AboutPage() {
             </div>
 
             <div className="value-card">
-              <div className="value-icon"><Diamond size={28} strokeWidth={1.5} /></div>
+              <div className="value-icon"><Gem size={28} strokeWidth={1.5} /></div>
               <h3>Belleza y exclusividad</h3>
               <p>
                 Seleccionamos cuidadosamente oro, piedras preciosas y semipreciosas para crear combinaciones únicas y diseños extraordinarios.
