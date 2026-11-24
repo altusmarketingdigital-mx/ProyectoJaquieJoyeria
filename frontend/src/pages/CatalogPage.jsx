@@ -306,8 +306,10 @@ export default function CatalogPage() {
                   </div>
                 </div>
                 <div className="catalog-info">
-                  <span className="product-category">{product.category}</span>
-                  <h3 className="product-name">{product.name}</h3>
+                  <span className="product-category">
+                    {/^anillos de compromiso$/i.test(product.category || '') ? 'Anillo de Compromiso' : product.category}
+                  </span>
+                  <h3 className="product-name">{(product.name || '').split('|').pop().trim()}</h3>
                   {(product.material || product.gemstone) && (
                     <p className="product-materials">
                       {product.material} {product.gemstone && `• ${product.gemstone}`}
