@@ -109,8 +109,7 @@ export default function GemasPage() {
       <section className="jt-gemas-hero">
         <div className="container">
           <div className="gemas-hero-content text-center">
-            <span className="section-eyebrow">Guía de Materiales & Gemología Orfebre</span>
-            <h1 className="gemas-hero-title">Nuestras Gemas</h1>
+            <h1 className="gemas-hero-title">Gemología</h1>
             <p className="gemas-hero-desc">
               Cada piedra cuenta una historia geológica irrepetible. Explora nuestro inventario de piedras 
               preciosas y semipreciosas sueltas para confeccionar tu joya exclusiva sobre medida, o descubre 
