@@ -5,8 +5,8 @@ import Footer from '../components/Footer';
 import { 
   Sparkles, 
   Heart, 
-  Award, 
-  Compass, 
+  Hexagon, 
+  Diamond, 
   ShieldCheck, 
   MessageCircle, 
   ArrowRight,
@@ -128,7 +128,7 @@ export default function AboutPage() {
 
           <div className="about-values-grid">
             <div className="value-card">
-              <div className="value-icon"><Heart size={30} /></div>
+              <div className="value-icon"><Heart size={28} strokeWidth={1.5} /></div>
               <h3>Pasión por crear</h3>
               <p>
                 Cada historia merece una pieza especial. Transformamos emociones, promesas y momentos importantes en joyas con significado.
@@ -136,7 +136,7 @@ export default function AboutPage() {
             </div>
 
             <div className="value-card">
-              <div className="value-icon"><Compass size={30} /></div>
+              <div className="value-icon"><Hexagon size={28} strokeWidth={1.5} /></div>
               <h3>Maestría y precisión</h3>
               <p>
                 Como la abeja en su laboriosa creación, cuidamos cada detalle con dedicación, precisión y maestría artesanal.
@@ -144,7 +144,7 @@ export default function AboutPage() {
             </div>
 
             <div className="value-card">
-              <div className="value-icon"><Award size={30} /></div>
+              <div className="value-icon"><Diamond size={28} strokeWidth={1.5} /></div>
               <h3>Belleza y exclusividad</h3>
               <p>
                 Seleccionamos cuidadosamente oro, piedras preciosas y semipreciosas para crear combinaciones únicas y diseños extraordinarios.
@@ -152,7 +152,7 @@ export default function AboutPage() {
             </div>
 
             <div className="value-card">
-              <div className="value-icon"><ShieldCheck size={30} /></div>
+              <div className="value-icon"><ShieldCheck size={28} strokeWidth={1.5} /></div>
               <h3>Confianza y compromiso</h3>
               <p>
                 Te acompañamos en cada etapa del proceso, ofreciendo asesoría personalizada, transparencia y respaldo en cada creación.
