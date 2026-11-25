@@ -305,7 +305,15 @@ export default function ContactPage() {
               ></iframe>
               <div className="jt-map-pin" aria-hidden="true">
                 <div className="jt-map-pin-head">
-                  <img src="/images/logo.png" alt="" />
+                  <svg className="jt-map-pin-bee" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="22" cy="22" rx="12" ry="8" transform="rotate(-30 22 22)" fill="#F3E3D6" stroke="#B07A5E" strokeWidth="1.5" />
+                    <ellipse cx="42" cy="22" rx="12" ry="8" transform="rotate(30 42 22)" fill="#F3E3D6" stroke="#B07A5E" strokeWidth="1.5" />
+                    <ellipse cx="32" cy="38" rx="10" ry="15" fill="#D4A017" stroke="#5A3A22" strokeWidth="1.5" />
+                    <path d="M23 33h18M22.5 40h19M24.5 47h15" stroke="#3A2616" strokeWidth="3.2" strokeLinecap="round" />
+                    <circle cx="32" cy="21" r="6" fill="#3A2616" />
+                    <path d="M29 16c-2-4-5-5-7-5M35 16c2-4 5-5 7-5" stroke="#3A2616" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+                    <path d="M32 53l-2 4h4z" fill="#3A2616" />
+                  </svg>
                 </div>
                 <span className="jt-map-pin-label">Jacqueline Tapia · Torre Diamante</span>
               </div>
