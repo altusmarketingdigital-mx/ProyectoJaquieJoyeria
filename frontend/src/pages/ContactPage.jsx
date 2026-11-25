@@ -76,7 +76,7 @@ export default function ContactPage() {
             {/* Left: Contact Info & Office Location */}
             <div className="contact-info-panel">
               <span className="section-eyebrow">Showroom & Taller</span>
-              <h2 className="contact-panel-title">Oficinas Corporativas</h2>
+              <h2 className="contact-panel-title">Agenda tu cita</h2>
 
               <div className="contact-cards-stack">
                 <div className="contact-card-item">
